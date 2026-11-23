@@ -21,6 +21,7 @@ Mod for Victoria 3 that assigns consistent, historically inspired map colours to
 - [Project Structure](#project-structure)
   - [Directories](#directories)
 - [Architecture](#architecture)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Related Projects](#related-projects)
@@ -124,7 +125,29 @@ Standardised Country Colours is a single-concern definition repository that inje
 
 See the [Architecture Documentation](./ARCHITECTURE.md) for the system context, principal components, runtime processes, ownership boundaries, dependencies, constraints, and extension points.
 
-##  Contributing
+## 📚 Documentation
+
+Comprehensive documentation is available in the [docs/](./docs/) directory:
+
+| Resource | Description |
+|----------|-------------|
+| [Documentation Index](./docs/INDEX.md) | Master navigation for the knowledge base |
+| [Quick Start](./docs/quick-start.md) | Getting started guide for newcomers |
+| [Repository Overview](./docs/repository-overview.md) | Purpose, scope, boundaries, and entry points |
+| [Architecture](./docs/architecture.md) | Colour pipeline and precedence layers complementing the root ARCHITECTURE.md |
+| [Colour Mappings](./docs/colour-mappings.md) | Every shipped mapping with its vanilla value and source |
+| [Components](./docs/components/) | Per-component deep dives |
+| [Flows](./docs/flows/) | End-to-end flows, from mod discovery to colour authoring |
+| [Behaviour](./docs/behaviour/) | Observed behaviour and map-colour conflicts |
+| [Testing](./docs/testing.md) | Verification strategy and coverage gaps |
+| [Troubleshooting](./docs/troubleshooting.md) | Common issues and solutions |
+| [FAQ](./docs/faq.md) | Frequently asked questions |
+| [Change Guide](./docs/change-guide.md) | How to modify common areas safely |
+| [Design Decisions](./docs/design-decisions.md) | Key design choices and their rationale |
+| [Invariants](./docs/invariants.md) | System-wide invariants and how to verify them |
+| [Ambiguities and Open Questions](./docs/ambiguities-and-open-questions.md) | Unresolved items and known gaps |
+
+## 🤝 Contributing
 
 You are welcome to submit any suggestion, feedback, or modification to this project.
 
