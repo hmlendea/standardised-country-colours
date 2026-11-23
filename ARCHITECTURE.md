@@ -367,5 +367,6 @@ The extension must preserve the `INJECT:` keyword, the `color = { R G B }` shape
 | Launcher metadata | `standardised-country-colours/.metadata/metadata.json` |
 | Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` |
 | Workshop thumbnail | `standardised-country-colours/thumbnail.png` |
+| Workshop page description | `description/steam-workshop.bbcode` |
 | Release workflow | `.github/workflows/github-release.yml` |
 | Documentation | `README.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `PRIVACY.md` |

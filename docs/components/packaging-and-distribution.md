@@ -55,6 +55,10 @@ The archive's top-level entry is the mod folder itself, so extracting it into th
 
 A user may clone the repository and copy `standardised-country-colours/` into the mod directory instead. Both routes yield the same tree.
 
+## Workshop page description
+
+`description/steam-workshop.bbcode` holds the BBCode body of the item page, kept in version control so a revision is reviewed and tracked. It is a publication artefact, not part of the mod folder, and the release workflow never archives it. An upload happens only when a maintainer pastes the file contents into the Workshop item; no workflow pushes it.
+
 ## Version policy
 
 `metadata.json.version` and the Git tag are independent strings; the workflow derives the archive name from the tag, not from the metadata. Keep them in step to avoid a launcher label that contradicts the downloaded archive name.

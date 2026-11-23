@@ -13,6 +13,8 @@ vic3-standardised-country-colours/
 ├── ARCHITECTURE.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── description/
+│   └── steam-workshop.bbcode                 # the Steam Workshop page body
 ├── docs/                                     # this knowledge base
 ├── LICENSE
 ├── PRIVACY.md
@@ -39,6 +41,7 @@ vic3-standardised-country-colours/
 | `.github/workflows/github-release.yml` | 51 | Release archive publication |
 | `.github/FUNDING.yml` | 18 | Funding platforms |
 | `.github/cover.png` | — | Repository cover image, 1774x887 RGB |
+| `description/steam-workshop.bbcode` | — | Steam Workshop page description, in BBCode |
 | `.gitignore` | 7 | Excludes archives and transient output |
 
 ## Structural conventions
@@ -48,6 +51,7 @@ vic3-standardised-country-colours/
 - **Definitions live in one file.** Adding a second file in the same folder would split the shipped set and make review harder; nothing in the engine requires it.
 - **Provenance sits above each block.** A comment records the vanilla name, the palette hexadecimal value, and the palette source.
 - **No vanilla file name is copied.** `sc_country_colours.txt` cannot collide with `00_countries.txt`, `01_africa.txt`, `01_pacific_and_australasia.txt`, or `99_dynamic.txt`.
+- **The Workshop description is version-controlled.** `description/steam-workshop.bbcode` holds the item page body, so a page revision is reviewed and tracked like any other change. It is not part of the mod folder and is never archived into a release.
 
 ## Why there is no build step
 

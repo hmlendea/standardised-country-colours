@@ -118,6 +118,7 @@ The repository holds the mod folder itself at the repository root, so the tree m
 | `standardised-country-colours/` | The mod folder, named identically for every distribution channel |
 | `standardised-country-colours/.metadata/` | Launcher metadata and the launcher thumbnail |
 | `standardised-country-colours/common/country_definitions/` | The colour overrides for the affected countries |
+| `description/` | The Steam Workshop page description, in BBCode |
 
 ## 🏗️ Architecture
 
