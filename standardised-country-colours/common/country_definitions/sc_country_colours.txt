@@ -1,0 +1,455 @@
+﻿# Standardised Country Colours
+#
+# Overrides the map colour of selected countries with the standardised values
+# documented in COUNTRY_COLOURS.md. Only the color key is injected, so every
+# other field of the vanilla country definition is left untouched.
+#
+# Each comment records the vanilla country name, the hexadecimal palette colour,
+# and the palette source. Where the palette entry name differs from the vanilla
+# name, the palette name is appended in parentheses. Victoria 3 exposes a single
+# map colour per country, so only the primary palette colour is applied.
+
+# Afghanistan - #A37939 - Crusader Kings II
+INJECT:AFG = {
+	color = { 163 121 57 }
+}
+
+# Albania - #FF0000 - Official flag
+INJECT:ALB = {
+	color = { 255 0 0 }
+}
+
+# Andalusia - #1F8A28 - Crusader Kings II
+INJECT:ANL = {
+	color = { 31 138 40 }
+}
+
+# Aotearoa (palette: Maori) - #CA1415 - Civilization VI
+INJECT:AOT = {
+	color = { 202 20 21 }
+}
+
+# Apache - #C49B6F - Total War: Medieval II - Kingdoms
+INJECT:APC = {
+	color = { 196 155 111 }
+}
+
+# Arabia - #2B582E - Civilization V (Arabia)
+INJECT:ARA = {
+	color = { 43 88 46 }
+}
+
+# Armenia - #207355 - Total War: Rome
+INJECT:ARM = {
+	color = { 32 115 85 }
+}
+
+# Aragon - #A66216 - Crusader Kings II
+INJECT:ARN = {
+	color = { 166 98 22 }
+}
+
+# Australia - #156C30 - Civilization VI
+INJECT:AST = {
+	color = { 21 108 48 }
+}
+
+# Asturias - #E9BC5B - Crusader Kings II
+INJECT:ASU = {
+	color = { 233 188 91 }
+}
+
+# Austria - #C8102E - Official flag
+INJECT:AUS = {
+	color = { 200 16 46 }
+}
+
+# India - #128807 - Civilization V
+INJECT:BHT = {
+	color = { 18 136 7 }
+}
+
+# Bohemia - #00AB93 - Age of Empires II HD (Teal)
+INJECT:BOH = {
+	color = { 0 171 147 }
+}
+
+# Bosnia-Herzegovina (palette: Bosnia) - #002395 - Official flag
+INJECT:BOS = {
+	color = { 0 35 149 }
+}
+
+# Brazil - #009440 - Offical Flag
+INJECT:BRZ = {
+	color = { 0 148 64 }
+}
+
+# Bulgaria - #715865 - Crusader Kings II
+INJECT:BUL = {
+	color = { 113 88 101 }
+}
+
+# Belarus - #CE1720 - Official flag
+INJECT:BYE = {
+	color = { 206 23 32 }
+}
+
+# Byzantium (palette: Byzantine Empire) - #460076 - Civilization V (Rome)
+INJECT:BYZ = {
+	color = { 70 0 118 }
+}
+
+# Cambodia (palette: Khmer) - #750073 - Civilization VI
+INJECT:CAM = {
+	color = { 117 0 115 }
+}
+
+# Canada - #D52B1E - Official flag
+INJECT:CAN = {
+	color = { 213 43 30 }
+}
+
+# China - #EE1C25 - Official flag (PRC)
+INJECT:CHI = {
+	color = { 238 28 37 }
+}
+
+# Colombia - #012A6C - Civilization VI (Gran Colombia)
+INJECT:CLM = {
+	color = { 1 42 108 }
+}
+
+# Croatia - #7A2E3A - Crusader Kings II
+INJECT:CRO = {
+	color = { 122 46 58 }
+}
+
+# Cyprus - #FFFFFF - Official flag
+INJECT:CYP = {
+	color = { 255 255 255 }
+}
+
+# Denmark - #C8102E - Official flag
+INJECT:DEN = {
+	color = { 200 16 46 }
+}
+
+# Egypt - #DDB045 - Total War: Medieval II
+INJECT:EGY = {
+	color = { 221 176 69 }
+}
+
+# England - #6D0200 - Civilization V
+INJECT:ENG = {
+	color = { 109 2 0 }
+}
+
+# Estonia - #0072CE - Official flag
+INJECT:EST = {
+	color = { 0 114 206 }
+}
+
+# Ethiopia - #02280F - Civilization V
+INJECT:ETH = {
+	color = { 2 40 15 }
+}
+
+# Finland - #FFFFFF - Official flag
+INJECT:FIN = {
+	color = { 255 255 255 }
+}
+
+# France - #000099 - Official flag (Capet)
+INJECT:FRA = {
+	color = { 0 0 153 }
+}
+
+# Galicia-Lodomeria (palette: Galicia-Volhynia) - #329682 - Crusader Kings II
+INJECT:GAL = {
+	color = { 50 150 130 }
+}
+
+# Georgia - #F9F9F9 - Civilization VI
+INJECT:GEO = {
+	color = { 249 249 249 }
+}
+
+# Germany - #B3B2B8 - Civilization V
+INJECT:GER = {
+	color = { 179 178 184 }
+}
+
+# Greece - #FFFFFF - Official flag
+INJECT:GRE = {
+	color = { 255 255 255 }
+}
+
+# India - #128807 - Civilization V
+INJECT:HND = {
+	color = { 18 136 7 }
+}
+
+# Central Europe (palette: Holy Roman Empire) - #000000 - Total War: Medieval II
+INJECT:HRE = {
+	color = { 0 0 0 }
+}
+
+# Hungary - #EA5946 - Total War: Medieval II
+INJECT:HUN = {
+	color = { 234 89 70 }
+}
+
+# Indonesia - #6FD3DA - Civilization V
+INJECT:IDN = {
+	color = { 111 211 218 }
+}
+
+# Ireland - #00340A - Total War: Medieval II - Kingdoms
+INJECT:IRE = {
+	color = { 0 52 10 }
+}
+
+# Haudenosaunee (palette: Iroquois) - #415757 - Civilization V
+INJECT:IRO = {
+	color = { 65 87 87 }
+}
+
+# Iraq - #2D7639 - Crusader Kings II
+INJECT:IRQ = {
+	color = { 45 118 57 }
+}
+
+# Israel - #FFFFFF - Israel
+INJECT:ISR = {
+	color = { 255 255 255 }
+}
+
+# Italy - #F4E3A0 - Crusader Kings II
+INJECT:ITA = {
+	color = { 244 227 160 }
+}
+
+# Japan - #FFFFFF - Civilization V
+INJECT:JAP = {
+	color = { 255 255 255 }
+}
+
+# Kongo - #F7D801 - Civilization VI
+INJECT:KON = {
+	color = { 247 216 1 }
+}
+
+# Korea - #0047A0 - Official flag
+INJECT:KOR = {
+	color = { 0 71 160 }
+}
+
+# Danubian State (palette: Carpathia) - #D27323 - Crusader Kings II
+INJECT:KUK = {
+	color = { 210 115 35 }
+}
+
+# Latvia - #9D2235 - Official flag
+INJECT:LAT = {
+	color = { 157 34 53 }
+}
+
+# Lithuania - #0C1EC8 - Total War: Medieval II - Kingdoms
+INJECT:LIT = {
+	color = { 12 30 200 }
+}
+
+# Lombardia (palette: Lombardy) - #C017D9 - Total War: Rome - Barbarian Invasion
+INJECT:LOM = {
+	color = { 192 23 217 }
+}
+
+# Mali - #780001 - Civilization VI
+INJECT:MAL = {
+	color = { 120 0 1 }
+}
+
+# Maya - #009605 - Total War: Medieval II - Kingdoms
+INJECT:MAY = {
+	color = { 0 150 5 }
+}
+
+# Mexico - #006847 - Official flag
+INJECT:MEX = {
+	color = { 0 104 71 }
+}
+
+# Mongolia - #F4E7AA - Total War: Medieval II
+INJECT:MGL = {
+	color = { 244 231 170 }
+}
+
+# Moldavia (palette: Moldova) - #B00000 - Official flag (principality)
+INJECT:MOL = {
+	color = { 176 0 0 }
+}
+
+# Morocco - #910200 - Civilization V
+INJECT:MOR = {
+	color = { 145 2 0 }
+}
+
+# Navarra - #967805 - Crusader Kings II
+INJECT:NAV = {
+	color = { 150 120 5 }
+}
+
+# Nepal - #AF3C1E - Crusader Kings II
+INJECT:NEP = {
+	color = { 175 60 30 }
+}
+
+# Netherlands - #FF9000 - Civilization V
+INJECT:NET = {
+	color = { 255 144 0 }
+}
+
+# Norway - #012A6C - Civilization VI
+INJECT:NOR = {
+	color = { 1 42 108 }
+}
+
+# Rome - #8E001C - Official flag
+INJECT:PAP = {
+	color = { 142 0 28 }
+}
+
+# Mapuche - #004FCE - Civilization VI
+INJECT:PAT = {
+	color = { 0 79 206 }
+}
+
+# Persia - #B10803 - Civilization V
+INJECT:PER = {
+	color = { 177 8 3 }
+}
+
+# Polynesia - #D95900 - Civilization V
+INJECT:PNS = {
+	color = { 217 89 0 }
+}
+
+# Poland - #780001 - Civilization VI
+INJECT:POL = {
+	color = { 120 0 1 }
+}
+
+# Portugal - #006035 - Official flag
+INJECT:POR = {
+	color = { 0 96 53 }
+}
+
+# Rajputana (palette: Rajastan) - #FF6400 - Crusader Kings II
+INJECT:RAJ = {
+	color = { 255 100 0 }
+}
+
+# Romania - #FCD116 - Official flag
+INJECT:ROM = {
+	color = { 252 209 22 }
+}
+
+# Russia - #EFB400 - Civilization V
+INJECT:RUS = {
+	color = { 239 180 0 }
+}
+
+# Sardinia-Piedmont (palette: Sardinia) - #D2A5FF - Crusader Kings II
+INJECT:SAR = {
+	color = { 210 165 255 }
+}
+
+# Saxony - #000000 - Total War: Medieval II
+INJECT:SAX = {
+	color = { 0 0 0 }
+}
+
+# Scandinavia - #3E7ABD - Crusader Kings II
+INJECT:SCA = {
+	color = { 62 122 189 }
+}
+
+# Scotland - #00105E - Total War: Medieval II
+INJECT:SCO = {
+	color = { 0 16 94 }
+}
+
+# Serbia - #FFB37F - eRepublik
+INJECT:SER = {
+	color = { 255 179 127 }
+}
+
+# Siam - #F5E637 - Civilization V
+INJECT:SIA = {
+	color = { 245 230 55 }
+}
+
+# Two Sicilies (palette: Sicily) - #464646 - Total War: Medieval II
+INJECT:SIC = {
+	color = { 70 70 70 }
+}
+
+# Spain - #FABD00 - Official flag
+INJECT:SPA = {
+	color = { 250 189 0 }
+}
+
+# Sweden - #005293 - Official flag
+INJECT:SWE = {
+	color = { 0 82 147 }
+}
+
+# Syria - #FFF4AE - Civilization V (Assyria)
+INJECT:SYR = {
+	color = { 255 244 174 }
+}
+
+# Turkestan - #CC9615 - Crusader Kings II
+INJECT:TRH = {
+	color = { 204 150 21 }
+}
+
+# Transylvania - #1B4B8B - Official flag
+INJECT:TRS = {
+	color = { 27 75 139 }
+}
+
+# Turkey - #237806 - Total War: Medieval II
+INJECT:TUR = {
+	color = { 35 120 6 }
+}
+
+# Ukraine - #0057B7 - Official flag
+INJECT:UKR = {
+	color = { 0 87 183 }
+}
+
+# America (palette: United States) - #1F3378 - Civilization V
+INJECT:USA = {
+	color = { 31 51 120 }
+}
+
+# Venice - #790303 - Total War: Medieval II
+INJECT:VEN = {
+	color = { 121 3 3 }
+}
+
+# Wallachia - #FCD116 - Official flag
+INJECT:WAL = {
+	color = { 252 209 22 }
+}
+
+# Wales - #2BA224 - Total War: Medieval II - Kingdoms
+INJECT:WLS = {
+	color = { 43 162 36 }
+}
+
+# Zulu - #783D02 - Civilization VI
+INJECT:ZUL = {
+	color = { 120 61 2 }
+}

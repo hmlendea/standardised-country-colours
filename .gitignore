@@ -1,0 +1,6 @@
+out/
+*.zip
+*.dnspython*
+.DS_Store
+Thumbs.db
+*.tmp
