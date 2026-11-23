@@ -33,7 +33,7 @@ Victoria 3 edition of the Standardised Country Colours palette, a cross-game pro
 
 ## ✨ Capabilities
 
-- Standardised map colours for 89 countries, applied through the game's definition-injection mechanism
+- Standardised map colours for 101 countries, applied through the game's definition-injection mechanism
 - A single shared palette, so neighbouring countries no longer share near-identical map colours
 - Historical and flag-derived colours, sourced from established strategy-game palettes and national flags
 - Colour-only overrides: every other field of the affected country definition, such as tier, culture, and capital, is left to the base game
@@ -177,6 +177,7 @@ See the [Code of Conduct](./CODE_OF_CONDUCT.md) for the standards of conduct exp
 ## 🙏 Acknowledgements
 
 - [Crusader Kings II](https://store.steampowered.com/app/203770/) by Paradox Development Studio, for the Crusader Kings II title colours.
+- [Civilization IV](https://store.steampowered.com/app/3900/) by Firaxis Games, for the Civilization IV palette entries.
 - [Civilization V](https://store.steampowered.com/app/8930/) by Firaxis Games, for the Civilization V palette entries.
 - [Civilization VI](https://store.steampowered.com/app/289070/) by Firaxis Games, for the Civilization VI palette entries.
 - [Civilization: Beyond Earth](https://store.steampowered.com/app/65980/) by Firaxis Games, for the sponsor colour entries.

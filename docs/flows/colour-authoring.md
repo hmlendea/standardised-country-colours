@@ -10,8 +10,8 @@ Open the external palette and locate the title. Note four facts:
 
 | Fact | Example |
 |------|---------|
-| Palette entry name | `Bohemia` |
-| Alias, if the palette supplies one | `Czechia` |
+| Palette entry name | `Czechia` |
+| Alias, if the palette supplies one | `Bohemia` |
 | Primary colour | `#00AB93` |
 | Source attribution | `Age of Empires II HD (Teal)` |
 
@@ -49,7 +49,7 @@ B = 0x93 = 147
 Insert at the alphabetical position, matching the surrounding style:
 
 ```text
-# Bohemia - #00AB93 - Age of Empires II HD (Teal)
+# Bohemia (palette: Czechia) - #00AB93 - Age of Empires II HD (Teal)
 INJECT:BOH = {
 	color = { 0 171 147 }
 }

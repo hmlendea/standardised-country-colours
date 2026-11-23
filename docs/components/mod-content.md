@@ -1,6 +1,6 @@
 # Component: mod content
 
-The mod content is the repository's entire product: a single country-definition file carrying 89 injections.
+The mod content is the repository's entire product: a single country-definition file carrying 101 injections.
 
 ## Location
 
@@ -27,7 +27,7 @@ INJECT:FRA = {
 	color = { 0 0 153 }
 }
 
-# Byzantium (palette: Byzantine Empire) - #460076 - Civilization V (Rome)
+# Byzantium (palette: Eastern Roman Empire) - #460076 - Civilization 5 (Rome)
 INJECT:BYZ = {
 	color = { 70 0 118 }
 }
@@ -47,13 +47,13 @@ INJECT:BYZ = {
 
 | Property | Value |
 |----------|-------|
-| Entries | 89 |
-| Distinct tags | 89 |
-| Comment lines matching the provenance pattern | 89 |
-| Entries with a palette-name suffix | 14 |
+| Entries | 101 |
+| Distinct tags | 101 |
+| Comment lines matching the provenance pattern | 101 |
+| Entries with a palette-name suffix | 17 |
 | Entries whose colour equals vanilla exactly | 1 (`SCA`) |
 | Entries within 8 of a component of vanilla | 2 (`SCA`, `APC`) |
-| Entries that change the colour's syntax | 4 (`BRZ`, `DEN`, `NET`, `SPA`) |
+| Entries that change the colour's syntax | 5 (`BRZ`, `CAS`, `DEN`, `NET`, `SPA`) |
 
 ## Tags sharing one palette entry
 

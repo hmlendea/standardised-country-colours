@@ -21,8 +21,8 @@ When replacing an existing installation, delete the previous `standardised-count
 ## Verify the installation
 
 1. Open the launcher and confirm **Standardised Country Colours** appears at version `1.0.0` with artwork.
-2. Start a campaign and open the map. France should render as a deep navy (`#000099` against vanilla `#1432D2`), and Denmark as a vivid red (`#C8102E` against vanilla `#801219`).
-3. Release a country that does not exist at the start, such as Babylon, and confirm it appears with the standardised brown (`#2B5162`) rather than the vanilla value.
+2. Start a campaign and open the map. France should render as a deep navy (`#000099` against vanilla `#1432D2`), and Denmark as a vivid red (`#C8102E` against vanilla `#802019`).
+3. Release a country that does not exist at the start, such as Kurdistan, and confirm it appears with the standardised green (`#278E43`) rather than the vanilla value.
 4. Read `<user data>/Victoria 3/logs/error.log` and confirm no line names `sc_country_colours.txt`.
 
 ## Use the mod

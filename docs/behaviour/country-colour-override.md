@@ -4,7 +4,7 @@ This document describes what a player observes. The mechanism is documented in [
 
 ## The observed behaviour
 
-When the mod is enabled, 89 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
+When the mod is enabled, 101 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
 
 | Surface | Appearance |
 |---------|------------|
@@ -17,29 +17,29 @@ When the mod is enabled, 89 countries render with a different map colour from va
 | Country | Vanilla | Standardised | Character of the change |
 |---------|---------|--------------|-------------------------|
 | France (`FRA`) | `#1432D2` | `#000099` | Darker, deeper blue |
-| Denmark (`DEN`) | `#801219` | `#C8102E` | Brighter, more saturated red |
+| Denmark (`DEN`) | `#802019` | `#C8102E` | Brighter, more saturated red |
 | Austria (`AUS`) | `#D3DCF0` | `#C8102E` | From pale blue to red |
 | Central Europe (`HRE`) | `#FAFAF5` | `#000000` | From near-white to black |
 | Colombia (`CLM`) | `#FFEAA8` | `#012A6C` | From cream to navy |
 | Cyprus (`CYP`) | `#4E4B27` | `#FFFFFF` | From olive to white |
 | Georgia (`GEO`) | `#D22D2D` | `#F9F9F9` | From red to near-white |
 | Japan (`JAP`) | `#C2353C` | `#FFFFFF` | From red to white |
-| Persia (`PER`) | `#3C96E6` | `#B10803` | From azure to deep red |
+| Persia (`PER`) | `#3C96E6` | `#12CCF5` | From a muted azure to a vivid cyan |
 | Rajputana (`RAJ`) | `#310D16` | `#FF6400` | From near-black to vivid orange |
 
 The full set is in [colour-mappings.md](../colour-mappings.md).
 
 ## Where the effect is visible
 
-The 89 mapped tags divide into three practical groups.
+The 101 mapped tags divide into three practical groups.
 
 | Group | Count | When a player sees the colour |
 |-------|-------|-------------------------------|
-| Present at the 1836 start | 40 | Immediately, from the first map view |
-| Formation targets only | 22 | After the country is formed |
-| Neither at start nor formable | 27 | After the country is released from an existing state |
+| Present at the 1836 start | 46 | Immediately, from the first map view |
+| Formation targets only | 24 | After the country is formed |
+| Neither at start nor formable | 31 | After the country is released from an existing state |
 
-Ten tags are both present at the start and formation targets — for example `BRZ`, `CHI`, `RUS`, `SPA`, `SWE`, `MEX`, `POL`, `FRA`, `CLM`, and `USA`.
+Eleven tags are both present at the start and formation targets — `BRZ`, `CHI`, `CLM`, `FRA`, `MEX`, `NOR`, `POL`, `RUS`, `SPA`, `SWE`, and `USA`.
 
 ## What is preserved
 

@@ -48,7 +48,7 @@ print(f"ok: {len(blocks)} entries, {len(missing)} unknown tags")
 PY
 ```
 
-Expected output for the shipped content: `ok: 89 entries, 0 unknown tags`.
+Expected output for the shipped content: `ok: 101 entries, 0 unknown tags`.
 
 ## Comment-versus-value consistency
 
@@ -158,7 +158,7 @@ Expected: `VALIDATION PASSED: 100% template fidelity confirmed` for each workflo
 | Check | Procedure | Pass condition |
 |-------|-----------|----------------|
 | Start-date colour | Start a campaign, open the map | France is `#000099`; Denmark is `#C8102E` |
-| Release-only colour | Release Babylon | Babylon appears in `#2B5162` |
+| Release-only colour | Release Kurdistan | Kurdistan appears in `#278E43` |
 | Formable colour | Form Italy, or spawn it in debug mode | Italy appears in `#F4E3A0` |
 | No regressions | Inspect an unmapped country | It keeps its vanilla colour |
 | Log cleanliness | Read `error.log` | No line names `sc_country_colours.txt` |

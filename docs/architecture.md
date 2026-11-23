@@ -7,7 +7,7 @@ This document elaborates on the root [ARCHITECTURE.md](../ARCHITECTURE.md). It c
 ```mermaid
 flowchart TD
   Pal["Curated palette<br/>COUNTRY_COLOURS.md"] --> Map["Name to tag resolution<br/>maintainer time"]
-  Map --> File["sc_country_colours.txt<br/>89 INJECT blocks"]
+  Map --> File["sc_country_colours.txt<br/>101 INJECT blocks"]
   File --> Loader["Definition loader"]
   Vanilla["00_countries.txt<br/>01_africa.txt<br/>01_pacific_and_australasia.txt"] --> Loader
   Loader --> Pass["Injection pass<br/>INJECT_OR_CREATE, REPLACE_OR_CREATE,<br/>TRY_INJECT, TRY_REPLACE, INJECT, REPLACE"]
@@ -27,7 +27,7 @@ Four layers can influence the colour, in this order of application. Later layers
 | Layer | Source | Governs | Mod influence |
 |-------|--------|---------|---------------|
 | 1. Vanilla definition | `00_countries.txt`, `01_africa.txt`, `01_pacific_and_australasia.txt` | The default `color` of every tag | None |
-| 2. Mod injection | `sc_country_colours.txt` | The `color` of the 89 mapped tags | Total |
+| 2. Mod injection | `sc_country_colours.txt` | The `color` of the 101 mapped tags | Total |
 | 3. Conditional map colour | `common/dynamic_country_map_colors/00_default.txt` | Runtime recolouring when a `possible` trigger matches | None |
 | 4. Game rule | `common/game_rules/00_game_rules.txt` `subject_map_color` | Whether a subject inherits the overlord's colour | None |
 
@@ -69,7 +69,7 @@ Victoria 3 accepts four syntaxes for a country `color`:
 | `hsv360` block | `color = hsv360{ 143 75 61 }` | hue 0–360, saturation and value 0–100 |
 | Named colour string | `color = "kalmar_orange"` | key from `common/named_colors` |
 
-Vanilla defines 735 `color` keys across 835 definition blocks: 718 use the plain RGB block, 11 use `hsv360`, and 6 use `hsv`. Four of the mapped tags use a non-RGB form in vanilla — `BRZ`, `NET`, and `SPA` use `hsv360`, and `DEN` uses `hsv` — and the mod replaces each with a plain RGB block. Because the injected value replaces the whole `color` key rather than adding a second one, the syntax change is safe.
+Vanilla defines 735 `color` keys across 835 definition blocks: 718 use the plain RGB block, 11 use `hsv360`, and 6 use `hsv`. Five of the mapped tags use a non-RGB form in vanilla — `BRZ`, `CAS`, `NET`, and `SPA` use `hsv360`, and `DEN` uses `hsv` — and the mod replaces each with a plain RGB block. Because the injected value replaces the whole `color` key rather than adding a second one, the syntax change is safe.
 
 The mod ships only plain RGB blocks, so every shipped value has the same shape and a numeric audit is a simple range check.
 

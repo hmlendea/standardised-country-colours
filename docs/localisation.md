@@ -27,7 +27,7 @@ The comments record the vanilla English localised name of each country, taken fr
 - a player never sees them;
 - they exist so a reviewer can tell which country a tag denotes without opening the game.
 
-Where the palette entry name differs from the vanilla name, the comment carries both, for example `# Cambodia (palette: Khmer)`.
+Where the palette entry name differs from the vanilla name, the comment carries both, for example `# Bohemia (palette: Czechia)`.
 
 ## Consequences for contributors
 

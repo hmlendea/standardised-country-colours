@@ -2,7 +2,7 @@
 
 ## What does this mod actually change?
 
-One key, `color`, on 89 Victoria 3 country definitions. Nothing else.
+One key, `color`, on 101 Victoria 3 country definitions. Nothing else.
 
 ## Will it break my save?
 
@@ -32,13 +32,13 @@ Flags are composed from `common/coat_of_arms` using their own `color1`–`color4
 
 Three possibilities, in order of likelihood:
 
-1. The country is not among the 89. Check [colour-mappings.md](./colour-mappings.md).
+1. The country is not among the 101. Check [colour-mappings.md](./colour-mappings.md).
 2. A conditional map-colour block is active, for example a communist Germany or a republican France. See [behaviour/map-colour-conflicts.md](./behaviour/map-colour-conflicts.md).
 3. The country is a subject and the `subject_map_color` rule lets it inherit its overlord's colour.
 
 ## Why is Bohemia teal?
 
-The palette's Bohemia entry records `#00AB93` from Age of Empires II HD. The mod applies the palette as recorded rather than substituting its own judgement.
+The palette's Czechia entry records `#00AB93` from Age of Empires II HD. The mod applies the palette as recorded rather than substituting its own judgement.
 
 ## Why does Scandinavia's colour not change?
 
