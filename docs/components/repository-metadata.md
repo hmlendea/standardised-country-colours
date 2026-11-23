@@ -16,6 +16,8 @@ Files that describe or support the repository without being read by the game.
 | `.github/FUNDING.yml` | Funding platform declarations |
 | `.github/cover.png` | Repository cover image (1774x887 RGB) |
 | `.github/workflows/github-release.yml` | Release automation |
+| `.github/workflows/nexus-mods-release.yml` | Nexus Mods automation |
+| `.github/workflows/steam-workshop-release.yml` | Steam Workshop automation |
 | `.gitignore` | Version-control exclusions |
 | `docs/` | This knowledge base |
 

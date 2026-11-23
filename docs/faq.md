@@ -52,9 +52,13 @@ Yes, by editing your local copy. Remove entries you do not want and the correspo
 
 Yes. Follow [flows/colour-authoring.md](./flows/colour-authoring.md). The only hard requirement is that the tag exists in the vanilla definitions.
 
-## Why is there no Steam Workshop page?
+## Is the mod on the Steam Workshop?
 
-At version `1.0.0` the only distribution channel is GitHub Releases. Adding Workshop publication would require a separate workflow and Steam credentials, neither of which is present.
+Yes, as item `3844790373`; the launcher collects it into a playset like any other mod. The `steam-workshop-release.yml` workflow republishes the item on every `v*.*.*` tag, so the Workshop build tracks the GitHub release of the same tag.
+
+## Is the mod on Nexus Mods?
+
+Yes, as file `8446233`. The `nexus-mods-release.yml` workflow uploads the release archive to that file on every `v*.*.*` tag, alongside the Steam Workshop and GitHub release publications.
 
 ## How do I know a release is safe?
 

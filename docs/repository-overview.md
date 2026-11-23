@@ -10,7 +10,7 @@ The repository owns exactly three things:
 
 1. one country-definition file that injects a `color` key into 89 vanilla country blocks;
 2. the launcher metadata that makes the folder a discoverable mod;
-3. documentation, licence, and the release workflow that packages the folder.
+3. documentation, licence, and the release workflows that package and publish the folder.
 
 ## What the mod changes
 
@@ -33,7 +33,7 @@ The repository owns exactly three things:
 ## Boundaries
 
 - **Host boundary.** The mod is inert without Victoria 3. Nothing runs, schedules, or listens.
-- **Trust boundary.** The shipped text is parsed by the game within the same trust domain as vanilla content. No network, credentials, or executables exist in the repository.
+- **Trust boundary.** The shipped text is parsed by the game within the same trust domain as vanilla content. The mod ships no network, credential, or executable logic; the only networked components are the release workflows, which read Steam and Nexus Mods credentials from repository secrets.
 - **Version boundary.** `supported_game_version` is `1.15.*`. A tag retired by a future patch must be removed in the same release.
 - **Palette boundary.** Colours come from an external curated palette. The repository records the value and its source but does not derive it from game data.
 
@@ -44,6 +44,8 @@ The repository owns exactly three things:
 | `.metadata/metadata.json` | Paradox launcher | [components/launcher-metadata.md](./components/launcher-metadata.md) |
 | `common/country_definitions/sc_country_colours.txt` | Victoria 3 engine | [components/mod-content.md](./components/mod-content.md) |
 | `.github/workflows/github-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |
+| `.github/workflows/nexus-mods-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |
+| `.github/workflows/steam-workshop-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |
 
 ## Lifecycle position
 

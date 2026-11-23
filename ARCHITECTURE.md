@@ -153,6 +153,8 @@ Boundary rules:
 
 Paths:
 - `.github/workflows/github-release.yml`
+- `.github/workflows/steam-workshop-release.yml`
+- `.github/workflows/nexus-mods-release.yml`
 - `.github/FUNDING.yml`
 - `.gitignore`
 - `LICENSE`
@@ -160,6 +162,8 @@ Paths:
 
 Responsibilities:
 - Package and publish the content directory on a published release.
+- Upload the content directory to the Steam Workshop item on a `v*.*.*` tag.
+- Upload the content archive to the Nexus Mods file on a `v*.*.*` tag.
 - Record the licence, declare the funding targets, and exclude transient artefacts.
 - Document the system for maintainers, contributors, and users.
 
@@ -224,7 +228,7 @@ A tag that is absent from the vanilla definitions is not a defect in the reposit
 
 ### Security and Privacy
 
-The trust boundary is the game installation: the repository ships text the engine parses within the same trust domain as vanilla content. There is no network communication, no credential handling, no personal data, and no executable payload. The relevant concern is content integrity rather than adversarial input, and it is addressed by keeping every value a plain three-integer colour with no scripted behaviour attached.
+The trust boundary is the game installation: the repository ships text the engine parses within the same trust domain as vanilla content. The mod itself performs no network communication, handles no credentials, stores no personal data, and carries no executable payload. The relevant concern is content integrity rather than adversarial input, and it is addressed by keeping every value a plain three-integer colour with no scripted behaviour attached. Release automation is the one networked component: `steam-workshop-release.yml` reads the `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` repository secrets and uploads the content folder to the Workshop item, and `nexus-mods-release.yml` reads the `NEXUSMODS_API_KEY` secret and uploads the content archive to Nexus Mods; no secret value is exposed to a workflow log.
 
 ### Error Handling
 
@@ -368,5 +372,5 @@ The extension must preserve the `INJECT:` keyword, the `color = { R G B }` shape
 | Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` |
 | Workshop thumbnail | `standardised-country-colours/thumbnail.png` |
 | Workshop page description | `description/steam-workshop.bbcode` |
-| Release workflow | `.github/workflows/github-release.yml` |
+| Release workflows | `.github/workflows/github-release.yml`, `.github/workflows/steam-workshop-release.yml`, `.github/workflows/nexus-mods-release.yml` |
 | Documentation | `README.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `PRIVACY.md` |

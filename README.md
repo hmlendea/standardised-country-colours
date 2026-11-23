@@ -66,6 +66,8 @@ Each affected country receives the standardised colour when the country definiti
 
 ## 📦 Installation
 
+[![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
+[![Obtain it from Nexus Mods](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nexus.png)](https://nexusmods.com/victoria3/mods/54)
 [![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/vic3-standardised-country-colours/releases)
 
 ### Manual Installation
@@ -106,6 +108,8 @@ For the detailed description of how the application handles privacy and personal
 | Workflow | Purpose | What it does |
 |----------|---------|--------------|
 | [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: checks out the requested tag, strips the leading `v` from the version, archives `standardised-country-colours/` as `standardised-country-colours_<version>.zip`, and attaches the archive to the release |
+| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop item | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, archives and extracts `standardised-country-colours/`, and uploads it to the Steam Workshop item with a changenote linking to the GitHub release |
+| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods file | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, archives `standardised-country-colours/` as `release.zip`, and uploads it to Nexus Mods file `8446233` with the tag as its version |
 
 ## 🗂️ Project Structure
 

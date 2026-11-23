@@ -22,8 +22,10 @@ The mod ships plain text that the engine parses within the same trust domain as 
 | Definitions text | Parsed by the engine | Content is a fixed set of integer colours; a tampered file could at worst change colours or inject other country keys |
 | Launcher metadata | Parsed by the launcher | JSON only; a tampered file could misdescribe the mod |
 | Thumbnails | Decoded by the launcher and Steam | PNG decode; a malicious image exploits the decoder, not the mod |
-| Release workflow | Runs `actions/checkout@v7`, `softprops/action-gh-release@v2`, and `zip` | Pinned to major versions; `contents: write` is the only scope |
-| Distribution channel | GitHub Releases | HTTPS; no signature is published |
+| Release workflows | Run `actions/checkout@v7`, `softprops/action-gh-release@v2`, `hmlendea/steam-workshop-update@latest`, `Nexus-Mods/upload-action@v1.0.0-beta.11`, and `zip` | Pinned to major versions; `contents: write` is the only requested scope |
+| Distribution channels | GitHub Releases, the Steam Workshop, and Nexus Mods | HTTPS; no signature is published |
+| Steam credentials | `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` repository secrets | Referenced only as `${{secrets...}}` expressions; values are never printed, committed, or sent anywhere but Steam |
+| Nexus Mods credential | `NEXUSMODS_API_KEY` repository secret | Referenced only as `${{ secrets... }}`; the value is never printed, committed, or sent anywhere but Nexus Mods |
 
 ## What a malicious fork could do
 
@@ -47,7 +49,7 @@ The last row matters: the repository ships only `common/country_definitions/`, a
 
 ## Secrets
 
-None. The repository stores no credentials, tokens, or keys. The release workflow uses the automatic `GITHUB_TOKEN`.
+The mod content requires none. The Workshop workflow reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from repository secrets, and the Nexus Mods workflow reads `NEXUSMODS_API_KEY`; each is referenced only as a `${{ secrets... }}` expression and no value is stored in the repository. The Steam 2FA seed is required only because the Workshop uploader authenticates non-interactively. The GitHub release workflow uses the automatic `GITHUB_TOKEN`.
 
 ## Supply chain
 

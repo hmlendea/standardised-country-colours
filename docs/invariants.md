@@ -34,8 +34,8 @@ Each invariant is a property that must hold for the mod to behave correctly, wit
 | R1 | The archive contains the mod folder itself, not its contents | `unzip -l` shows `standardised-country-colours/…` |
 | R2 | The archive name carries the tag version without the leading `v` | Workflow computes `VERSION="${VERSION#v}"` |
 | R3 | The workflow publishes on a published release and accepts a manual tag | Trigger block inspection |
-| R4 | The workflow declares `contents: write` | Permissions block inspection |
-
+| R4 | The workflow declares `contents: write` | Permissions block inspection || R5 | The Workshop upload points at the extracted mod folder | Upload step uses `release/standardised-country-colours/` |
+| R6 | The Nexus Mods upload uses file id `8446233` and version `${{ env.VERSION }}` | Upload step inspection |
 ## Behavioural invariants
 
 | ID | Invariant | Verification |

@@ -2,7 +2,7 @@
 
 ## Install the mod
 
-The mod is distributed through GitHub Releases only. There is no Steam Workshop, Paradox Mods, Nexus Mods, or package-manager route at version `1.0.0`.
+The mod is distributed through the Steam Workshop, Nexus Mods, and GitHub Releases. There is no Paradox Mods or package-manager route at version `1.0.0`.
 
 1. Download `standardised-country-colours_<version>.zip` from the [releases page](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest).
 2. Extract the archive so that `standardised-country-colours/.metadata/metadata.json` exists inside your Victoria 3 mod directory.

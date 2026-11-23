@@ -11,7 +11,7 @@
 | Rename the content file | `sc_country_colours.txt` plus every doc that names it | Low | Confirm the new name is unique in the folder |
 | Change the metadata version | `metadata.json` | Low | Match the Git tag |
 | Widen `supported_game_version` | `metadata.json` | Medium | Confirm every tag exists in the newly covered build |
-| Change the release workflow | `.github/workflows/github-release.yml` | Medium | Re-validate against the workflow template |
+| Change the release workflow | `.github/workflows/github-release.yml`, `.github/workflows/steam-workshop-release.yml`, `.github/workflows/nexus-mods-release.yml` | Medium | Re-validate against the workflow template |
 | Change the thumbnails | `.metadata/thumbnail.png`, `thumbnail.png` | Cosmetic | Confirm the dimensions and that `picture` still resolves |
 | Introduce `REPLACE:` | `sc_country_colours.txt` | **Severe** | Never; it destroys the vanilla block |
 | Reuse a vanilla file name | `sc_country_colours.txt` | **Severe** | Never; it destroys the vanilla file |

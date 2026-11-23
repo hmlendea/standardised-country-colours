@@ -38,6 +38,8 @@ flowchart LR
   Content --> RootArch["ARCHITECTURE.md"]
   Meta["metadata.json"] --> Release["github-release.yml"]
   Content --> Release
+  Content --> Workshop["steam-workshop-release.yml"]
+  Content --> Nexus["nexus-mods-release.yml"]
 ```
 
 Documentation depends on content; content depends on nothing in the repository. No document is read by the engine.
@@ -47,9 +49,11 @@ Documentation depends on content; content depends on nothing in the repository. 
 The repository has no packages, lockfiles, SBOM, or third-party code. The only executable elements are:
 
 1. a GitHub Action (`actions/checkout@v7`, `softprops/action-gh-release@v2`), pinned to major versions;
-2. the `zip` command from the runner image.
+2. `hmlendea/steam-workshop-update@latest`, which publishes to the Workshop item;
+3. `Nexus-Mods/upload-action@v1.0.0-beta.11`, which publishes to Nexus Mods;
+4. the `zip` command from the runner image.
 
-Both run only in the release workflow, never on a player's machine.
+All run only in the release workflows, never on a player's machine. The Workshop workflow additionally reads the `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` repository secrets and the Nexus Mods workflow reads `NEXUSMODS_API_KEY`; their values are never printed and never leave the runner except to the respective service.
 
 ## Related documents
 

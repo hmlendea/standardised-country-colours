@@ -66,7 +66,7 @@ There is no `api-reference/` directory because the repository exposes no HTTP, R
 | [components/mod-content.md](./components/mod-content.md) | The colour override file and its 89 entries |
 | [components/launcher-metadata.md](./components/launcher-metadata.md) | `metadata.json` and the two thumbnails |
 | [components/repository-metadata.md](./components/repository-metadata.md) | Documentation, licence, ignore rules, funding |
-| [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) | Release workflow and the published archive |
+| [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) | Release workflows, the published archive, and the Workshop and Nexus Mods items |
 
 ### Behaviour and flows
 

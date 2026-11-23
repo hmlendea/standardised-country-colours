@@ -143,9 +143,15 @@ Expected: `victoria3 1.0.0 1.15.* thumbnail.png` followed by two successful file
 ```bash
 python3 ~/.copilot/skills/github-actions-workflow/validate_github_actions.py \
   --variant mod . github-release.yml .github/workflows/github-release.yml
+
+python3 ~/.copilot/skills/github-actions-workflow/validate_github_actions.py \
+  . steam-workshop-release.yml .github/workflows/steam-workshop-release.yml
+
+python3 ~/.copilot/skills/github-actions-workflow/validate_github_actions.py \
+  . nexus-mods-release.yml .github/workflows/nexus-mods-release.yml
 ```
 
-Expected: `VALIDATION PASSED: 100% template fidelity confirmed`.
+Expected: `VALIDATION PASSED: 100% template fidelity confirmed` for each workflow.
 
 ## In-game verification
 

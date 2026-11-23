@@ -9,7 +9,11 @@ flowchart LR
   Launcher -->|"playset"| Engine["Victoria 3 engine"]
   Repo -->|"tagged commit"| Actions["GitHub Actions"]
   Actions -->|"release asset"| Releases["GitHub Releases"]
+  Actions -->|"mod folder"| Workshop["Steam Workshop"]
+  Actions -->|"release.zip"| Nexus["Nexus Mods"]
   Releases -->|"download"| User["User"]
+  Workshop -->|"subscribe"| User
+  Nexus -->|"download"| User
   User -->|"extracted folder"| Launcher
   Engine -.->|"reads"| Game["Game content"]
 ```
@@ -21,9 +25,8 @@ flowchart LR
 | Vanilla content tree | Inbound | Tag set and baseline blocks | Yes |
 | GitHub Actions | Outbound | Workflow YAML, `contents: write` | For releases only |
 | GitHub Releases | Outbound | Asset name and archive layout | For distribution only |
-| Steam Workshop | None | Not used; the mod is not uploaded there | No |
-| Paradox Mods | None | Not used | No |
-| Nexus Mods | None | Not used | No |
+| Steam Workshop | Outbound | Workshop item id, uploaded mod content | For Workshop distribution only |
+| Nexus Mods | Outbound | Nexus Mods file id and uploaded archive | For Nexus Mods distribution only |
 
 ## Victoria 3 engine
 
@@ -66,7 +69,27 @@ The workflow's only interaction with the repository is reading the tagged tree. 
 
 ## Steam Workshop
 
-Not integrated. No `steam-workshop-release.yml` exists, no Workshop item id is configured, and no secrets are stored. Adding Workshop publication would require a manuscript workflow, `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` secrets, and an item id; none is present.
+Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow reuses the `zip` build path, extracts the same mod folder, and uploads it to Workshop item `3844790373` for Steam app `529340` through `hmlendea/steam-workshop-update@latest`.
+
+| Contract | Invariant |
+|----------|-----------|
+| Trigger | `v*.*.*` tag push, or manual dispatch with a tag |
+| Version | The pushed or supplied tag, referenced directly as `${{ env.VERSION }}` |
+| Upload root | `release/standardised-country-colours/`, the extracted mod folder |
+| Secrets | `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED`, read from repository secrets and never exposed |
+| Changenote | A link to the GitHub release of the same tag |
+
+## Nexus Mods
+
+Integrated through `.github/workflows/nexus-mods-release.yml`. The workflow builds the same archive, then uploads it to Nexus Mods file `8446233` for the Victoria 3 game section through `Nexus-Mods/upload-action@v1.0.0-beta.11`.
+
+| Contract | Invariant |
+|----------|-----------|
+| Trigger | `v*.*.*` tag push, or manual dispatch with a tag |
+| Version | The pushed or supplied tag, referenced directly as `${{ env.VERSION }}` |
+| Archive | `release.zip` wrapping the mod folder, published as `standardised-country-colours.zip` |
+| Secret | `NEXUSMODS_API_KEY`, read from repository secrets and never exposed |
+| Description | A link to the GitHub release of the same tag |
 
 ## Related documents
 

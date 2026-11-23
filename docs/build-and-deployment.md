@@ -24,8 +24,10 @@ The archive root is the folder itself, so extraction yields `standardised-countr
 5. Commit and tag.
 6. Publish a GitHub release for the tag.
 7. The workflow attaches `standardised-country-colours_<version>.zip` to the release.
+8. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which uploads the same folder to the Workshop item with a changenote linking to the GitHub release.
+9. The same tag push triggers `nexus-mods-release.yml`, which uploads the archive to the Nexus Mods file.
 
-Alternatively, trigger the workflow manually with the tag input; the `VERSION` expression resolves to the supplied tag.
+Alternatively, trigger any workflow manually with the tag input; each `VERSION` expression resolves to the supplied tag.
 
 ## Environments
 
@@ -34,6 +36,8 @@ Alternatively, trigger the workflow manually with the tag input; the `VERSION` e
 | Local checkout | Authoring and verification | Direct edit of the mod folder |
 | Local game | Behavioural verification | Copy the folder into the user mod directory |
 | GitHub release | Distribution | Workflow archive attachment |
+| Steam Workshop | Distribution | `steam-workshop-release.yml` item upload |
+| Nexus Mods | Distribution | `nexus-mods-release.yml` file upload |
 
 No staging, canary, or production distinction exists.
 
@@ -61,7 +65,6 @@ Check out an earlier tag, or download an earlier release archive, and replace th
 
 - No checksum file, so a user cannot verify integrity against a published digest.
 - No signing, so provenance rests on the GitHub release page.
-- No Workshop or third-party upload.
 
 ## Related documents
 

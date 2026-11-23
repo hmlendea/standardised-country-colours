@@ -1,0 +1,41 @@
+name: Nexus Mods
+
+on:
+  push:
+    tags:
+    - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release'
+        required: true
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: ${{ inputs.tag || github.ref_name }}
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: ${{ env.VERSION }}
+
+    - name: Build the release archive
+      run: |
+        zip -r "release.zip" "standardised-country-colours/"
+
+    - name: Upload
+      uses: Nexus-Mods/upload-action@v1.0.0-beta.11
+      with:
+        api_key: ${{ secrets.NEXUSMODS_API_KEY }}
+        file_id: 8446233
+        filename: release.zip
+        display_name: standardised-country-colours.zip
+        version: ${{env.VERSION}}
+        description: "Changelog: https://github.com/hmlendea/vic3-standardised-country-colours/releases/${{env.VERSION}}"
+        category: main
+        archive_existing_version: true
+        update_mod_version: true
