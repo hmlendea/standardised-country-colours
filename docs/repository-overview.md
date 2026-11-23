@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Assign one standardised map colour to each of 89 Victoria 3 countries, so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
+Assign one standardised map colour to each of 89 Victoria 3 countries, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
 
 ## Scope
 

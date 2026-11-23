@@ -1,6 +1,6 @@
 # Standardised Country Colours Architecture
 
-This document describes the verified current architecture of the Standardised Country Colours mod for Victoria 3, a content-only definition package whose entire behaviour is produced by the game engine's country-definition loading and definition-injection contract. It documents the shipped override file, the palette it encodes, and the constraints that govern any change to that content.
+This document describes the verified current architecture of the Victoria 3 edition of Standardised Country Colours, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Each edition is a content-only definition package for one game; this one targets Victoria 3, whose entire behaviour is produced by the game engine's country-definition loading and definition-injection contract. It documents the shipped override file, the palette it encodes, and the constraints that govern any change to that content.
 
 ## 📑 Table of Contents
 
@@ -34,7 +34,7 @@ This document describes the verified current architecture of the Standardised Co
 
 ## 🎯 Purpose
 
-The repository supplies a single country-definition override file that injects one `color` key into 89 vanilla Victoria 3 country definitions, replacing each country's map colour with a standardised value taken from a shared palette. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
+The repository supplies a single country-definition override file that injects one `color` key into 89 vanilla Victoria 3 country definitions, replacing each country's map colour with a standardised value taken from the palette shared across the project's grand strategy game editions. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
 
 The audience is the mod maintainer, contributors proposing a colour change, and users diagnosing why a country's colour did or did not change. Recording these boundaries matters because the mod has no runtime of its own: every observable effect is produced by the host engine reading this file, so the architecture is the file layout plus the engine contract, and nothing more.
 

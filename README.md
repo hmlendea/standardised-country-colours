@@ -3,7 +3,7 @@
 
 # Standardised Country Colours
 
-Mod for Victoria 3 that assigns consistent, historically inspired map colours to selectable countries.
+Victoria 3 edition of the Standardised Country Colours palette, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games.
 
 ## 📑 Table of Contents
 
@@ -66,8 +66,8 @@ Each affected country receives the standardised colour when the country definiti
 
 ## 📦 Installation
 
-[![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
 [![Obtain it from Nexus Mods](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nexus.png)](https://nexusmods.com/victoria3/mods/54)
+[![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
 [![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/vic3-standardised-country-colours/releases)
 
 ### Manual Installation
@@ -177,9 +177,11 @@ See the [Code of Conduct](./CODE_OF_CONDUCT.md) for the standards of conduct exp
 ## 🙏 Acknowledgements
 
 - [Crusader Kings II](https://store.steampowered.com/app/203770/) by Paradox Development Studio, for the Crusader Kings II title colours.
-- [Civilization V](https://store.steampowered.com/app/8930/) and [Civilization VI](https://store.steampowered.com/app/289070/) by Firaxis Games, for the Civilization V and Civilization VI palette entries.
+- [Civilization V](https://store.steampowered.com/app/8930/) by Firaxis Games, for the Civilization V palette entries.
+- [Civilization VI](https://store.steampowered.com/app/289070/) by Firaxis Games, for the Civilization VI palette entries.
 - [Civilization: Beyond Earth](https://store.steampowered.com/app/65980/) by Firaxis Games, for the sponsor colour entries.
-- [Total War: Rome](https://store.steampowered.com/app/4760/) and [Total War: Medieval II](https://store.steampowered.com/app/4780/) by Creative Assembly, for the faction colour entries.
+- [Total War: Rome](https://store.steampowered.com/app/4760/) by Creative Assembly, for the faction colour entries.
+- [Total War: Medieval II](https://store.steampowered.com/app/4780/) by Creative Assembly, for the faction colour entries, including the Kingdoms expansion.
 - [Victoria 3](https://store.steampowered.com/app/529340/) by Paradox Development Studio, whose definition format this mod targets.
 
 ## 🔒 Security

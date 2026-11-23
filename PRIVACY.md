@@ -1,6 +1,6 @@
 # Privacy and Personal Data
 
-This document covers Standardised Country Colours, a Victoria 3 mod installed and run locally by players. As of 2026-11-23, the mod does not request or collect personal data and has no built-in data transmission.
+This document covers the Victoria 3 edition of Standardised Country Colours, a cross-game project that assigns consistent map colours to selectable countries in various grand strategy games. This edition is a mod installed and run locally by players; as of 2026-11-23, it does not request or collect personal data and has no built-in data transmission.
 
 ## 📑 Table of Contents
 
