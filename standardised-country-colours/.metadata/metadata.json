@@ -8,8 +8,7 @@
   "short_description": "Standardised map colours for selectable countries",
   "tags": [
     "Map",
-    "Historical",
-    "Fixes"
+    "Historical"
   ],
   "relationships": [],
   "game_custom_data": {
