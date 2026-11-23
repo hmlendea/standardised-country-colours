@@ -1,0 +1,7 @@
+.DS_Store
+.work/
+*.dnspython*
+*.tmp
+*.zip
+out/
+Thumbs.db

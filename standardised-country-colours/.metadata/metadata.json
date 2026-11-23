@@ -1,0 +1,17 @@
+{
+  "name": "Standardised Country Colours",
+  "id": "com.github.hmlendea.vic3-standardised-country-colours",
+  "version": "1.0.0",
+  "game_id": "victoria3",
+  "picture": "thumbnail.png",
+  "supported_game_version": "1.15.*",
+  "short_description": "Standardised map colours for selectable countries",
+  "tags": [
+    "Map",
+    "Historical"
+  ],
+  "relationships": [],
+  "game_custom_data": {
+    "multiplayer_synchronized": true
+  }
+}
