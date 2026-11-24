@@ -52,7 +52,9 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
 | Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
 | Extract the release archive | `unzip` | Expands to `release/standardised-country-colours/` |
-| Upload | `hmlendea/steam-workshop-update@latest` | Publishes the folder to Workshop item `3844790373` for Steam app `529340`, with a changenote linking to the GitHub release of the tag |
+| Upload | `hmlendea/steam-workshop-update@latest` | Publishes the folder to Workshop item `3844790373` for Steam app `529340`, passes `icon` as the Workshop preview image, and adds a changenote linking to the GitHub release of the tag |
+
+The upload step supplies `icon: "release/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the committed `thumbnail.png` may be larger than the Workshop dimensions require.
 
 `VERSION` resolves to `${{ inputs.tag || github.ref_name }}` so a manual run publishes the requested tag.
 
