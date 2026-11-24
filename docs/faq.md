@@ -2,7 +2,7 @@
 
 ## What does this mod actually change?
 
-One key, `color`, on 131 Victoria 3 country definitions. Nothing else.
+One key, `color`, on 131 country definitions per game. Nothing else.
 
 ## Will it break my save?
 
@@ -10,7 +10,7 @@ No. The mod introduces no scripted effects, events, or persistent variables. The
 
 ## Will it disable achievements?
 
-Victoria 3 does not disable achievements because of mods. A debug-mode session and console use are separate matters and do disable them.
+Victoria 3 does not disable achievements because of mods. A debug-mode session and console use are separate matters and do disable them. Imperator: Rome has no achievement system.
 
 ## Does it work in multiplayer?
 
@@ -18,7 +18,7 @@ Yes, if every participant runs the same mod. The metadata declares `multiplayer_
 
 ## Why is the second colour in the palette not used?
 
-Victoria 3 stores a single map colour per country. There is one `color` key, and the country list swatch, map fill, and diplomacy identifiers all read it. The palette's secondary colour has no destination. See [design-decisions.md](./design-decisions.md) D4.
+The supported games store a single map colour per country. There is one `color` key, and the country list swatch, map fill, and diplomacy identifiers all read it. The palette's secondary colour has no destination. See [design-decisions.md](./design-decisions.md) D4.
 
 ## Why do the unit uniforms not change?
 

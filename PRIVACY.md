@@ -1,6 +1,6 @@
 # Privacy and Personal Data
 
-This document covers the Victoria 3 edition of Standardised Country Colours, a cross-game project that assigns consistent map colours to selectable countries in various grand strategy games. This edition is a mod installed and run locally by players; as of 2026-11-23, it does not request or collect personal data and has no built-in data transmission.
+This document covers Standardised Country Colours, a cross-game project that assigns consistent map colours to selectable countries in various grand strategy games. The mod is installed and run locally by players; as of 2026-11-23, it does not request or collect personal data and has no built-in data transmission.
 
 ## 📑 Table of Contents
 
@@ -18,9 +18,9 @@ This document covers the Victoria 3 edition of Standardised Country Colours, a c
 
 ## 🔎 What This Document Covers
 
-This document describes how Standardised Country Colours at https://github.com/hmlendea/vic3-standardised-country-colours manages personal data. It covers the application conduct and verified integrations described below. Where the software is self-hosted, the instance operator may have separate responsibilities described below.
+This document describes how Standardised Country Colours at https://github.com/hmlendea/standardised-country-colours manages personal data. It covers the application conduct and verified integrations described below. Where the software is self-hosted, the instance operator may have separate responsibilities described below.
 
-This document covers the mod's local game definitions and does not cover Victoria 3, its launcher, distribution platforms, or other software operated by third parties.
+This document covers the mod's local game definitions and does not cover the supported games, their launchers, distribution platforms, or other software operated by third parties.
 
 ## 📥 Data We Handle
 
@@ -65,6 +65,6 @@ Update this document when application data processes, storage, integrations, or 
 
 ## 📬 Contact
 
-For questions about application data handling, contact the project maintainers through the project's [GitHub issue tracker](https://github.com/hmlendea/vic3-standardised-country-colours/issues).
+For questions about application data handling, contact the project maintainers through the project's [GitHub issue tracker](https://github.com/hmlendea/standardised-country-colours/issues).
 
 For questions about application data handling, contact the project maintainers. For a self-hosted instance, contact the instance operator, unless the project explicitly manages the request. Include the mod version and the distribution channel; do not send passwords, access tokens, or other secrets.

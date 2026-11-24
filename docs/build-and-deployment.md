@@ -12,7 +12,7 @@
 | Artwork | `src/<game>/thumbnail.png`, `src/<game>/launcher-thumbnail.png` | Copied into the mod folder and the metadata directory |
 | Version | `--version` argument | Written as the metadata `version` |
 
-The Victoria 3 edition keeps its name, id, game id, supported game version, description, tags, and multiplayer flag in `scripts/games/victoria3/config.py`.
+Each game edition keeps its name, id, game id, supported game version, description, tags, and multiplayer flag in `scripts/games/<game>/config.py`.
 
 ```bash
 python3 scripts/build.py --game victoria3 --version 1.0.0

@@ -1,9 +1,9 @@
 [![Donate](https://img.shields.io/badge/-%E2%99%A5%20Donate-%23ff69b4)](https://hmlendea.go.ro/funding)
-[![License](https://img.shields.io/github/license/hmlendea/vic3-standardised-country-colours)](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/hmlendea/standardised-country-colours)](https://github.com/hmlendea/standardised-country-colours/blob/master/LICENSE)
 
 # Standardised Country Colours
 
-Victoria 3 edition of the Standardised Country Colours palette, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games.
+A cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Currently supports Victoria 3 and Imperator: Rome.
 
 ## 📑 Table of Contents
 
@@ -33,7 +33,7 @@ Victoria 3 edition of the Standardised Country Colours palette, a cross-game pro
 
 ## ✨ Capabilities
 
-- Standardised map colours for 131 countries, applied through the game's definition-injection mechanism
+- Standardised map colours for 131 countries, applied through each game's definition-injection mechanism
 - A single shared palette, so neighbouring countries no longer share near-identical map colours
 - Historical and flag-derived colours, sourced from established strategy-game palettes and national flags
 - Colour-only overrides: every other field of the affected country definition, such as tier, culture, and capital, is left to the base game
@@ -48,7 +48,7 @@ Victoria 3 edition of the Standardised Country Colours palette, a cross-game pro
 
 ## 🚀 Usage
 
-Enable the mod for a playset in the Victoria 3 launcher, then start or load a campaign:
+Enable the mod for a playset in your game's launcher, then start or load a campaign:
 
 ```text
 Standardised Country Colours  [x]
@@ -59,7 +59,7 @@ Each affected country receives the standardised colour when the country definiti
 ## ⚠️ Known Limitations
 
 - Only the countries listed in this mod are recoloured; countries outside that list keep their vanilla colours.
-- The palette records the primary colour only, because Victoria 3 exposes a single map colour per country. Secondary and alternative colours are not represented on the map.
+- The palette records the primary colour only, because the supported games expose a single map colour per country. Secondary and alternative colours are not represented on the map.
 - The mod changes map colours, not unit colours. Countries that define `primary_unit_color`, `secondary_unit_color`, or `tertiary_unit_color` keep their vanilla unit colours.
 - Coat-of-arms based flags still draw from their own colour definitions, so a country's flag may not match its new map colour.
 - Countries at war, subjects, and other map-colour overlays continue to use the game's own colouring rules on top of the standardised colour.
@@ -68,7 +68,7 @@ Each affected country receives the standardised colour when the country definiti
 
 [![Obtain it from Nexus Mods](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/nexus.png)](https://nexusmods.com/victoria3/mods/54)
 [![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
-[![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/vic3-standardised-country-colours/releases)
+[![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/standardised-country-colours/releases)
 
 The mod is published for both Victoria 3 and Imperator: Rome:
 
@@ -79,7 +79,7 @@ The mod is published for both Victoria 3 and Imperator: Rome:
 
 ### Manual Installation
 
-1. Download the [latest release](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest) for your game edition
+1. Download the [latest release](https://github.com/hmlendea/standardised-country-colours/releases/latest) for your game edition
 2. Extract the contents into the game's mod directory:
    - Victoria 3 Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
    - Victoria 3 macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
@@ -118,9 +118,9 @@ For the detailed description of how the application handles privacy and personal
 
 | Workflow | Purpose | What it does |
 |----------|---------|--------------|
-| [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder as `standardised-country-colours_<group>_<version>.zip`, and attaches the archive to the release |
-| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop items | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, and uploads the `out/<group>/standardised-country-colours/` folder to its Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
-| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods files | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`imperator` and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder, and uploads it to its Nexus Mods file (`8454045` for Imperator: Rome, `8446233` for Victoria 3) with the tag as its version |
+| [ github-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder as `standardised-country-colours_<group>_<version>.zip`, and attaches the archive to the release |
+| [ steam-workshop-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop items | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, and uploads the `out/<group>/standardised-country-colours/` folder to its Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
+| [ nexus-mods-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods files | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`imperator` and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder, and uploads it to its Nexus Mods file (`8454045` for Imperator: Rome, `8446233` for Victoria 3) with the tag as its version |
 
 ## 🗂️ Project Structure
 
@@ -180,7 +180,7 @@ When doing so, please:
 - Submit focused pull requests that conform to the existing code style
 - Maintain your branch synchronised with `master`
 - Revise the documentation when functionality changes
-- Raise a new [issue](https://github.com/hmlendea/vic3-standardised-country-colours/issues) for problems or suggestions
+- Raise a new [issue](https://github.com/hmlendea/standardised-country-colours/issues) for problems or suggestions
 
 See the [Contributing Guidelines](./CONTRIBUTING.md) for details on how to report issues, suggest enhancements, and submit changes.
 
@@ -212,11 +212,11 @@ For information on reporting security vulnerabilities, see the [Security Policy]
 
 ## 💬 Support
 
-For support, please [open an issue](https://github.com/hmlendea/vic3-standardised-country-colours/issues).
+For support, please [open an issue](https://github.com/hmlendea/standardised-country-colours/issues).
 
 ## 💝 Project Engagement
 
-Discovered a problem with Standardised Country Colours or have a suggestion for it? [Open an issue](https://github.com/hmlendea/vic3-standardised-country-colours/issues)!
+Discovered a problem with Standardised Country Colours or have a suggestion for it? [Open an issue](https://github.com/hmlendea/standardised-country-colours/issues)!
 
 If you find this project useful, consider [funding it](https://hmlendea.go.ro/funding) or starring ⭐️ it on GitHub!
 

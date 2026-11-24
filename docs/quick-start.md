@@ -4,7 +4,7 @@
 
 The mod is distributed through the Steam Workshop, Nexus Mods, and GitHub Releases. There is no Paradox Mods or package-manager route at version `1.0.0`.
 
-1. Download the archive for your game from the [releases page](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest), for example `standardised-country-colours_vic3_<version>.zip` or `standardised-country-colours_imperator_<version>.zip`.
+1. Download the archive for your game from the [releases page](https://github.com/hmlendea/standardised-country-colours/releases/latest), for example `standardised-country-colours_vic3_<version>.zip` or `standardised-country-colours_imperator_<version>.zip`.
 2. Extract the archive so that `standardised-country-colours/.metadata/metadata.json` exists inside your Victoria 3 or Imperator: Rome mod directory.
 3. Add the mod to a playset in the launcher and enable it.
 

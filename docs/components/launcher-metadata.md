@@ -7,9 +7,9 @@ standardised-country-colours/.metadata/metadata.json
 standardised-country-colours/.metadata/thumbnail.png
 ```
 
-These paths are inside the built folder (`out/vic3/standardised-country-colours/`). `metadata.json` is rendered by the Victoria 3 edition of `scripts/build.py` from the identity constants in `scripts/games/victoria3/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/victoria3/launcher-thumbnail.png`.
+These paths are inside the built folder (`out/<game>/standardised-country-colours/`). `metadata.json` is rendered by the edition of `scripts/build.py` from the identity constants in `scripts/games/<game>/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/<game>/launcher-thumbnail.png`.
 
-## Current values
+## Current values (Victoria 3)
 
 ```json
 {
@@ -19,6 +19,25 @@ These paths are inside the built folder (`out/vic3/standardised-country-colours/
   "game_id": "victoria3",
   "picture": "thumbnail.png",
   "supported_game_version": "1.15.*",
+  "short_description": "Standardised map colours for selectable countries",
+  "tags": ["Map", "Historical"],
+  "relationships": [],
+  "game_custom_data": {
+    "multiplayer_synchronized": true
+  }
+}
+```
+
+## Current values (Imperator: Rome)
+
+```json
+{
+  "name": "Standardised Country Colours",
+  "id": "com.github.hmlendea.imperator-standardised-country-colours",
+  "version": "1.0.0",
+  "game_id": "imperator",
+  "picture": "thumbnail.png",
+  "supported_game_version": "2.0.*",
   "short_description": "Standardised map colours for selectable countries",
   "tags": ["Map", "Historical"],
   "relationships": [],

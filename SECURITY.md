@@ -26,7 +26,7 @@ Use this table to indicate which project versions currently receive security mai
 Please do not disclose suspected vulnerabilities publicly before maintainers have had an opportunity to validate and remediate them.
 
 To report a vulnerability:
-- [GitHub Security Advisories](https://github.com/hmlendea/vic3-standardised-country-colours/security/advisories)
+- [GitHub Security Advisories](https://github.com/hmlendea/standardised-country-colours/security/advisories)
 - Contact the maintainers directly
 
 ## 📌 Scope

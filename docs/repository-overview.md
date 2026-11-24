@@ -2,17 +2,17 @@
 
 ## Purpose
 
-Assign one standardised map colour to each of 131 Victoria 3 countries, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
+Assign one standardised map colour to each of 131 countries in Victoria 3 and Imperator: Rome, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
 
 ## Scope
 
 The repository owns exactly three things:
 
-1. the build inputs — the shared palette snapshot and the per-game configuration — that render a country-definition file injecting a `color` key into 131 vanilla country blocks;
-2. the launcher metadata that makes the built folder a discoverable mod;
+1. the build inputs — the shared palette snapshot and the per-game configuration — that render a country-definition file injecting a `color` key into 131 vanilla country blocks per game;
+2. the launcher metadata that makes the built folder a discoverable mod for each game;
 3. the build, documentation, licence, and release workflows that render, package, and publish the folder.
 
-The country-definition file and the metadata are rendered by `scripts/build.py` from the palette snapshot in `src/colours.md`, the hardcoded mappings in `scripts/games/victoria3/config.py`, and the rendering in `scripts/games/victoria3/render.py`. The rendered folder is build output and is never committed.
+The country-definition file and the metadata are rendered by `scripts/build.py` from the palette snapshot in `src/colours.md`, the hardcoded mappings in `scripts/games/<game>/config.py`, and the rendering in `scripts/games/<game>/render.py`. The rendered folder is build output and is never committed.
 
 ## What the mod changes
 
