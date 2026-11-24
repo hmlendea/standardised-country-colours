@@ -1,6 +1,6 @@
 # Component: mod content
 
-The mod content is the build's entire product: a single country-definition file carrying 131 injections.
+The mod content is the build's entire product: a single country-definition file per game carrying 131 injections.
 
 ## Location
 
@@ -8,9 +8,9 @@ The mod content is the build's entire product: a single country-definition file 
 standardised-country-colours/common/country_definitions/sc_country_colours.txt
 ```
 
-This path is inside the built folder (`out/vic3/standardised-country-colours/`). The file is rendered by the Victoria 3 edition of `scripts/build.py` and is never committed; its inputs are `src/colours.md` and `scripts/games/victoria3/config.py`.
+This path is inside the built folder (`out/<game>/standardised-country-colours/`). The file is rendered by the edition of `scripts/build.py` and is never committed; its inputs are `src/colours.md` and `scripts/games/<game>/config.py`.
 
-## File shape
+## File shape (Victoria 3)
 
 ```text
 # Standardised Country Colours
@@ -28,10 +28,25 @@ This path is inside the built folder (`out/vic3/standardised-country-colours/`).
 INJECT:FRA = {
 	color = { 0 0 153 }
 }
+```
 
-# Byzantium (palette: Eastern Roman Empire) - #460076 - Civilization 5 (Rome)
-INJECT:BYZ = {
-	color = { 70 0 118 }
+## File shape (Imperator: Rome)
+
+```text
+# Standardised Country Colours
+#
+# Overrides the map colour of selected countries with the standardised values
+# documented in COUNTRY_COLOURS.md. Only the color key is injected, so every
+# other field of the vanilla country definition is left untouched.
+#
+# Each comment records the vanilla country name, the hexadecimal palette colour,
+# and the palette source. Where the palette entry name differs from the vanilla
+# name, the palette name is appended in parentheses. Imperator: Rome exposes a
+# single map colour per country, so only the primary palette colour is applied.
+
+# Rome - #8B0000 - Official flag (Roman)
+INJECT:ROM = {
+	color = { 139 0 0 }
 }
 ```
 

@@ -33,7 +33,7 @@ jobs:
         appid: 859380
         itemid: 3845414842
         path: "out/imperator/standardised-country-colours/"
-        changenote: "[url=https://github.com/hmlendea/vic3-standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"
+        changenote: "[url=https://github.com/hmlendea/standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"
         icon: "out/imperator/standardised-country-colours/thumbnail.png"
       env:
         STEAM_USERNAME: ${{secrets.STEAM_USERNAME}}
@@ -62,7 +62,7 @@ jobs:
         appid: 529340
         itemid: 3844790373
         path: "out/vic3/standardised-country-colours/"
-        changenote: "[url=https://github.com/hmlendea/vic3-standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"
+        changenote: "[url=https://github.com/hmlendea/standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"
         icon: "out/vic3/standardised-country-colours/thumbnail.png"
       env:
         STEAM_USERNAME: ${{secrets.STEAM_USERNAME}}

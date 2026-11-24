@@ -49,7 +49,7 @@ This document covers the guidelines and processes for contributing to this proje
 
 ```bash
 # Clone the repository
-git clone https://github.com/hmlendea/vic3-standardised-country-colours.git
+git clone https://github.com/hmlendea/standardised-country-colours.git
 cd vic3-standardised-country-colours
 
 # Install dependencies
@@ -108,5 +108,5 @@ By contributing, you agree that your contributions will be licensed under the GN
 
 ## ❓ Getting Assistance
 
-- Use [GitHub Issues](https://github.com/hmlendea/vic3-standardised-country-colours/issues) for questions or support.
+- Use [GitHub Issues](https://github.com/hmlendea/standardised-country-colours/issues) for questions or support.
 - Check existing discussions and documentation first.

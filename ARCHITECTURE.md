@@ -1,6 +1,6 @@
 # Standardised Country Colours Architecture
 
-This document describes the verified current architecture of the Victoria 3 edition of Standardised Country Colours, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Each edition is a content-only definition package for one game; this one targets Victoria 3, whose entire behaviour is produced by the game engine's country-definition loading and definition-injection contract. It documents the shipped override file, the palette it encodes, and the constraints that govern any change to that content.
+This document describes the verified current architecture of Standardised Country Colours, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Each edition is a content-only definition package for one game; this repository supports Victoria 3 and Imperator: Rome, whose entire behaviour is produced by the game engine's country-definition loading and definition-injection contract. It documents the shipped override files, the palette they encode, and the constraints that govern any change to that content.
 
 ## 📑 Table of Contents
 
@@ -34,19 +34,19 @@ This document describes the verified current architecture of the Victoria 3 edit
 
 ## 🎯 Purpose
 
-The repository supplies a single country-definition override file that injects one `color` key into 131 vanilla Victoria 3 country definitions, replacing each country's map colour with a standardised value taken from the palette shared across the project's grand strategy game editions. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
+The repository supplies a single country-definition override file per game that injects one `color` key into 131 vanilla country definitions, replacing each country's map colour with a standardised value taken from the palette shared across the project's grand strategy game editions. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
 
 The audience is the mod maintainer, contributors proposing a colour change, and users diagnosing why a country's colour did or did not change. Recording these boundaries matters because the mod has no runtime of its own: every observable effect is produced by the host engine reading this file, so the architecture is the file layout plus the engine contract, and nothing more.
 
 ## 🌐 System Context
 
-The system is a packaged content directory consumed by Victoria 3. The launcher discovers the mod through `.metadata/metadata.json`, the engine loads every definition file present, and the definition-injection mechanism appends the shipped `color` key to the matching vanilla country. The shipped overrides are static data; the only actor that initiates behaviour is the game engine.
+The system is a packaged content directory consumed by Victoria 3 and Imperator: Rome. The launcher discovers the mod through `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Imperator: Rome), the engine loads every definition file present, and the definition-injection mechanism appends the shipped `color` key to the matching vanilla country. The shipped overrides are static data; the only actor that initiates behaviour is the game engine.
 
 ```mermaid
 flowchart LR
   Source["COUNTRY_COLOURS.md<br/>standardised palette"] --> Repo["Standardised Country Colours<br/>content repository"]
   Repo -->|".metadata + common tree"| Launcher["Paradox launcher<br/>discovers and enables the mod"]
-  Launcher --> Engine["Victoria 3 engine<br/>loads country definitions"]
+  Launcher --> Engine["Game engine<br/>loads country definitions"]
   Vanilla["Vanilla game<br/>common/country_definitions"] -->|"baseline country blocks"| Engine
   Engine --> Injection["Definition injection<br/>appends the shipped color key"]
   Injection --> Map["World map and country lists<br/>render the resolved colour"]
@@ -54,9 +54,9 @@ flowchart LR
 ```
 
 The principal external boundaries are:
-- **Paradox launcher:** reads `.metadata/metadata.json` to list and enable the mod and to resolve the content directory. The launcher owns enablement, load order, and the playset.
+- **Paradox launcher:** reads `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Imperator: Rome) to list and enable the mod and to resolve the content directory. The launcher owns enablement, load order, and the playset.
 - **Vanilla country definitions:** the installed `common/country_definitions` tree is the authoritative baseline. It owns every country tag and every field the mod does not inject, and it names the tags the mod addresses.
-- **Victoria 3 engine:** owns parsing, encoding validation, injection precedence, and colour resolution. It reads the file and produces all user-visible output.
+- **Game engine:** owns parsing, encoding validation, injection precedence, and colour resolution. It reads the file and produces all user-visible output.
 - **Log files:** the engine writes load-time warnings for encoding problems, invalid keys, and injection targets that do not exist. The log is the only diagnostics surface, and the repository does not read it.
 
 ## 🏗️ Architectural Style

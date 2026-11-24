@@ -1,27 +1,28 @@
 # Documentation index
 
-Master navigation for the Standardised Country Colours Victoria 3 edition repository knowledge base. It catalogues every document under `docs/`, the root policy documents, and the recommended reading order for each audience.
+Master navigation for the Standardised Country Colours repository knowledge base. It catalogues every document under `docs/`, the root policy documents, and the recommended reading order for each audience.
 
 ## Repository summary
 
-Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games; this repository is the Victoria 3 edition. It is a content-only mod that ships a single country-definition file, rendered under `standardised-country-colours/common/country_definitions/`, that injects one `color` key into 131 vanilla country definitions, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
+Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. This repository supports Victoria 3 and Imperator: Rome. It is a content-only mod that ships a single country-definition file per game, rendered under `standardised-country-colours/common/country_definitions/`, that injects one `color` key into 131 vanilla country definitions per game, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
 
-The repository owns no runtime. A build script, `scripts/build.py`, renders the mod folder from the shared palette snapshot in `src/colours.md` and the per-game mappings and rendering under `scripts/games/`; the folder is build output, never committed, and every observable effect is produced by the Victoria 3 engine reading it.
+The repository owns no runtime. A build script, `scripts/build.py`, renders the mod folder from the shared palette snapshot in `src/colours.md` and the per-game mappings and rendering under `scripts/games/`; the folder is build output, never committed, and every observable effect is produced by the game engine reading it.
 
-Current state, verified against the installed game (`1.15.2`, launcher label `Ivan-Chai`) and vanilla content revision:
+Current state, verified against the installed games (Victoria 3 `1.15.2`, launcher label `Ivan-Chai`; Imperator: Rome `2.0.4`) and vanilla content revisions:
 
 | Metric | Value |
 |--------|-------|
-| Mapped country tags | 131 |
-| Content files | 1 (`sc_country_colours.txt`, 665 lines) |
-| Tags defined by vanilla | 835 |
-| Mapped tags present at the 1836 start | 64 |
-| Mapped tags that are formation targets | 37 |
-| Mapped tags that are both | 10 |
-| Mapped tags that are neither (release-only in practice) | 40 |
-| Mapped tags also referenced by a conditional map-colour block | 28 |
-| Exact no-op mappings | 1 (`SCA`) |
-| Declared game version | `1.15.*` |
+| Mapped country tags per game | 131 |
+| Content files per game | 1 (`sc_country_colours.txt`, 665 lines for Victoria 3) |
+| Tags defined by vanilla (Victoria 3) | 835 |
+| Mapped tags present at the 1836 start (Victoria 3) | 64 |
+| Mapped tags that are formation targets (Victoria 3) | 37 |
+| Mapped tags that are both (Victoria 3) | 10 |
+| Mapped tags that are neither (release-only in practice, Victoria 3) | 40 |
+| Mapped tags also referenced by a conditional map-colour block (Victoria 3) | 28 |
+| Exact no-op mappings (Victoria 3) | 1 (`SCA`) |
+| Declared game version (Victoria 3) | `1.15.*` |
+| Declared game version (Imperator: Rome) | `2.0.*` |
 | Declared mod version | `1.0.0` |
 
 ## Root document map

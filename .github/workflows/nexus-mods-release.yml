@@ -40,7 +40,7 @@ jobs:
         filename: release-imperator.zip
         display_name: standardised-country-colours-imperator.zip
         version: ${{env.VERSION}}
-        description: "Changelog: https://github.com/hmlendea/vic3-standardised-country-colours/releases/${{env.VERSION}}"
+        description: "Changelog: https://github.com/hmlendea/standardised-country-colours/releases/${{env.VERSION}}"
         category: main
         archive_existing_version: true
         update_mod_version: true
@@ -74,7 +74,7 @@ jobs:
         filename: release-vic3.zip
         display_name: standardised-country-colours-vic3.zip
         version: ${{env.VERSION}}
-        description: "Changelog: https://github.com/hmlendea/vic3-standardised-country-colours/releases/${{env.VERSION}}"
+        description: "Changelog: https://github.com/hmlendea/standardised-country-colours/releases/${{env.VERSION}}"
         category: main
         archive_existing_version: true
         update_mod_version: true
