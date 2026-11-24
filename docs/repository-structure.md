@@ -116,7 +116,7 @@ The archive root is the mod folder itself, so extracting it into the mod directo
 The build is game-agnostic; a new edition supplies its identity, mappings, and rendering and registers itself once.
 
 1. Create `scripts/games/<game>/config.py` with the edition identity, output group, output layout, `COUNTRY_PALETTE_ENTRIES`, and any `VANILLA_COUNTRY_NAMES`.
-2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`, following the Victoria 3 edition.
+2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`; add `render_parent_text_files(palette, version)` only when the game needs a descriptor beside the mod folder instead of inside it (as Imperator: Rome does).
 3. Create `scripts/games/<game>/__init__.py` exporting an `EDITION` value built from those functions.
 4. Register the edition in `scripts/games/__init__.py` and add its assets under `src/<game>/`.
 

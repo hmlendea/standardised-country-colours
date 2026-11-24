@@ -16,6 +16,15 @@ from typing import Callable
 RenderTextFiles = Callable[[dict, str], dict]
 # Maps a destination relative path to the source asset it is copied from.
 AssetFiles = Callable[[Path], dict]
+# Renders artefacts that sit beside the mod folder, keyed by a path relative to
+# the edition's output group. Games whose launcher needs a sibling descriptor
+# (Imperator: Rome, Stellaris, and the other Clausewitz titles) supply these.
+ParentTextFiles = Callable[[dict, str], dict]
+
+
+def no_parent_text_files(palette: dict, version: str) -> dict:
+    """Default for editions that ship no artefacts beside the mod folder."""
+    return {}
 
 
 @dataclass(frozen=True)
@@ -30,6 +39,8 @@ class GameEdition:
         folder_name: Name of the mod folder the build produces.
         render_text_files: Returns relative path -> bytes for the version.
         asset_files: Returns destination relative path -> source path.
+        parent_text_files: Returns sibling relative path -> bytes, written beside
+            the mod folder instead of inside it.
     """
 
     key: str
@@ -38,3 +49,4 @@ class GameEdition:
     folder_name: str
     render_text_files: RenderTextFiles
     asset_files: AssetFiles
+    parent_text_files: ParentTextFiles = no_parent_text_files

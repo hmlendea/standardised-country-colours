@@ -8,7 +8,9 @@ from games.imperator.config import (COUNTRIES_DIRECTORY_PATH,
                                     MOD_FOLDER_NAME,
                                     MOD_NAME,
                                     OUTPUT_GROUP)
-from games.imperator.render import render_asset_files, render_text_files
+from games.imperator.render import (render_asset_files,
+                                    render_parent_text_files,
+                                    render_text_files)
 
 EDITION = GameEdition(
     key=EDITION_KEY,
@@ -17,4 +19,5 @@ EDITION = GameEdition(
     folder_name=MOD_FOLDER_NAME,
     render_text_files=render_text_files,
     asset_files=render_asset_files,
+    parent_text_files=render_parent_text_files,
 )

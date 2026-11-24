@@ -204,7 +204,7 @@
 | Scandinavia          |                     | Crusader Kings 2                                   | #3E7ABD        | #FFFF00               |
 | Scotland             |                     | Total War: Medieval 2                              | #00105E        | #EFEFEF               |
 | Scythia              |                     | Total War: Rome                                    | #D77319        | #FFFF8B               |
-| Seleucia             |                     | Total War: Rome                                    | #9B8080        | #FFFFFF               |
+| Seleucia             | Seleukid Empire     | Total War: Rome                                    | #9B8080        | #FFFFFF               |
 | Serbia               |                     | Official flag                                      | #C6363C        | #FFFFFF               |
 | Shoshone             |                     | Civilization 5                                     | #4A3B2E        | #19F0CE               |
 | Siam                 |                     | Civilization 5                                     | #F5E637        | #B10803               |

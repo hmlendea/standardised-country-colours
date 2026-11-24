@@ -36,7 +36,8 @@ def copy_file(source_path: Path, destination_path: Path) -> None:
 def build_edition(edition: GameEdition, palette: dict, source_directory_path: Path,
                   output_directory_path: Path, version: str) -> Path:
     """Build one game edition and return the path of the mod folder it wrote."""
-    mod_directory_path = output_directory_path / edition.output_group / edition.folder_name
+    output_group_path = output_directory_path / edition.output_group
+    mod_directory_path = output_group_path / edition.folder_name
 
     # Starting from scratch guarantees that no file from an earlier build survives.
     if mod_directory_path.exists():
@@ -50,5 +51,10 @@ def build_edition(edition: GameEdition, palette: dict, source_directory_path: Pa
 
     for relative_path, asset_source_path in edition.asset_files(source_directory_path).items():
         copy_file(asset_source_path, mod_directory_path / relative_path)
+
+    # Some games require a descriptor that sits beside the mod folder rather
+    # than inside it, so those artefacts are written relative to the group root.
+    for relative_path, content in edition.parent_text_files(palette, version).items():
+        write_file(output_group_path / relative_path, content)
 
     return mod_directory_path
