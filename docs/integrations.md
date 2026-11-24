@@ -76,6 +76,7 @@ Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow 
 | Trigger | `v*.*.*` tag push, or manual dispatch with a tag |
 | Version | The pushed or supplied tag, referenced directly as `${{ env.VERSION }}` |
 | Upload root | `release/standardised-country-colours/`, the extracted mod folder |
+| Preview image | `icon` names `release/standardised-country-colours/thumbnail.png`, set as the descriptor's `previewfile` |
 | Secrets | `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED`, read from repository secrets and never exposed |
 | Changenote | A link to the GitHub release of the same tag |
 
