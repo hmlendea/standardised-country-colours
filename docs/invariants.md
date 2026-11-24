@@ -37,10 +37,10 @@ Each invariant is a property that must hold for the mod to behave correctly, wit
 | R2 | The archive name carries the tag version without the leading `v` | Workflow computes `VERSION="${VERSION#v}"` |
 | R3 | The workflow publishes on a published release and accepts a manual tag | Trigger block inspection |
 | R4 | The workflow declares `contents: write` | Permissions block inspection |
-| R5 | The Workshop upload points at the extracted mod folder | Upload step uses `release/standardised-country-colours/` |
-| R6 | The Workshop upload sets the preview image explicitly | Upload step declares `icon: "release/standardised-country-colours/thumbnail.png"` |
-| R7 | The Nexus Mods upload uses file id `8446233` and version `${{ env.VERSION }}` | Upload step inspection |
-| R8 | Every release workflow builds the mod before archiving it | Each workflow runs `python3 scripts/build.py --game victoria3 --version` with the tag version (the extraction step's output in `github-release.yml`, `${VERSION#v}` in the tag-push workflows) and stages `out/vic3/standardised-country-colours` before its archive step |
+| R5 | The Workshop uploads point at the extracted mod folders | Upload steps use `release-vic3/standardised-country-colours/` and `release-imperator/standardised-country-colours/` |
+| R6 | The Workshop uploads set the preview image explicitly | Upload steps declare `icon: "release-<game>/standardised-country-colours/thumbnail.png"` |
+| R7 | The Nexus Mods uploads use file ids `8446233` (Victoria 3) and `8454045` (Imperator: Rome) and version `${{ env.VERSION }}` | Upload step inspection |
+| R8 | Every release workflow builds each edition before archiving it | Each workflow runs `python3 scripts/build.py --game <game> --version` for both editions with the tag version and archives the freshly built `out/<game>/standardised-country-colours` |
 | R9 | The archived folder is the build output, not a committed tree | The repository tracks no `standardised-country-colours/` path |
 ## Behavioural invariants
 

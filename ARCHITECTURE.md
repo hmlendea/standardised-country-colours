@@ -161,9 +161,9 @@ Paths:
 - `README.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `PRIVACY.md`
 
 Responsibilities:
-- Package and publish the content directory on a published release.
-- Upload the content directory to the Steam Workshop item on a `v*.*.*` tag.
-- Upload the content archive to the Nexus Mods file on a `v*.*.*` tag.
+- Package and publish each game edition's content directory on a published release.
+- Upload each edition's content directory to its Steam Workshop item on a `v*.*.*` tag.
+- Upload each edition's content archive to its Nexus Mods file on a `v*.*.*` tag.
 - Record the licence, declare the funding targets, and exclude transient artefacts.
 - Document the system for maintainers, contributors, and users.
 

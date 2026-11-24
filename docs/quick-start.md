@@ -4,26 +4,25 @@
 
 The mod is distributed through the Steam Workshop, Nexus Mods, and GitHub Releases. There is no Paradox Mods or package-manager route at version `1.0.0`.
 
-1. Download `standardised-country-colours_<version>.zip` from the [releases page](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest).
-2. Extract the archive so that `standardised-country-colours/.metadata/metadata.json` exists inside your Victoria 3 mod directory.
-3. Add the mod to a playset in the Victoria 3 launcher and enable it.
+1. Download the archive for your game from the [releases page](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest), for example `standardised-country-colours_vic3_<version>.zip` or `standardised-country-colours_imperator_<version>.zip`.
+2. Extract the archive so that `standardised-country-colours/.metadata/metadata.json` exists inside your Victoria 3 or Imperator: Rome mod directory.
+3. Add the mod to a playset in the launcher and enable it.
 
-The mod directory is:
+The mod directory is per game edition:
 
-- GNU/Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
-- macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
-- Windows: `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
+- Victoria 3: GNU/Linux `~/.local/share/Paradox Interactive/Victoria 3/mod/` · macOS `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/` · Windows `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
+- Imperator: Rome: GNU/Linux `~/.local/share/Paradox Interactive/ImperatorRome/mod/` · macOS `~/Library/Application Support/Paradox Interactive/ImperatorRome/mod/` · Windows `%USERPROFILE%\Documents\Paradox Interactive\ImperatorRome\mod\`
 
-Do not extract into the game installation directory. Victoria 3 never loads mods from `<steam>/steamapps/common/Victoria 3/`.
+Do not extract into the game installation directory. The games never load mods from `<steam>/steamapps/common/<game>/`.
 
 When replacing an existing installation, delete the previous `standardised-country-colours` directory first, because the game loads every file present in the mod directory and a stale file from an older version continues to apply.
 
 ## Verify the installation
 
-1. Open the launcher and confirm **Standardised Country Colours** appears at version `1.0.0` with artwork.
+1. Open the launcher and confirm **Standardised Country Colours** appears at the edition's version with artwork.
 2. Start a campaign and open the map. France should render as a deep navy (`#000099` against vanilla `#1432D2`), and Denmark as a vivid red (`#C8102E` against vanilla `#802019`).
 3. Release a country that does not exist at the start, such as Kurdistan, and confirm it appears with the standardised green (`#278E43`) rather than the vanilla value.
-4. Read `<user data>/Victoria 3/logs/error.log` and confirm no line names `sc_country_colours.txt`.
+4. Read the edition's logs directory and confirm no line names the shipped colour file.
 
 ## Use the mod
 

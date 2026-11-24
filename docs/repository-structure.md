@@ -57,9 +57,9 @@ The mod folder is not tracked. It exists only as build output, so the repository
 
 | Path | Lines | Role |
 |------|-------|------|
-| `.github/workflows/github-release.yml` | 57 | Release archive publication |
-| `.github/workflows/nexus-mods-release.yml` | 37 | Nexus Mods publication |
-| `.github/workflows/steam-workshop-release.yml` | 45 | Steam Workshop publication |
+| `.github/workflows/github-release.yml` | 104 | Release archive publication, one job per game edition |
+| `.github/workflows/nexus-mods-release.yml` | 80 | Nexus Mods publication, one job per game edition |
+| `.github/workflows/steam-workshop-release.yml` | 70 | Steam Workshop publication, one job per game edition |
 | `.github/FUNDING.yml` | 18 | Funding platforms |
 | `.github/cover.png` | — | Repository cover image, 1774x887 RGB |
 | `description/steam-workshop.bbcode` | — | Steam Workshop page description, in BBCode |
@@ -81,10 +81,10 @@ The generated files appear only under `out/`: `common/country_definitions/sc_cou
 
 ## Structural conventions
 
-- **The mod folder mirrors `Victoria 3/game`.** `common/country_definitions/` is the counterpart of the game's own path; a wrong depth or a misspelled folder is never read.
-- **The mod folder is build output.** It is rendered into `out/vic3/standardised-country-colours/` and never tracked, so the repository holds one copy of every value: in `src/colours.md` and the game edition's `config.py`.
-- **The mod folder name is the release label.** `standardised-country-colours` appears in the archive name, the extracted directory name, and the GitHub release asset.
-- **Every release workflow builds then archives the same folder.** Each runs `scripts/build.py` for the tag's version, stages the freshly built folder, and archives it; none of them transforms content.- **Definitions live in one file.** Adding a second file in the same folder would split the shipped set and make review harder; nothing in the engine requires it.
+- **The mod folder mirrors each game's own `game/` tree.** `common/country_definitions/` is the counterpart of the game's own path; a wrong depth or a misspelled folder is never read, for either Victoria 3 or Imperator: Rome.
+- **The mod folder is build output and per game.** It is rendered into `out/<game>/standardised-country-colours/` and never tracked, so the repository holds one copy of every value: in `src/colours.md` and the game edition's `config.py`.
+- **The mod folder name is the release label.** `standardised-country-colours` appears in the archive name, the extracted directory name, and the GitHub release asset; the game key (`vic3`, `imperator`) distinguishes the per-edition archives.
+- **Every release workflow builds then archives the same folder.** Each runs `scripts/build.py` for the tag's version, then archives the freshly built folder; none of them transforms content, and `github-release.yml` produces one archive per game edition.
 - **Provenance sits above each block.** A comment records the vanilla name, the palette hexadecimal value, and the palette source.
 - **No vanilla file name is copied.** `sc_country_colours.txt` cannot collide with `00_countries.txt`, `01_africa.txt`, `01_pacific_and_australasia.txt`, or `99_dynamic.txt`.
 - **The Workshop description is version-controlled.** `description/steam-workshop.bbcode` holds the item page body, so a page revision is reviewed and tracked like any other change. It is not part of the mod folder and is never archived into a release.
@@ -104,9 +104,9 @@ The output is written to `out/<group>/<folder>/` by default, where `<group>` is 
 The release workflows build the mod at the tag's version and archive it, so a release is the build output for that tag. A local greyscale of the same steps:
 
 ```bash
-python3 scripts/build.py --game victoria3 --version 1.0.0
-cp -r out/vic3/standardised-country-colours ./
-zip -r "standardised-country-colours_1.0.0.zip" "standardised-country-colours/"
+python3 scripts/build.py --game victoria3 --game imperator --version 1.0.0
+(cd out/vic3 && zip -r "${OLDPWD}/standardised-country-colours_vic3_1.0.0.zip" "standardised-country-colours/")
+(cd out/imperator && zip -r "${OLDPWD}/standardised-country-colours_imperator_1.0.0.zip" "standardised-country-colours/")
 ```
 
 The archive root is the mod folder itself, so extracting it into the mod directory yields `<mod dir>/standardised-country-colours/`.
