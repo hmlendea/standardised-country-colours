@@ -7,7 +7,7 @@ The repository emits no logs. Every diagnostic surface belongs to the game, and 
 | Facility | Present |
 |----------|---------|
 | Application logger | No |
-| Build log | No build step exists |
+| Build log | Yes, `scripts/build.py` prints the built version and output path |
 | Workflow log | Yes, GitHub Actions console output |
 | Test output | No test suite exists |
 

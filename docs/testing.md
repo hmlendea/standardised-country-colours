@@ -2,7 +2,19 @@
 
 ## There is no test suite
 
-The repository has no test project, no test runner, and no CI test job. Verification is structural auditing plus in-game inspection.
+The repository has no test project and no CI test job. Verification is structural auditing, a build-reproducibility check, and in-game inspection.
+
+## Build reproducibility
+
+The build must reproduce the committed mod folder exactly. This is the strongest available regression check, and it is the one thing that can catch an accidental edit to the shipped file.
+
+```bash
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check
+diff -r /tmp/build-check/standardised-country-colours standardised-country-colours \
+  && echo "reproduced"
+```
+
+Expected: `reproduced` and no difference lines. A failure means the committed folder and the build inputs disagree; regenerate it from the game edition modules under `scripts/games/` and the palette snapshot in `src/colours.md`.
 
 ## Structural audit
 
@@ -173,6 +185,7 @@ Expected: `VALIDATION PASSED: 100% template fidelity confirmed` for each workflo
 | Conditional colours never suppressed in tests | A player may attribute an intended conditional colour to a mod failure |
 | Engine behaviour verifiable only on a licensed install | The repository cannot be validated in isolation |
 | No assertion that a mapping is *desirable* | Only that it is structurally valid and tag-resolvable |
+| The build check covers only committed inputs | A missing or stale palette row reproduces faithfully rather than being flagged |
 
 ## Related documents
 

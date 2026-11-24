@@ -113,7 +113,13 @@ For the detailed description of how the application handles privacy and personal
 
 ## 🗂️ Project Structure
 
-The repository holds the mod folder itself at the repository root, so the tree mirrors the `Victoria 3/game` directory layout that the game expects.
+The repository holds the mod folder itself at the repository root, so the tree mirrors the `Victoria 3/game` directory layout that the game expects. The folder is rendered by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
+
+```bash
+python3 scripts/build.py --version 1.0.0
+```
+
+The build is game-agnostic: each game edition under `scripts/games/` declares its own identity, mappings, and output layout, so further editions can be added without touching the shared engine.
 
 ### Directories
 
@@ -122,6 +128,8 @@ The repository holds the mod folder itself at the repository root, so the tree m
 | `standardised-country-colours/` | The mod folder, named identically for every distribution channel |
 | `standardised-country-colours/.metadata/` | Launcher metadata and the launcher thumbnail |
 | `standardised-country-colours/common/country_definitions/` | The colour overrides for the affected countries |
+| `scripts/` | The build: a shared engine plus one module per game edition under `scripts/games/` |
+| `src/` | Build inputs: the shared palette snapshot and the per-game artwork |
 | `description/` | The Steam Workshop page description, in BBCode |
 
 ## 🏗️ Architecture

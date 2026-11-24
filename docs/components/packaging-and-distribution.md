@@ -117,7 +117,7 @@ The archive's top-level entry is the mod folder itself, so extracting it into th
 
 ## Manual distribution
 
-A user may clone the repository and copy `standardised-country-colours/` into the mod directory instead. Both routes yield the same tree.
+A user may clone the repository and copy `standardised-country-colours/` into the mod directory instead, or run `scripts/build.py` and use its output, which is byte-identical. Both routes yield the same tree.
 
 ## Workshop page description
 
@@ -125,7 +125,7 @@ A user may clone the repository and copy `standardised-country-colours/` into th
 
 ## Version policy
 
-`metadata.json.version` and the Git tag are independent strings; the workflow derives the archive name from the tag, not from the metadata. Keep them in step to avoid a launcher label that contradicts the downloaded archive name.
+`metadata.json.version` is supplied to `scripts/build.py` through its `--version` argument, and the Git tag is an independent string; the workflow derives the archive name from the tag, not from the metadata. Keep them in step to avoid a launcher label that contradicts the downloaded archive name.
 
 ## Related documents
 

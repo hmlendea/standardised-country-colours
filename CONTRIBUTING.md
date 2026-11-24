@@ -42,6 +42,7 @@ This document covers the guidelines and processes for contributing to this proje
 #### Prerequisites
 
 - [Victoria 3](https://store.steampowered.com/app/529340/), for verifying the mod in a running game
+- [Python 3](https://www.python.org/), for running the build; only the standard library is used
 - A text editor that preserves the UTF-8 byte-order mark, which Victoria 3 requires for every script and localisation file
 
 #### Development Setup
@@ -52,7 +53,10 @@ git clone https://github.com/hmlendea/vic3-standardised-country-colours.git
 cd vic3-standardised-country-colours
 
 # Install dependencies
-# No dependency installation is required to edit the mod definitions.
+# No dependency installation is required; the build uses only the Python 3 standard library.
+
+# Build the mod
+python3 scripts/build.py --version 1.0.0
 ```
 
 #### Making Changes
@@ -75,9 +79,10 @@ cd vic3-standardised-country-colours
 ### Code Style
 
 Follow the project's coding standards:
-- Indent with tabs, matching the surrounding definitions.
+- Indent with tabs in the generated definitions, matching the surrounding content.
 - Keep one country per block, with the three-letter tag as the block key.
 - Prefer `INJECT:<tag>` over `REPLACE:<tag>` so that only the colour is changed.
+- Change the build inputs — the shared palette snapshot in `src/colours.md` or the per-game configuration under `scripts/games/` — rather than the generated `standardised-country-colours/` folder.
 
 ### Documentation
 

@@ -8,14 +8,16 @@ The repository maintainer owns this tree. There is no delegated documentation ow
 
 | Trigger | Documents to revise |
 |---------|---------------------|
-| A colour value changes | [colour-mappings.md](./colour-mappings.md) |
-| A mapping is added or removed | [colour-mappings.md](./colour-mappings.md), the counts in [INDEX.md](./INDEX.md), and possibly [design-decisions.md](./design-decisions.md) D7 |
-| The content file is renamed | [components/mod-content.md](./components/mod-content.md), [repository-structure.md](./repository-structure.md), and every document that names the path |
-| The metadata changes | [components/launcher-metadata.md](./components/launcher-metadata.md), [configuration.md](./configuration.md) |
+| A colour value changes | [colour-mappings.md](./colour-mappings.md), `src/colours.md` if the snapshot is refreshed |
+| A mapping is added or removed | [colour-mappings.md](./colour-mappings.md), the counts in [INDEX.md](./INDEX.md), [repository-structure.md](./repository-structure.md) if the file length changes, and possibly [design-decisions.md](./design-decisions.md) D7 |
+| The content file is renamed | [components/mod-content.md](./components/mod-content.md), [repository-structure.md](./repository-structure.md), `scripts/games/victoria3/config.py`, and every document that names the path |
+| The metadata changes | [components/launcher-metadata.md](./components/launcher-metadata.md), [configuration.md](./configuration.md), `scripts/games/victoria3/config.py` |
+| A game edition is added | [build-and-deployment.md](./build-and-deployment.md), [repository-structure.md](./repository-structure.md), and the edition registry in `scripts/games/__init__.py` |
+| The build changes | [build-and-deployment.md](./build-and-deployment.md), [repository-structure.md](./repository-structure.md), [dependencies.md](./dependencies.md), [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | A workflow is added, renamed, or removed | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md), [integrations.md](./integrations.md), and the README GitHub Actions table |
 | A distribution channel is added | [integrations.md](./integrations.md), [README.md](../README.md) |
 | A game patch changes the tag set | [dependencies.md](./dependencies.md), [colour-mappings.md](./colour-mappings.md), [behaviour/country-colour-conflicts.md](./behaviour/map-colour-conflicts.md) if conditional blocks changed |
-| The palette changes | [colour-mappings.md](./colour-mappings.md), the palette snapshot date in [INDEX.md](./INDEX.md) |
+| The palette changes | [colour-mappings.md](./colour-mappings.md), the palette snapshot in `src/colours.md`, and the snapshot date in [INDEX.md](./INDEX.md) |
 
 ## Facts that must be re-derived rather than trusted
 
@@ -38,7 +40,11 @@ Two mechanical checks exist.
 # 1. The documented structural audit must pass unchanged.
 #    Copy the script from testing.md and run it against an installed game.
 
-# 2. Internal links must resolve.
+# 2. The build must reproduce the committed folder exactly.
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check
+diff -r /tmp/build-check/standardised-country-colours standardised-country-colours
+
+# 3. Internal links must resolve.
 python3 - <<'PY'
 import pathlib, re
 root = pathlib.Path("docs")

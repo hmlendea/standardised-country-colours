@@ -6,7 +6,7 @@ Master navigation for the Standardised Country Colours Victoria 3 edition reposi
 
 Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games; this repository is the Victoria 3 edition. It is a content-only mod that ships a single country-definition file under `standardised-country-colours/common/country_definitions/` that injects one `color` key into 131 vanilla country definitions, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
 
-The repository owns no runtime, no build step, and no executable code. Every observable effect is produced by the Victoria 3 engine reading the file.
+The repository owns no runtime. A build script, `scripts/build.py`, renders the mod folder byte-identically from the shared palette snapshot in `src/colours.md` and the per-game mappings and rendering under `scripts/games/`, but the shipped artefact remains a plain data folder; every observable effect is produced by the Victoria 3 engine reading the file.
 
 Current state, verified against the installed game (`1.15.2`, launcher label `Ivan-Chai`) and vanilla content revision:
 

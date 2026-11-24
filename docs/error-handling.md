@@ -6,6 +6,7 @@ The repository cannot catch, retry, or recover from anything. Every failure orig
 
 | ID | Failure | Origin | Detection | Effect | Recovery |
 |----|---------|--------|-----------|--------|----------|
+| E0 | Palette file missing or a tag names an unknown palette entry | Build | `scripts/build.py` exits non-zero with a message | No output written | Fix `src/colours.md` or the game edition's `config.py` |
 | E1 | `.metadata/metadata.json` absent | Packaging | Launcher does not list the mod | No change of any kind | Extract the folder correctly |
 | E2 | `metadata.json` invalid JSON | Authoring | Launcher does not list the mod | No change of any kind | Fix the JSON; comments are not permitted |
 | E3 | `game_id` wrong | Authoring | Mod may not be associated with Victoria 3 | Mod not loadable | Set `victoria3` |
@@ -46,10 +47,10 @@ A wrong colour is not an error condition: the engine cannot know that `#000099` 
 | Safeguard | Prevents |
 |-----------|----------|
 | Resolve every tag against the installed definitions | E7 |
-| Convert hex to decimal arithmetically, never by eye | E8 |
+| Derive every value from the palette snapshot in the build | E8 |
 | Write the file with a UTF-8 BOM | E6 |
 | Keep the file name unique in its folder | E12 |
-| Validate the metadata as JSON | E2 |
+| Generate the metadata from the game edition's identity constants | E2, E3, E5 |
 | Keep the tag's localised name in the comment | Silent mis-mapping |
 
 ## Related documents

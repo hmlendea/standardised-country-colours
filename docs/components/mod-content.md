@@ -68,7 +68,7 @@ The palette itself lists Wallachia as an alias of Romania. The mod colours both 
 
 ## Colour derivation
 
-Every value is an exact decimal expansion of the palette hexadecimal triple, with no gamma adjustment, no lightening for map legibility, and no collision avoidance. `#000099` becomes `{ 0 0 153 }`.
+Every value is an exact decimal expansion of the palette hexadecimal triple, with no gamma adjustment, no lightening for map legibility, and no collision avoidance. `#000099` becomes `{ 0 0 153 }`. The Victoria 3 renderer derives the expansion from the `src/colours.md` snapshot, so the triple, the hexadecimal in the comment, and the source attribution always agree.
 
 ## Boundaries
 
@@ -90,13 +90,15 @@ Every value is an exact decimal expansion of the palette hexadecimal triple, wit
 
 | Edit | Effect | Guards |
 |------|--------|--------|
-| Change a `color` triple | That country's map colour changes | Keep the comment hexadecimal in step |
-| Change a tag | The old tag reverts to vanilla; the new tag takes the colour | Confirm the new tag exists |
-| Add an entry | One more country recoloured | Alphabetical position, provenance comment, range check |
+| Change a palette value | That country's map colour changes | Change `src/colours.md` and rebuild |
+| Change a tag | The old tag reverts to vanilla; the new tag takes the colour | Change `scripts/games/victoria3/config.py`; confirm the new tag exists |
+| Add an entry | One more country recoloured | Add to `scripts/games/victoria3/config.py`; confirm the palette entry exists |
 | Remove an entry | That country reverts to vanilla | Confirm it was the intent, not a merge accident |
 | Change the keyword to `REPLACE:` | The whole vanilla block is discarded | Never do this |
 | Rename the file | Harmless if unique; breaks no contract | Keep it unique in the folder |
-| Reorder entries | Harmless | Preserve alphabetical order for reviewability |
+| Edit the built file directly | The change is lost on the next build | Edit the inputs instead |
+
+The build always writes the file alphabetically by tag with the provenance comment and range-checked components, so those properties hold without manual care.
 
 ## Related documents
 

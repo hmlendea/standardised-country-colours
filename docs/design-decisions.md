@@ -40,9 +40,9 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Decision.** Each block is preceded by `# <name> - <#HEX> - <source>`.
 
-**Rationale.** There is no side-car data file and no generated index; the comment is the record. A reviewer can see why a value differs from vanilla without consulting an external artefact, and the game ignores comment lines.
+**Rationale.** There is no side-car data file and no generated index; the comment is the record. A reviewer can see why a value differs from vanilla without consulting an external artefact, and the game ignores comment lines. The comment is rendered by the build from the palette entry and the vanilla name, so it cannot drift from the value.
 
-**Consequence.** The comment must be maintained by hand alongside the value. It also makes the file longer, which is accepted as a readability gain. A discrepancy between the comment and the value is a review defect, not a runtime failure.
+**Consequence.** The comment is regenerated on every build, so it is never edited by hand. It makes the file longer, which is accepted as a readability gain. A discrepancy between the comment and the value can only arise if the palette snapshot and the shipped file are out of step, which a rebuild rectifies.
 
 ## D6. Plain RGB decimal components
 
@@ -68,13 +68,13 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Consequence.** The launcher will not join a session whose participants do not share the mod.
 
-## D9. No build step
+## D9. A rendering build, but a static artefact
 
-**Decision.** The release workflow archives the checked-out folder directly.
+**Decision.** `scripts/build.py` renders the mod folder from the palette snapshot and the hardcoded mappings, and the release workflow archives the committed folder.
 
-**Rationale.** There is nothing to generate. A staging directory, a compile step, or a generator script would add a failure mode without adding value.
+**Rationale.** The shipped artefact is still static data: every file the game reads is generated deterministically and is byte-identical to the committed folder, so the build adds reproducibility without changing what ships. Colours, provenance comments, and the metadata version are derived from one palette snapshot rather than retyped per entry, which removes the silent mis-conversion and stale-comment failure modes of hand editing.
 
-**Consequence.** Release contents are exactly the tagged tree, which makes a release trivially reproducible from the repository.
+**Consequence.** Release contents remain exactly the tagged tree, so a release is still reproducible from the repository alone. A build run that diverges from the committed folder is a defect either in the inputs or in the artefact.
 
 ## D10. Keep `supported_game_version` narrow
 

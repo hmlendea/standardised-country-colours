@@ -12,48 +12,52 @@
 
 | Dependency | Responsibility | Consequence |
 |------------|----------------|-------------|
-| `COUNTRY_COLOURS.md` palette | Source of every standardised value and its attribution | The repository records the value; it does not derive it |
-| Hex-to-decimal conversion | Converts `#RRGGBB` to three 0–255 components | A wrong conversion is a silent mis-colour, invisible to the engine |
-| Tag resolution | Maps a palette entry name to a three-letter tag | A wrong tag colours the wrong country and is immediately visible |
+| `src/colours.md` palette snapshot | Source of every standardised value and its attribution | The build derives the values from it; the repository records the snapshot |
+| Hex-to-decimal conversion | Converts `#RRGGBB` to three 0–255 components | Performed by `scripts/build.py`, so a wrong conversion is a build defect rather than a silent mis-colour |
+| Tag resolution | Maps a palette entry name to a three-letter tag | Hardcoded in `scripts/games/victoria3/config.py`; a wrong tag colours the wrong country and is immediately visible |
 
 ## Development dependencies
 
-None. Editing the mod requires only a text editor that preserves the UTF-8 byte-order mark. No SDK, package manager, runtime, compiler, or test framework is required.
+None beyond the Python 3 standard library. Editing the mod means editing the palette snapshot or the build configuration and rerunning `scripts/build.py`. No SDK, package manager, third-party runtime, compiler, or test framework is required.
 
 ## Tooling dependencies
 
 | Tool | Used by | Optional |
 |------|---------|----------|
+| `python3` | `scripts/build.py` and the verification snippets in [testing.md](./testing.md) | No, for building |
 | `zip` | Release workflow | No, for releases |
-| `rsvg-convert` | Regenerating the thumbnails from the SVG source | Yes, only when the artwork changes |
-| `python3` | The verification snippets in [testing.md](./testing.md) | Yes, for verification only |
+| `rsvg-convert` | Regenerating the source artwork | Yes, only when the artwork changes |
 | Victoria 3 with `-debug_mode` | In-game verification | Yes, but required for behavioural checks |
 
 ## Internal dependencies between documents and content
 
 ```mermaid
 flowchart LR
-  Palette["COUNTRY_COLOURS.md<br/>external"] --> Content["sc_country_colours.txt"]
+  Palette["src/colours.md<br/>palette snapshot"] --> Build["scripts/build.py<br/>+ scripts/games/<game>"]
+  Build --> Content["sc_country_colours.txt"]
+  Build --> Meta["metadata.json"]
+  Build --> Content
   Content --> Docs["docs/colour-mappings.md"]
   Content --> RootArch["ARCHITECTURE.md"]
-  Meta["metadata.json"] --> Release["github-release.yml"]
+  Meta --> Release["github-release.yml"]
   Content --> Release
   Content --> Workshop["steam-workshop-release.yml"]
   Content --> Nexus["nexus-mods-release.yml"]
 ```
 
-Documentation depends on content; content depends on nothing in the repository. No document is read by the engine.
+Documentation depends on content; content is rendered by the build from the palette snapshot and the hardcoded mappings. No document is read by the engine.
 
 ## Supply chain assessment
 
 The repository has no packages, lockfiles, SBOM, or third-party code. The only executable elements are:
 
-1. a GitHub Action (`actions/checkout@v7`, `softprops/action-gh-release@v2`), pinned to major versions;
-2. `hmlendea/steam-workshop-update@latest`, which publishes to the Workshop item;
-3. `Nexus-Mods/upload-action@v1.0.0-beta.11`, which publishes to Nexus Mods;
-4. the `zip` command from the runner image.
+1. `scripts/build.py`, which uses only the Python 3 standard library and runs on the maintainer's machine;
+2. a GitHub Action (`actions/checkout@v7`, `softprops/action-gh-release@v2`), pinned to major versions;
+3. `hmlendea/steam-workshop-update@latest`, which publishes to the Workshop item;
+4. `Nexus-Mods/upload-action@v1.0.0-beta.11`, which publishes to Nexus Mods;
+5. the `zip` command from the runner image.
 
-All run only in the release workflows, never on a player's machine. The Workshop workflow additionally reads the `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` repository secrets and the Nexus Mods workflow reads `NEXUSMODS_API_KEY`; their values are never printed and never leave the runner except to the respective service.
+Apart from the build script, all run only in the release workflows, never on a player's machine. The Workshop workflow additionally reads the `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` repository secrets and the Nexus Mods workflow reads `NEXUSMODS_API_KEY`; their values are never printed and never leave the runner except to the respective service.
 
 ## Related documents
 
