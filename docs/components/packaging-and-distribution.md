@@ -19,6 +19,7 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
 | Extract the version | Shell | Strips the leading `v` from the tag and exports it |
+| Build the mod | `python3 scripts/build.py --version "${{ steps.version.outputs.version }}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root, because the mod folder is no longer committed |
 | Build the release archive | `zip -r` | Produces `standardised-country-colours_<version>.zip` containing the mod folder |
 | Publish the release asset | `softprops/action-gh-release@v2` | Attaches the archive to the release |
 
@@ -32,7 +33,7 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 
 - No checksum is computed or attached.
 - The release body is left as the maintainer wrote it.
-- No staging directory is created and no files are copied, because the archive is built from the checked-out tree.
+- The built folder is staged at the repository root only for the duration of the run; nothing is committed back.
 
 ## Steam Workshop workflow
 
@@ -50,11 +51,12 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
+| Build the mod | `python3 scripts/build.py --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
 | Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
 | Extract the release archive | `unzip` | Expands to `release/standardised-country-colours/` |
 | Upload | `hmlendea/steam-workshop-update@latest` | Publishes the folder to Workshop item `3844790373` for Steam app `529340`, passes `icon` as the Workshop preview image, and adds a changenote linking to the GitHub release of the tag |
 
-The upload step supplies `icon: "release/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the committed `thumbnail.png` may be larger than the Workshop dimensions require.
+The upload step supplies `icon: "release/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the `thumbnail.png` in the build output may be larger than the Workshop dimensions require.
 
 `VERSION` resolves to `${{ inputs.tag || github.ref_name }}` so a manual run publishes the requested tag.
 
@@ -65,7 +67,7 @@ The upload reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from r
 ### What is not done
 
 - The archive is not retained; only the extracted folder is uploaded.
-- No staging directory or content transformation exists, because the uploaded folder is the checked-out tree.
+- No content transformation is applied; the uploaded folder is the freshly built tree.
 - Paradox Mods is not targeted.
 
 ## Nexus Mods workflow
@@ -84,6 +86,7 @@ The upload reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from r
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
+| Build the mod | `python3 scripts/build.py --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
 | Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
 | Upload | `Nexus-Mods/upload-action@v1.0.0-beta.11` | Publishes `standardised-country-colours.zip` to Nexus Mods file `8446233`, sets the tag as the file version, archives the previous version, and updates the mod version |
 
@@ -117,7 +120,7 @@ The archive's top-level entry is the mod folder itself, so extracting it into th
 
 ## Manual distribution
 
-A user may clone the repository and copy `standardised-country-colours/` into the mod directory instead, or run `scripts/build.py` and use its output, which is byte-identical. Both routes yield the same tree.
+A user may run `scripts/build.py` and copy its `out/vic3/standardised-country-colours/` output into the mod directory. That folder is byte-identical to any release archive's contents.
 
 ## Workshop page description
 

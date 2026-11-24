@@ -30,7 +30,7 @@ If not, see the first three symptoms above.
 ### 2. Confirm the entry is shipped
 
 ```bash
-grep -c "^INJECT:<TAG> = {" standardised-country-colours/common/country_definitions/sc_country_colours.txt
+grep -c "^INJECT:<TAG> = {" out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt
 ```
 
 A result of `0` means the country is not mapped. Check [colour-mappings.md](./colour-mappings.md).
@@ -77,7 +77,7 @@ Look for a mod that defines the same tag. A `REPLACE:` beats this mod's `INJECT:
 The tag and the palette entry name disagree. Cross-check:
 
 ```bash
-grep -B1 "^INJECT:<TAG> = {" standardised-country-colours/common/country_definitions/sc_country_colours.txt
+grep -B1 "^INJECT:<TAG> = {" out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt
 grep -E "^ <TAG>:" "<game>/localization/english/countries_l_english.yml"
 ```
 
@@ -90,7 +90,7 @@ Two mapped countries may share a near-identical colour, or a mapped colour may c
 Quick check for exact duplicates among mapped values:
 
 ```bash
-grep -oE "^# .+ - (#[0-9A-F]{6})" standardised-country-colours/common/country_definitions/sc_country_colours.txt \
+grep -oE "^# .+ - (#[0-9A-F]{6})" out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt \
   | sed 's/.* - //' | sort | uniq -d
 ```
 

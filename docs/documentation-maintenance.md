@@ -40,9 +40,11 @@ Two mechanical checks exist.
 # 1. The documented structural audit must pass unchanged.
 #    Copy the script from testing.md and run it against an installed game.
 
-# 2. The build must reproduce the committed folder exactly.
-python3 scripts/build.py --version 1.0.0 -o /tmp/build-check
-diff -r /tmp/build-check/vic3/standardised-country-colours standardised-country-colours
+# 2. The build must be deterministic for the same inputs and version.
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-a
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-b
+diff -r /tmp/build-check-a/vic3/standardised-country-colours \
+        /tmp/build-check-b/vic3/standardised-country-colours
 
 # 3. Internal links must resolve.
 python3 - <<'PY'

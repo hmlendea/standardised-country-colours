@@ -107,25 +107,25 @@ For the detailed description of how the application handles privacy and personal
 
 | Workflow | Purpose | What it does |
 |----------|---------|--------------|
-| [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: checks out the requested tag, strips the leading `v` from the version, archives `standardised-country-colours/` as `standardised-country-colours_<version>.zip`, and attaches the archive to the release |
-| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop item | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, archives and extracts `standardised-country-colours/`, and uploads it to the Steam Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
-| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods file | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, archives `standardised-country-colours/` as `release.zip`, and uploads it to Nexus Mods file `8446233` with the tag as its version |
+| [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives `standardised-country-colours/` as `standardised-country-colours_<version>.zip`, and attaches the archive to the release |
+| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop item | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives and extracts `standardised-country-colours/`, and uploads it to the Steam Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
+| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods file | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives `standardised-country-colours/` as `release.zip`, and uploads it to Nexus Mods file `8446233` with the tag as its version |
 
 ## 🗂️ Project Structure
 
-The repository holds the mod folder itself at the repository root, so the tree mirrors the `Victoria 3/game` directory layout that the game expects. The folder is rendered by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
+The build renders the mod folder into `out/vic3/standardised-country-colours/`, so the generated tree mirrors the `Victoria 3/game` directory layout that the game expects. The folder is produced by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
 
 ```bash
 python3 scripts/build.py --version 1.0.0
 ```
 
-The build is game-agnostic: each game edition under `scripts/games/` declares its own identity, mappings, and output layout, so further editions can be added without touching the shared engine.
+The mod folder is build output and is not committed. The build is game-agnostic: each game edition under `scripts/games/` declares its own identity, mappings, and output layout, so further editions can be added without touching the shared engine.
 
 ### Directories
 
 | Directory | Purpose |
 |-----------|---------|
-| `standardised-country-colours/` | The mod folder, named identically for every distribution channel |
+| `standardised-country-colours/` | The mod folder, generated under `out/<game>/`; named identically for every distribution channel |
 | `standardised-country-colours/.metadata/` | Launcher metadata and the launcher thumbnail |
 | `standardised-country-colours/common/country_definitions/` | The colour overrides for the affected countries |
 | `scripts/` | The build: a shared engine plus one module per game edition under `scripts/games/` |

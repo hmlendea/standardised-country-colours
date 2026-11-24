@@ -68,13 +68,13 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Consequence.** The launcher will not join a session whose participants do not share the mod.
 
-## D9. A rendering build, but a static artefact
+## D9. Render the mod, do not commit it
 
-**Decision.** `scripts/build.py` renders the mod folder from the palette snapshot and the hardcoded mappings, and the release workflow archives the committed folder.
+**Decision.** `scripts/build.py` renders the mod folder from the palette snapshot and the hardcoded mappings into an ignored `out/` directory, and every release workflow runs the build for the tag's version before archiving.
 
-**Rationale.** The shipped artefact is still static data: every file the game reads is generated deterministically and is byte-identical to the committed folder, so the build adds reproducibility without changing what ships. Colours, provenance comments, and the metadata version are derived from one palette snapshot rather than retyped per entry, which removes the silent mis-conversion and stale-comment failure modes of hand editing.
+**Rationale.** The shipped artefact is static data, but it does not have to be tracked. Rendering it removes the duplicate copy of every colour and provenance comment that a committed folder would carry, so a value lives once, in `src/colours.md` and the game edition's `config.py`. Colours, provenance comments, and the metadata version are derived from those inputs rather than retyped, which removes the silent mis-conversion and stale-comment failure modes of hand editing.
 
-**Consequence.** Release contents remain exactly the tagged tree, so a release is still reproducible from the repository alone. A build run that diverges from the committed folder is a defect either in the inputs or in the artefact.
+**Consequence.** Release contents are exactly the build output for the tagged inputs, so a release stays reproducible. A local build is the only way to obtain the folder, and a release that was not built from its tag is not possible through the workflows.
 
 ## D10. Keep `supported_game_version` narrow
 

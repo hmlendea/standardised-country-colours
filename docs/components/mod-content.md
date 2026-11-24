@@ -1,12 +1,14 @@
 # Component: mod content
 
-The mod content is the repository's entire product: a single country-definition file carrying 131 injections.
+The mod content is the build's entire product: a single country-definition file carrying 131 injections.
 
 ## Location
 
 ```text
 standardised-country-colours/common/country_definitions/sc_country_colours.txt
 ```
+
+This path is inside the built folder (`out/vic3/standardised-country-colours/`). The file is rendered by the Victoria 3 edition of `scripts/build.py` and is never committed; its inputs are `src/colours.md` and `scripts/games/victoria3/config.py`.
 
 ## File shape
 

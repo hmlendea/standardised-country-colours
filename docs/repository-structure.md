@@ -39,49 +39,52 @@ vic3-standardised-country-colours/
 │   └── victoria3/                            # the Victoria 3 edition assets
 │       ├── launcher-thumbnail.png            # 600x333 launcher artwork
 │       └── thumbnail.png                     # 512x512 Workshop artwork
-└── standardised-country-colours/             # the built mod folder
-    ├── .metadata/
-    │   ├── metadata.json
-    │   └── thumbnail.png                     # 600x333 launcher artwork
-    ├── common/
-    │   └── country_definitions/
-    │       └── sc_country_colours.txt        # 131 injections, 665 lines
-    └── thumbnail.png                         # 512x512 Workshop artwork
+└── (out/)                                    # generated, git-ignored
+    └── vic3/
+        └── standardised-country-colours/      # the built mod folder
+            ├── .metadata/
+            │   ├── metadata.json
+            │   └── thumbnail.png              # 600x333 launcher artwork
+            ├── common/
+            │   └── country_definitions/
+            │       └── sc_country_colours.txt # 131 injections, 665 lines
+            └── thumbnail.png                  # 512x512 Workshop artwork
 ```
+
+The mod folder is not tracked. It exists only as build output, so the repository holds inputs and the code that renders them, not a duplicated artefact.
 
 ## File inventory
 
 | Path | Lines | Role |
 |------|-------|------|
-| `standardised-country-colours/common/country_definitions/sc_country_colours.txt` | 665 | The entire product: 131 commented `INJECT:` blocks |
-| `standardised-country-colours/.metadata/metadata.json` | 22 | Launcher descriptor |
-| `standardised-country-colours/.metadata/thumbnail.png` | — | Launcher artwork, 600x333 RGB |
-| `standardised-country-colours/thumbnail.png` | — | Workshop artwork, 512x512 RGB |
-| `.github/workflows/github-release.yml` | 51 | Release archive publication |
-| `.github/workflows/nexus-mods-release.yml` | 31 | Nexus Mods publication |
-| `.github/workflows/steam-workshop-release.yml` | 39 | Steam Workshop publication |
+| `.github/workflows/github-release.yml` | 57 | Release archive publication |
+| `.github/workflows/nexus-mods-release.yml` | 37 | Nexus Mods publication |
+| `.github/workflows/steam-workshop-release.yml` | 45 | Steam Workshop publication |
 | `.github/FUNDING.yml` | 18 | Funding platforms |
 | `.github/cover.png` | — | Repository cover image, 1774x887 RGB |
 | `description/steam-workshop.bbcode` | — | Steam Workshop page description, in BBCode |
 | `scripts/build.py` | 78 | The command-line entry point: selects the editions and delegates |
-| `scripts/builder.py` | 54 | The shared, game-agnostic build engine |
+| `scripts/builder.py` | 56 | The shared, game-agnostic build engine |
 | `scripts/palette.py` | 75 | The shared palette reader and colour conversion |
 | `scripts/config.py` | 20 | Shared project-wide configuration |
 | `scripts/games/__init__.py` | 11 | The registry of supported game editions |
-| `scripts/games/base.py` | 37 | The `GameEdition` contract every edition implements |
-| `scripts/games/victoria3/__init__.py` | 15 | The registered Victoria 3 edition |
-| `scripts/games/victoria3/config.py` | 210 | Edition identity, output layout, and the tag mappings |
+| `scripts/games/base.py` | 39 | The `GameEdition` contract every edition implements |
+| `scripts/games/victoria3/__init__.py` | 18 | The registered Victoria 3 edition |
+| `scripts/games/victoria3/config.py` | 211 | Edition identity, output layout, and the tag mappings |
 | `scripts/games/victoria3/render.py` | 112 | Renders the Victoria 3 content and metadata files |
 | `src/colours.md` | 333 | The shared palette snapshot the build reads |
 | `src/victoria3/thumbnail.png` | — | Workshop artwork input, 1254x1254 RGB |
 | `src/victoria3/launcher-thumbnail.png` | — | Launcher artwork input, 1683x934 RGB |
 | `.gitignore` | 8 | Excludes archives, the build output, and transient files |
 
+The generated files appear only under `out/`: `common/country_definitions/sc_country_colours.txt` (665 lines, 131 commented `INJECT:` blocks), `.metadata/metadata.json` (22 lines), and the two copied PNGs.
+
 ## Structural conventions
 
 - **The mod folder mirrors `Victoria 3/game`.** `common/country_definitions/` is the counterpart of the game's own path; a wrong depth or a misspelled folder is never read.
+- **The mod folder is build output.** It is rendered into `out/vic3/standardised-country-colours/` and never tracked, so the repository holds one copy of every value: in `src/colours.md` and the game edition's `config.py`.
 - **The mod folder name is the release label.** `standardised-country-colours` appears in the archive name, the extracted directory name, and the GitHub release asset.
-- **Every release workflow archives the same folder.** `github-release.yml` attaches the archive to a GitHub release; `steam-workshop-release.yml` uploads the extracted folder to the Workshop item; `nexus-mods-release.yml` uploads the archive to Nexus Mods. None transforms the content.- **Definitions live in one file.** Adding a second file in the same folder would split the shipped set and make review harder; nothing in the engine requires it.
+- **Every release workflow builds then archives the same folder.** Each runs `scripts/build.py` for the tag's version, stages the freshly built folder, and archives it; none of them transforms content.- **Definitions live in one file.** Adding a second file in the same folder would split the shipped set and make review harder; nothing in the engine requires it.
 - **Provenance sits above each block.** A comment records the vanilla name, the palette hexadecimal value, and the palette source.
 - **No vanilla file name is copied.** `sc_country_colours.txt` cannot collide with `00_countries.txt`, `01_africa.txt`, `01_pacific_and_australasia.txt`, or `99_dynamic.txt`.
 - **The Workshop description is version-controlled.** `description/steam-workshop.bbcode` holds the item page body, so a page revision is reviewed and tracked like any other change. It is not part of the mod folder and is never archived into a release.
@@ -94,9 +97,19 @@ vic3-standardised-country-colours/
 python3 scripts/build.py --version 1.0.0
 ```
 
-The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` restricts the run to one or more editions. The script produces folders byte-identical to the committed `standardised-country-colours/`, so the tracked output can be regenerated and diffed at any time.
+The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` restricts the run to one or more editions. Because the mod folder is not tracked, the build is the only way to produce it.
 
-The release workflows still archive the committed folder, so a release is reproducible from the tagged tree alone.
+## Release artefact
+
+The release workflows build the mod at the tag's version and archive it, so a release is the build output for that tag. A local greyscale of the same steps:
+
+```bash
+python3 scripts/build.py --version 1.0.0
+cp -r out/vic3/standardised-country-colours ./
+zip -r "standardised-country-colours_1.0.0.zip" "standardised-country-colours/"
+```
+
+The archive root is the mod folder itself, so extracting it into the mod directory yields `<mod dir>/standardised-country-colours/`.
 
 ## Adding a game edition
 

@@ -23,9 +23,14 @@ jobs:
       with:
         ref: ${{ env.VERSION }}
 
+    - name: Build the mod
+      run: |
+        python3 scripts/build.py --version "${VERSION#v}"
+
     - name: Build the release archive
       run: |
-        zip -r "release.zip" "standardised-country-colours/"
+        cd out/vic3
+        zip -r "${GITHUB_WORKSPACE}/release.zip" "standardised-country-colours/"
 
     - name: Upload
       uses: Nexus-Mods/upload-action@v1.0.0-beta.11

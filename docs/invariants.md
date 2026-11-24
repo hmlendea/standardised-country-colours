@@ -14,6 +14,8 @@ Each invariant is a property that must hold for the mod to behave correctly, wit
 | C6 | Every entry carries a provenance comment of the form `# <name> - <#HEX> - <source>` | Count matching comment lines |
 | C7 | Braces balance | Count `{` and `}` |
 | C8 | The file is UTF-8 with a byte-order mark | Inspect the first three bytes |
+| C9 | The shipped content is reproduced only by the build, never committed | `git ls-files standardised-country-colours` is empty and the path is git-ignored |
+| C10 | The build is deterministic for the same inputs and version | Build twice into different directories and `diff -r` them |
 
 ## Packaging invariants
 
@@ -38,6 +40,8 @@ Each invariant is a property that must hold for the mod to behave correctly, wit
 | R5 | The Workshop upload points at the extracted mod folder | Upload step uses `release/standardised-country-colours/` |
 | R6 | The Workshop upload sets the preview image explicitly | Upload step declares `icon: "release/standardised-country-colours/thumbnail.png"` |
 | R7 | The Nexus Mods upload uses file id `8446233` and version `${{ env.VERSION }}` | Upload step inspection |
+| R8 | Every release workflow builds the mod before archiving it | Each workflow runs `python3 scripts/build.py --version` with the tag version (the extraction step's output in `github-release.yml`, `${VERSION#v}` in the tag-push workflows) and stages `out/vic3/standardised-country-colours` before its archive step |
+| R9 | The archived folder is the build output, not a committed tree | The repository tracks no `standardised-country-colours/` path |
 ## Behavioural invariants
 
 | ID | Invariant | Verification |

@@ -35,7 +35,7 @@ Open the shipped entry and the vanilla block side by side:
 
 | Shipped | Vanilla |
 |---------|---------|
-| `standardised-country-colours/common/country_definitions/sc_country_colours.txt` | `<game>/common/country_definitions/00_countries.txt` |
+| `out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt` | `<game>/common/country_definitions/00_countries.txt` |
 
 The shipped entry is three lines plus a provenance comment:
 

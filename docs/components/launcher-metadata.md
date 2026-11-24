@@ -7,7 +7,7 @@ standardised-country-colours/.metadata/metadata.json
 standardised-country-colours/.metadata/thumbnail.png
 ```
 
-`metadata.json` is rendered by the Victoria 3 edition of `scripts/build.py` from the identity constants in `scripts/games/victoria3/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/victoria3/launcher-thumbnail.png`.
+These paths are inside the built folder (`out/vic3/standardised-country-colours/`). `metadata.json` is rendered by the Victoria 3 edition of `scripts/build.py` from the identity constants in `scripts/games/victoria3/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/victoria3/launcher-thumbnail.png`.
 
 ## Current values
 

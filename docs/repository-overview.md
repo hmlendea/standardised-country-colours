@@ -8,11 +8,11 @@ Assign one standardised map colour to each of 131 Victoria 3 countries, applying
 
 The repository owns exactly three things:
 
-1. one country-definition file that injects a `color` key into 131 vanilla country blocks;
-2. the launcher metadata that makes the folder a discoverable mod;
+1. the build inputs — the shared palette snapshot and the per-game configuration — that render a country-definition file injecting a `color` key into 131 vanilla country blocks;
+2. the launcher metadata that makes the built folder a discoverable mod;
 3. the build, documentation, licence, and release workflows that render, package, and publish the folder.
 
-The country-definition file and the metadata are rendered byte-identically by `scripts/build.py` from the palette snapshot in `src/colours.md`, the hardcoded mappings in `scripts/games/victoria3/config.py`, and the rendering in `scripts/games/victoria3/render.py`.
+The country-definition file and the metadata are rendered by `scripts/build.py` from the palette snapshot in `src/colours.md`, the hardcoded mappings in `scripts/games/victoria3/config.py`, and the rendering in `scripts/games/victoria3/render.py`. The rendered folder is build output and is never committed.
 
 ## What the mod changes
 
@@ -45,7 +45,7 @@ The country-definition file and the metadata are rendered byte-identically by `s
 |-------------|----------|---------------|
 | `.metadata/metadata.json` | Paradox launcher | [components/launcher-metadata.md](./components/launcher-metadata.md) |
 | `common/country_definitions/sc_country_colours.txt` | Victoria 3 engine | [components/mod-content.md](./components/mod-content.md) |
-| `scripts/build.py` | Maintainer | [build-and-deployment.md](./build-and-deployment.md) |
+| `scripts/build.py` | Maintainer and release workflows | [build-and-deployment.md](./build-and-deployment.md) |
 | `.github/workflows/github-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |
 | `.github/workflows/nexus-mods-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |
 | `.github/workflows/steam-workshop-release.yml` | GitHub Actions | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) |

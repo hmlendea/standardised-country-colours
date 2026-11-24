@@ -78,12 +78,12 @@ Rules the build enforces:
 
 ### 6. Verify
 
-Run the build and confirm `<output>/vic3/standardised-country-colours/` matches the committed folder, then run the structural checks in [testing.md](../testing.md). At minimum:
+Run the build, then run the structural checks in [testing.md](../testing.md) against its output. At minimum:
 
 ```bash
 python3 - <<'PY'
 import re
-p = "standardised-country-colours/common/country_definitions/sc_country_colours.txt"
+p = "out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt"
 raw = open(p, "rb").read()
 assert raw[:3] == b"\xef\xbb\xbf", "missing BOM"
 t = raw.decode("utf-8-sig")

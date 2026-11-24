@@ -24,32 +24,35 @@ python3 scripts/build.py --version 1.0.0
 | `-g`, `--game` | Game edition to build; repeatable | Every registered edition |
 | `-o`, `--out`, `--output` | Directory that receives the per-game output groups | `out/` |
 
-The build clears `<output>/<group>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The result is byte-identical to the committed mod folder: the content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
+The build clears `<output>/<group>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
+
+The mod folder is never committed; the build is the only producer of it. Its value is that it is deterministic, so the same inputs and version always produce the same bytes.
 
 ## Local packaging
 
-To produce the same archive the workflow produces:
+To produce the same archive the workflows produce:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
 VERSION=1.0.0
-(cd out && zip -r "../standardised-country-colours_${VERSION}.zip" "standardised-country-colours/")
+
+python3 scripts/build.py --version "${VERSION}"
+cp -r out/vic3/standardised-country-colours ./
+zip -r "standardised-country-colours_${VERSION}.zip" "standardised-country-colours/"
 ```
 
-`zip` can equivalently archive the committed `standardised-country-colours/` folder, because the build reproduces it exactly. The archive root is the folder itself, so extraction yields `standardised-country-colours/...`.
+The archive root is the folder itself, so extraction yields `standardised-country-colours/...`.
 
 ## Release procedure
 
-1. Confirm the metadata `version` matches the intended tag.
-2. Confirm every shipped tag still exists in the installed game's definitions.
-3. Run the build and confirm `<output>/vic3/standardised-country-colours/` matches the committed folder.
-4. Run the structural checks in [testing.md](./testing.md).
-5. Verify in game that a representative country shows the expected colour.
-6. Commit and tag.
-7. Publish a GitHub release for the tag.
-8. The workflow attaches `standardised-country-colours_<version>.zip` to the release.
-9. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which uploads the same folder to the Workshop item with a changenote linking to the GitHub release.
-10. The same tag push triggers `nexus-mods-release.yml`, which uploads the archive to the Nexus Mods file.
+1. Confirm every shipped tag still exists in the installed game's definitions.
+2. Run `python3 scripts/build.py --version <version>`.
+3. Run the structural checks in [testing.md](./testing.md) against the built folder.
+4. Verify in game that a representative country shows the expected colour.
+5. Commit and tag.
+6. Publish a GitHub release for the tag.
+7. `github-release.yml` builds the mod at the tag's version and attaches `standardised-country-colours_<version>.zip` to the release.
+8. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which builds the same folder and uploads it to the Workshop item with a changenote linking to the GitHub release.
+9. The same tag push triggers `nexus-mods-release.yml`, which builds the archive and uploads it to the Nexus Mods file.
 
 Alternatively, trigger any workflow manually with the tag input; each `VERSION` expression resolves to the supplied tag.
 
@@ -57,12 +60,11 @@ Alternatively, trigger any workflow manually with the tag input; each `VERSION` 
 
 | Environment | Purpose | Mechanism |
 |-------------|---------|-----------|
-| Local checkout | Authoring and verification | Direct edit of the mod folder |
-| Local build | Regenerating the mod folder | `scripts/build.py` into `out/<game>/` |
-| Local game | Behavioural verification | Copy the folder into the user mod directory |
-| GitHub release | Distribution | Workflow archive attachment |
-| Steam Workshop | Distribution | `steam-workshop-release.yml` item upload |
-| Nexus Mods | Distribution | `nexus-mods-release.yml` file upload |
+| Local build | Authoring and verification | `scripts/build.py` into `out/<group>/<folder>/` |
+| Local game | Behavioural verification | Copy the built folder into the user mod directory |
+| GitHub release | Distribution | Workflow build then archive attachment |
+| Steam Workshop | Distribution | `steam-workshop-release.yml` build and item upload |
+| Nexus Mods | Distribution | `nexus-mods-release.yml` build and file upload |
 
 No staging, canary, or production distinction exists.
 
@@ -82,9 +84,9 @@ Check out an earlier tag, or download an earlier release archive, and replace th
 
 | File | Field | Rule |
 |------|-------|------|
-| `scripts/games/victoria3/config.py` or build argument | `version` | Supplied to `scripts/build.py`; match the tag, so the launcher label agrees with the archive name |
-| `scripts/games/victoria3/config.py` | `supported_game_version` | Widen or narrow per game patch review, then rebuild |
-| Git tag | Tag name | `v<version>`; the workflow strips the leading `v` |
+| `scripts/build.py` argument | `version` | Supplied by the workflow from the tag or manual input; already matches the tag |
+| `scripts/games/victoria3/config.py` | `supported_game_version` | Widen or narrow per game patch review, then the next build applies it |
+| Git tag | Tag name | `v<version>`; the workflows strip the leading `v` |
 
 ## What the workflow deliberately omits
 

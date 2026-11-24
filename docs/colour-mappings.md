@@ -1,6 +1,6 @@
 # Colour mappings
 
-Every shipped mapping, with the vanilla value it replaces and the country's lifecycle position. All 131 entries are in `standardised-country-colours/common/country_definitions/sc_country_colours.txt`, in the same alphabetical order by tag.
+Every shipped mapping, with the vanilla value it replaces and the country's lifecycle position. All 131 entries are rendered into `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (inside the built folder, `out/vic3/`), in the same alphabetical order by tag.
 
 ## Column reference
 

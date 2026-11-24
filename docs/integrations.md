@@ -5,16 +5,16 @@
 ```mermaid
 flowchart LR
   Repo["Repository"]
-  Repo -->|"mod folder"| Launcher["Paradox launcher"]
-  Launcher -->|"playset"| Engine["Victoria 3 engine"]
-  Repo -->|"tagged commit"| Actions["GitHub Actions"]
+  Repo -->|"build inputs"| Actions["GitHub Actions"]
+  Actions -->|"builds the mod"| Mod["Mod folder"]
   Actions -->|"release asset"| Releases["GitHub Releases"]
   Actions -->|"mod folder"| Workshop["Steam Workshop"]
   Actions -->|"release.zip"| Nexus["Nexus Mods"]
   Releases -->|"download"| User["User"]
   Workshop -->|"subscribe"| User
   Nexus -->|"download"| User
-  User -->|"extracted folder"| Launcher
+  User -->|"extracted folder"| Launcher["Paradox launcher"]
+  Launcher -->|"playset"| Engine["Victoria 3 engine"]
   Engine -.->|"reads"| Game["Game content"]
 ```
 
@@ -57,19 +57,20 @@ The tag set and the baseline blocks are inputs, not dependencies the repository 
 
 ## GitHub Actions and Releases
 
-The workflow's only interaction with the repository is reading the tagged tree. Its only output is an archive attached to the release.
+The workflow's only interaction with the repository is reading the tagged tree. It builds the mod at the tag's version and attaches the archive to the release.
 
 | Contract | Invariant |
 |----------|-----------|
 | Trigger | Published release, or manual dispatch with a tag |
-| Version | Derived from the tag with the leading `v` removed |
+| Version | Derived from the tag with the leading `v` removed, and passed to `scripts/build.py` |
+| Build | `python3 scripts/build.py --version "${{ steps.version.outputs.version }}"`, then the built folder is staged at the repository root |
 | Archive name | `standardised-country-colours_<version>.zip` |
 | Archive root | The mod folder, not its contents |
 | Permissions | `contents: write` |
 
 ## Steam Workshop
 
-Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow reuses the `zip` build path, extracts the same mod folder, and uploads it to Workshop item `3844790373` for Steam app `529340` through `hmlendea/steam-workshop-update@latest`.
+Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow builds the mod, archives it, extracts the archive, and uploads the mod folder to Workshop item `3844790373` for Steam app `529340` through `hmlendea/steam-workshop-update@latest`.
 
 | Contract | Invariant |
 |----------|-----------|
@@ -82,7 +83,7 @@ Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow 
 
 ## Nexus Mods
 
-Integrated through `.github/workflows/nexus-mods-release.yml`. The workflow builds the same archive, then uploads it to Nexus Mods file `8446233` for the Victoria 3 game section through `Nexus-Mods/upload-action@v1.0.0-beta.11`.
+Integrated through `.github/workflows/nexus-mods-release.yml`. The workflow builds and archives the mod, then uploads it to Nexus Mods file `8446233` for the Victoria 3 game section through `Nexus-Mods/upload-action@v1.0.0-beta.11`.
 
 | Contract | Invariant |
 |----------|-----------|
