@@ -19,7 +19,7 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
 | Extract the version | Shell | Strips the leading `v` from the tag and exports it |
-| Build the mod | `python3 scripts/build.py --version "${{ steps.version.outputs.version }}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root, because the mod folder is no longer committed |
+| Build the mod | `python3 scripts/build.py --game victoria3 --version "${{ steps.version.outputs.version }}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root, because the mod folder is no longer committed |
 | Build the release archive | `zip -r` | Produces `standardised-country-colours_<version>.zip` containing the mod folder |
 | Publish the release asset | `softprops/action-gh-release@v2` | Attaches the archive to the release |
 
@@ -51,7 +51,7 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
-| Build the mod | `python3 scripts/build.py --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
+| Build the mod | `python3 scripts/build.py --game victoria3 --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
 | Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
 | Extract the release archive | `unzip` | Expands to `release/standardised-country-colours/` |
 | Upload | `hmlendea/steam-workshop-update@latest` | Publishes the folder to Workshop item `3844790373` for Steam app `529340`, passes `icon` as the Workshop preview image, and adds a changenote linking to the GitHub release of the tag |
@@ -86,7 +86,7 @@ The upload reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from r
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
-| Build the mod | `python3 scripts/build.py --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
+| Build the mod | `python3 scripts/build.py --game victoria3 --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
 | Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
 | Upload | `Nexus-Mods/upload-action@v1.0.0-beta.11` | Publishes `standardised-country-colours.zip` to Nexus Mods file `8446233`, sets the tag as the file version, archives the previous version, and updates the mod version |
 

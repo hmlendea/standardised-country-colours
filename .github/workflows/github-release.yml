@@ -34,7 +34,7 @@ jobs:
 
     - name: Build the mod
       run: |
-        python3 scripts/build.py --version "${{ steps.version.outputs.version }}"
+        python3 scripts/build.py --game victoria3 --version "${{ steps.version.outputs.version }}"
 
     - name: Build the release archive
       id: package

@@ -21,7 +21,7 @@
 
 1. Locate the palette entry in `src/colours.md` by name.
 2. Change its Principal Colours value and, if needed, its source.
-3. Run `python3 scripts/build.py --version <version>`.
+3. Run `python3 scripts/build.py --game victoria3 --version <version>`.
 4. Run the structural audit and the comment/hex consistency check from [testing.md](./testing.md) against the build output.
 5. Confirm in game.
 
@@ -39,7 +39,7 @@ Follow [flows/colour-authoring.md](./flows/colour-authoring.md). In addition:
    - a tag that no longer exists must be removed or retargeted in `scripts/games/victoria3/config.py`;
    - a tag whose localised name changed should have `VANILLA_COUNTRY_NAMES` updated.
 3. Decide whether `supported_game_version` can be widened in `scripts/games/victoria3/config.py`.
-4. Run `python3 scripts/build.py --version <version>` and inspect its output.
+4. Run `python3 scripts/build.py --game victoria3 --version <version>` and inspect its output.
 5. Run the audits and verify in game.
 
 Nothing in the repository can detect a retired tag automatically, because the tag set lives in the game installation rather than in the repository.
@@ -51,7 +51,7 @@ The palette is external, and its snapshot lives in `src/colours.md`. When it cha
 1. Diff the palette's primary colours against the snapshot in `src/colours.md`.
 2. Apply the intended change to the Principal Colours row, updating the value and the source.
 3. Apply any tag-relevant rename — an alias split or merge — as an add/retarget/remove sequence in `scripts/games/victoria3/config.py`.
-4. Run `python3 scripts/build.py --version <version>` and inspect its output.
+4. Run `python3 scripts/build.py --game victoria3 --version <version>` and inspect its output.
 5. Refresh [colour-mappings.md](./colour-mappings.md) and the counts in [INDEX.md](./INDEX.md).
 6. Note the palette snapshot date in [INDEX.md](./INDEX.md).
 

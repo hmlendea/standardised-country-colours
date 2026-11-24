@@ -94,17 +94,17 @@ The generated files appear only under `out/`: `common/country_definitions/sc_cou
 `scripts/build.py` renders every registered mod folder from the shared palette snapshot in `src/colours.md` and the per-game configuration under `scripts/games/`:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
-The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` restricts the run to one or more editions. Because the mod folder is not tracked, the build is the only way to produce it.
+The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` selects one or more editions. Because the mod folder is not tracked, the build is the only way to produce it.
 
 ## Release artefact
 
 The release workflows build the mod at the tag's version and archive it, so a release is the build output for that tag. A local greyscale of the same steps:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 cp -r out/vic3/standardised-country-colours ./
 zip -r "standardised-country-colours_1.0.0.zip" "standardised-country-colours/"
 ```

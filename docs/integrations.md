@@ -63,7 +63,7 @@ The workflow's only interaction with the repository is reading the tagged tree. 
 |----------|-----------|
 | Trigger | Published release, or manual dispatch with a tag |
 | Version | Derived from the tag with the leading `v` removed, and passed to `scripts/build.py` |
-| Build | `python3 scripts/build.py --version "${{ steps.version.outputs.version }}"`, then the built folder is staged at the repository root |
+| Build | `python3 scripts/build.py --game victoria3 --version "${{ steps.version.outputs.version }}"`, then the built folder is staged at the repository root |
 | Archive name | `standardised-country-colours_<version>.zip` |
 | Archive root | The mod folder, not its contents |
 | Permissions | `contents: write` |

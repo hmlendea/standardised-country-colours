@@ -24,15 +24,16 @@ PALETTE_FILE_PATH = SOURCE_DIRECTORY_PATH / PALETTE_FILENAME
 
 
 def parse_arguments() -> argparse.Namespace:
-    """Parse the command line: games, an optional output directory, a version."""
+    """Parse the command line: a mandatory game, an output directory, a version."""
     parser = argparse.ArgumentParser(
-        description='Build the Standardised Country Colours mod.')
+        description='Build the Standardised Country Colours mod for one game.')
     parser.add_argument(
         '-g', '--game',
         dest='game_keys',
         action='append',
+        required=True,
         choices=sorted(EDITIONS),
-        help='Game edition to build; repeatable. Defaults to every edition.')
+        help='Game edition to build; repeatable. Required.')
     parser.add_argument(
         '-o', '--out', '--output',
         dest='output_directory_path',
@@ -48,10 +49,7 @@ def parse_arguments() -> argparse.Namespace:
 
 
 def resolve_editions(game_keys: list) -> list:
-    """Return the requested editions, or every edition when none is named."""
-    if not game_keys:
-        return list(EDITIONS.values())
-
+    """Return the requested editions from the supplied game keys."""
     return [EDITIONS[game_key] for game_key in game_keys]
 
 

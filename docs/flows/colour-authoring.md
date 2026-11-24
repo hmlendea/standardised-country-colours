@@ -57,7 +57,7 @@ The palette entry must exist in `src/colours.md` under Principal Colours, with i
 ### 5. Build the entry
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
 The build writes the commented block, keeping the file alphabetical by tag and the encoding UTF-8 with a byte-order mark:

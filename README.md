@@ -116,7 +116,7 @@ For the detailed description of how the application handles privacy and personal
 The build renders the mod folder into `out/vic3/standardised-country-colours/`, so the generated tree mirrors the `Victoria 3/game` directory layout that the game expects. The folder is produced by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
 The mod folder is build output and is not committed. The build is game-agnostic: each game edition under `scripts/games/` declares its own identity, mappings, and output layout, so further editions can be added without touching the shared engine.

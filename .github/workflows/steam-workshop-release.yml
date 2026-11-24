@@ -25,7 +25,7 @@ jobs:
 
     - name: Build the mod
       run: |
-        python3 scripts/build.py --version "${VERSION#v}"
+        python3 scripts/build.py --game victoria3 --version "${VERSION#v}"
 
     - name: Build the release archive
       run: |

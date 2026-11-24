@@ -9,8 +9,8 @@ The repository has no test project and no CI test job. Verification is structura
 The build is the only source of the shipped folder, so it replaces the committed-folder comparison with a determinism check: the same inputs and version must always produce the same bytes.
 
 ```bash
-python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-a
-python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-b
+python3 scripts/build.py --game victoria3 --version 1.0.0 -o /tmp/build-check-a
+python3 scripts/build.py --game victoria3 --version 1.0.0 -o /tmp/build-check-b
 diff -r /tmp/build-check-a/vic3/standardised-country-colours \
         /tmp/build-check-b/vic3/standardised-country-colours \
   && echo "deterministic"
@@ -23,7 +23,7 @@ Expected: `deterministic` and no difference lines. A failure means the renderer 
 Build the mod first, then run the audit against an installed game. Every assertion below maps to an invariant in [invariants.md](./invariants.md).
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 python3 - <<'PY'
 import glob, re
 
