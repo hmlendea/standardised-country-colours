@@ -15,8 +15,8 @@ erDiagram
 
 | Entity | Owner | Representation | Lifecycle |
 |--------|-------|----------------|-----------|
-| Palette entry | External document | Row in `COUNTRY_COLOURS.md` | Curated by hand; the snapshot in use is dated in [INDEX.md](./INDEX.md) |
-| Country mapping | This repository | `INJECT:<tag>` block plus comment | Static; changes only with a commit |
+| Palette entry | External document, snapshotted in `src/colours.md` | Row in the Principal Colours table | Curated by hand; the snapshot in use is dated in [INDEX.md](./INDEX.md) |
+| Country mapping | This repository | `INJECT:<tag>` block plus comment | Static; regenerated from `scripts/games/victoria3/config.py` and the palette snapshot |
 | Tag | Game | Three-character key in `common/country_definitions` | Changes with a game patch |
 | Vanilla block | Game | `<tag> = { ... }` with tier, cultures, capital, and so on | Changes with a game patch |
 | Comment | This repository | `# <name> - <#HEX> - <source>` | Static |
@@ -33,9 +33,9 @@ The atomic unit of the repository.
 | `tag` | 3-character key | Must exist in vanilla; unique in the file | Resolved from the palette entry name |
 | `name` | Text | Should match the vanilla localised name | `countries_l_english.yml` |
 | `paletteEntry` | Text or empty | Present only when it differs from `name` | Palette alias column |
-| `hex` | `#RRGGBB` | Must equal the decimal triple | Palette primary column |
-| `source` | Text | Attribution string | Palette source column |
-| `rgb` | Three integers 0–255 | Derived from `hex` | Conversion |
+| `hex` | `#RRGGBB` | Must equal the decimal triple | `src/colours.md` Principal Colours row |
+| `source` | Text | Attribution string | `src/colours.md` Principal Colours row |
+| `rgb` | Three integers 0–255 | Derived from `hex` | Conversion by the game edition renderer |
 
 ## Derived relationships
 

@@ -2,7 +2,7 @@
 
 ## Repository state
 
-None. The repository owns no database, cache, queue, session, or generated file. Every file in it is a static input to a game.
+None. The repository owns no database, cache, queue, or session. The build writes a transient `out/` directory, grouped per game, that is ignored by version control, so no generated artefact is tracked. Every tracked file is either a build input or a static input to the game.
 
 ## Where state actually lives
 
@@ -38,7 +38,7 @@ The one indirect coupling is the conditional map-colour layer: a save whose Germ
 | Database | No |
 | Migrations | No |
 | Cache | No |
-| Generated artefact committed to the repository | No |
+| Generated artefact committed to the repository | No; `out/` is ignored and holds the whole artefact |
 | Configuration state | No |
 
 ## Why there is nothing to migrate

@@ -46,7 +46,7 @@ The palette's Czechia entry records `#00AB93` from Age of Empires II HD. The mod
 
 ## Can I use only some of the colours?
 
-Yes, by editing your local copy. Remove entries you do not want and the corresponding countries revert to vanilla. There is no in-game toggle. Note that a local edit makes your copy diverge from any release, so a later update will overwrite it.
+Yes, by editing your local copy of the built `standardised-country-colours/` folder. Remove entries you do not want and the corresponding countries revert to vanilla. There is no in-game toggle. Note that a local edit makes your copy diverge from any release, so a later update — or a rebuild from `scripts/build.py` — will overwrite it.
 
 ## Can I add a country the mod does not cover?
 

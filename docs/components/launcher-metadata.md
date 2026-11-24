@@ -7,6 +7,8 @@ standardised-country-colours/.metadata/metadata.json
 standardised-country-colours/.metadata/thumbnail.png
 ```
 
+These paths are inside the built folder (`out/vic3/standardised-country-colours/`). `metadata.json` is rendered by the Victoria 3 edition of `scripts/build.py` from the identity constants in `scripts/games/victoria3/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/victoria3/launcher-thumbnail.png`.
+
 ## Current values
 
 ```json
@@ -32,8 +34,8 @@ standardised-country-colours/.metadata/thumbnail.png
 |-------|--------|---------------|
 | `name` | Launcher display name and, by default, the Workshop title | May change; it is user-visible branding |
 | `id` | Stable identity used by updates and relationships | **Never** change; a new id orphans every published reference |
-| `version` | Launcher version label | Bump with every release |
-| `game_id` | Tells the launcher which game the folder belongs to | Fixed at `victoria3` |
+| `version` | Launcher version label | Supplied by the `--version` build argument; bump with every release |
+| `game_id` | Tells the launcher which game the folder belongs to | Fixed at `victoria3` in `scripts/games/victoria3/config.py` |
 | `picture` | Names the launcher thumbnail file beside the JSON | Must match an existing file in the same directory |
 | `supported_game_version` | Range the launcher considers compatible | Review on every game patch |
 | `short_description` | Launcher subtitle | May change |
@@ -62,7 +64,7 @@ Victoria 3 reads two unrelated images.
 | Launcher artwork | `.metadata/thumbnail.png` | 600x333 | Launcher, via the `picture` key |
 | Workshop artwork | `thumbnail.png` at the mod folder root | 512x512 | Steam, on upload only |
 
-Both are RGB PNGs. Neither is referenced by the other, and the engine never reads the 512x512 file.
+Both are RGB PNGs. Neither is referenced by the other, and the engine never reads the 512x512 file. The build copies them from `src/victoria3/thumbnail.png` and `src/victoria3/launcher-thumbnail.png`.
 
 The current artwork was generated from an SVG composition: a dark gradient background, the mod name in a serif face, the subtitle "for Victoria 3" in gold, and a strip of eleven palette swatches. Regenerating requires `rsvg-convert`; the SVG source is not committed.
 

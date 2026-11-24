@@ -40,9 +40,9 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Decision.** Each block is preceded by `# <name> - <#HEX> - <source>`.
 
-**Rationale.** There is no side-car data file and no generated index; the comment is the record. A reviewer can see why a value differs from vanilla without consulting an external artefact, and the game ignores comment lines.
+**Rationale.** There is no side-car data file and no generated index; the comment is the record. A reviewer can see why a value differs from vanilla without consulting an external artefact, and the game ignores comment lines. The comment is rendered by the build from the palette entry and the vanilla name, so it cannot drift from the value.
 
-**Consequence.** The comment must be maintained by hand alongside the value. It also makes the file longer, which is accepted as a readability gain. A discrepancy between the comment and the value is a review defect, not a runtime failure.
+**Consequence.** The comment is regenerated on every build, so it is never edited by hand. It makes the file longer, which is accepted as a readability gain. A discrepancy between the comment and the value can only arise if the palette snapshot and the shipped file are out of step, which a rebuild rectifies.
 
 ## D6. Plain RGB decimal components
 
@@ -68,13 +68,13 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Consequence.** The launcher will not join a session whose participants do not share the mod.
 
-## D9. No build step
+## D9. Render the mod, do not commit it
 
-**Decision.** The release workflow archives the checked-out folder directly.
+**Decision.** `scripts/build.py` renders the mod folder from the palette snapshot and the hardcoded mappings into an ignored `out/` directory, and every release workflow runs the build for the tag's version before archiving.
 
-**Rationale.** There is nothing to generate. A staging directory, a compile step, or a generator script would add a failure mode without adding value.
+**Rationale.** The shipped artefact is static data, but it does not have to be tracked. Rendering it removes the duplicate copy of every colour and provenance comment that a committed folder would carry, so a value lives once, in `src/colours.md` and the game edition's `config.py`. Colours, provenance comments, and the metadata version are derived from those inputs rather than retyped, which removes the silent mis-conversion and stale-comment failure modes of hand editing.
 
-**Consequence.** Release contents are exactly the tagged tree, which makes a release trivially reproducible from the repository.
+**Consequence.** Release contents are exactly the build output for the tagged inputs, so a release stays reproducible. A local build is the only way to obtain the folder, and a release that was not built from its tag is not possible through the workflows.
 
 ## D10. Keep `supported_game_version` narrow
 

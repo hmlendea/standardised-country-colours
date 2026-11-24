@@ -32,13 +32,18 @@ jobs:
         VERSION="${VERSION#v}"
         echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
+    - name: Build the mod
+      run: |
+        python3 scripts/build.py --version "${{ steps.version.outputs.version }}"
+
     - name: Build the release archive
       id: package
       shell: bash
       run: |
         ARCHIVE_NAME="standardised-country-colours_${{ steps.version.outputs.version }}.zip"
 
-        zip -r "${ARCHIVE_NAME}" "standardised-country-colours/"
+        cd out/vic3
+        zip -r "${GITHUB_WORKSPACE}/${ARCHIVE_NAME}" "standardised-country-colours/"
 
         echo "archive_name=${ARCHIVE_NAME}" >> "$GITHUB_OUTPUT"
 

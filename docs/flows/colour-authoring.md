@@ -34,19 +34,33 @@ grep -E '^ (BOH|CZE):' "<game>/localization/english/countries_l_english.yml"
 
 Prefer the tag whose localised name matches the palette entry most closely. A tag sharing the name of a formable unification target is usually the right choice for a canonical state; a nearby minor tag carrying the same localised name is a release-only entity and should only be added when the palette clearly intends it.
 
-### 3. Convert the colour
+### 3. Register the mapping
 
-`#00AB93` becomes `0` red, `171` green, `147` blue.
+Add the tag and its palette entry to `COUNTRY_PALETTE_ENTRIES` in `scripts/games/victoria3/config.py`:
 
-```text
-R = 0x00 = 0
-G = 0xAB = 171
-B = 0x93 = 147
+```python
+'BOH': 'Czechia',
 ```
 
-### 4. Write the entry
+When the vanilla localised name differs from the palette entry name, also add the tag to `VANILLA_COUNTRY_NAMES`:
 
-Insert at the alphabetical position, matching the surrounding style:
+```python
+'BOH': 'Bohemia',
+```
+
+No colour value is typed anywhere: the build reads the palette snapshot and derives the decimal triple.
+
+### 4. Confirm the palette snapshot
+
+The palette entry must exist in `src/colours.md` under Principal Colours, with its source attribution and primary colour. A missing entry fails the build rather than shipping a wrong value.
+
+### 5. Build the entry
+
+```bash
+python3 scripts/build.py --version 1.0.0
+```
+
+The build writes the commented block, keeping the file alphabetical by tag and the encoding UTF-8 with a byte-order mark:
 
 ```text
 # Bohemia (palette: Czechia) - #00AB93 - Age of Empires II HD (Teal)
@@ -55,25 +69,21 @@ INJECT:BOH = {
 }
 ```
 
-Rules for the comment:
+Rules the build enforces:
 
-- The name is the vanilla localised name.
-- When the palette entry name differs from the vanilla name, append ` (palette: <entry>)`.
-- The hexadecimal value must match the decimal triple exactly.
-- The source is copied from the palette, including any parenthetical qualifier.
-
-### 5. Preserve the encoding
-
-The file must remain UTF-8 with a byte-order mark. Most editors preserve it automatically when editing in place; a `sed -i` or a naive rewrite may strip it.
+- The comment name is the vanilla localised name.
+- ` (palette: <entry>)` is appended exactly when the palette entry name differs from the vanilla name.
+- The hexadecimal value is the palette's principal colour and always matches the decimal triple.
+- The source is the palette attribution, with runs of spaces collapsed.
 
 ### 6. Verify
 
-Run the structural checks in [testing.md](../testing.md). At minimum:
+Run the build, then run the structural checks in [testing.md](../testing.md) against its output. At minimum:
 
 ```bash
 python3 - <<'PY'
 import re
-p = "standardised-country-colours/common/country_definitions/sc_country_colours.txt"
+p = "out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt"
 raw = open(p, "rb").read()
 assert raw[:3] == b"\xef\xbb\xbf", "missing BOM"
 t = raw.decode("utf-8-sig")

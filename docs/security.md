@@ -53,7 +53,7 @@ The mod content requires none. The Workshop workflow reads `STEAM_USERNAME`, `ST
 
 ## Supply chain
 
-No packages, no lockfiles, no build-time dependencies to compromise. The only third-party code executes on GitHub's runners.
+No packages, no lockfiles, no third-party build dependencies to compromise. The build script uses only the Python 3 standard library and runs on the maintainer's machine; the only third-party code that executes during a release runs on GitHub's runners.
 
 ## Content-integrity risks specific to this mod
 

@@ -13,7 +13,7 @@ sequenceDiagram
   participant G as Game content tree
   U->>L: Enable the mod in a playset
   L->>FS: Enumerate mod directory
-  L->>FS: Read standardised-country-colours/.metadata/metadata.json
+  L->>FS: Read vic3/standardised-country-colours/.metadata/metadata.json
   L->>L: Validate game_id, version, supported_game_version
   L->>L: Compose the ordered playset
   L->>E: Launch with the playset

@@ -35,7 +35,7 @@ Open the shipped entry and the vanilla block side by side:
 
 | Shipped | Vanilla |
 |---------|---------|
-| `standardised-country-colours/common/country_definitions/sc_country_colours.txt` | `<game>/common/country_definitions/00_countries.txt` |
+| `out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt` | `<game>/common/country_definitions/00_countries.txt` |
 
 The shipped entry is three lines plus a provenance comment:
 
@@ -51,8 +51,8 @@ The vanilla block carries the tier, cultures, capital, and regnal numbers that t
 ## Author a mapping
 
 1. Identify the vanilla three-letter tag in `<game>/common/country_definitions/`.
-2. Convert the palette hexadecimal value to three decimal components.
-3. Insert a commented `INJECT:<tag>` block, keeping the file alphabetical.
+2. Add the tag and its palette entry to `COUNTRY_PALETTE_ENTRIES` in `scripts/games/victoria3/config.py`, plus `VANILLA_COUNTRY_NAMES` when the vanilla name differs.
+3. Run `python3 scripts/build.py --version <version>`; the build derives the decimal components, sorts the file, and writes the provenance comment.
 4. Run the structural verification in [testing.md](./testing.md).
 
 See [flows/colour-authoring.md](./flows/colour-authoring.md) for the full procedure and [change-guide.md](./change-guide.md) for safety rules.

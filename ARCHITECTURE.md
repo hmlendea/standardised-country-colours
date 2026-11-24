@@ -61,7 +61,7 @@ The principal external boundaries are:
 
 ## 🏗️ Architectural Style
 
-The verified style is a **content-only host extension**: a declarative data package with no executable component, composed entirely of host-format files whose semantics the host defines. There is no compilation step, no package manager, no build pipeline, and no runtime process owned by the repository.
+The verified style is a **content-only host extension**: a declarative data package composed entirely of host-format files whose semantics the host defines. The shipped artefact has no executable component, no package manager, and no runtime process owned by the repository. A rendering build script produces the mod folder from a palette snapshot and hardcoded mappings; the folder is build output, never committed, and never runs at load time or on a player's machine.
 
 Two structural conventions implement that style:
 
@@ -116,7 +116,7 @@ The principal runtime sequence is:
 
 ### Mod Content
 
-Paths:
+Paths (inside the built folder, `out/vic3/standardised-country-colours/`):
 - `standardised-country-colours/common/country_definitions/sc_country_colours.txt`
 
 Responsibilities:
@@ -134,7 +134,7 @@ Boundary rules:
 
 ### Launcher Metadata
 
-Paths:
+Paths (inside the built folder, `out/vic3/standardised-country-colours/`):
 - `standardised-country-colours/.metadata/metadata.json`
 - `standardised-country-colours/.metadata/thumbnail.png`
 - `standardised-country-colours/thumbnail.png`
@@ -311,7 +311,7 @@ The core structural checks are that every shipped tag exists in the vanilla defi
 python3 - <<'PY'
 import glob, re
 GAME = '/path/to/Victoria 3/game'
-MOD = 'standardised-country-colours/common/country_definitions/sc_country_colours.txt'
+MOD = 'out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt'
 
 def countries(pattern):
     out = {}
@@ -350,26 +350,33 @@ Material coverage gaps and constraints:
 - **Map colours only:** Unit colours come from the separate `primary_unit_color`, `secondary_unit_color`, and `tertiary_unit_color` keys, which the mod deliberately leaves to the base game.
 - **Partial coverage is intentional:** The palette source covers titles the game does not model, and titles the game models under a different tag cannot be matched mechanically. Sparse coverage is the accepted trade-off for correctness.
 - **Injection precedence depends on the keyword:** Precedence comes from the injection pass rather than the file name, so those blocks win against a plain redefinition. A later `REPLACE:` of the same country by another mod still wins, which cannot be designed around from within this repository.
-- **Palette provenance:** Colours are curated by hand from the recorded sources, so a value cannot be regenerated mechanically from the game files and the file is authoritative once shipped.
+- **Palette provenance:** Colours are curated by hand in the external palette and recorded in the `src/colours.md` snapshot, so a value is authoritative once shipped and cannot be regenerated from the game files. The per-game renderer under `scripts/games/` re-derives the shipped entries from that snapshot rather than from game data.
 
 ## 🔧 Extension Points
 
 ### Adding a Country Colour
 
 1. Identify the vanilla three-letter tag for the country in `common/country_definitions`, confirming that the tag is defined and that it is the country the palette entry names.
-2. Convert the palette hexadecimal value from `COUNTRY_COLOURS.md` to three decimal components in the range 0–255.
-3. Insert an `INJECT:<tag> = { color = { R G B } }` block into `standardised-country-colours/common/country_definitions/sc_country_colours.txt`, preceded by a `# <vanilla name> - <hex> - <source>` comment, keeping the file alphabetical by tag and the encoding UTF-8 with a byte-order mark.
-4. Run the structural verification described under Testing and Verification, then confirm the colour in a running game.
+2. Add the tag and its palette entry to `COUNTRY_PALETTE_ENTRIES` in `scripts/games/victoria3/config.py`, and, when the vanilla localised name differs from the palette entry name, add the tag to `VANILLA_COUNTRY_NAMES`.
+3. Confirm the palette entry exists in `src/colours.md` with its principal colour and source.
+4. Run the build and confirm `<output>/vic3/standardised-country-colours/` has no unresolved tags.
+5. Run the structural verification described under Testing and Verification, then confirm the colour in a running game.
 
-The extension must preserve the `INJECT:` keyword, the `color = { R G B }` shape, the per-block provenance comment, the existing alphabetical ordering, and the single-file layout. A new colour needs no registration anywhere else, because the engine discovers every definition file present in the tree.
+The build derives the decimal triple from the palette hexadecimal, writes the per-block provenance comment, and keeps the file alphabetical by tag and UTF-8 with a byte-order mark, so those properties hold by construction. The extension must preserve the `INJECT:` keyword and the single-file layout. A new colour needs no registration anywhere else, because the engine discovers every definition file present in the tree.
 
 ## 🗺️ Source Map
 
 | Area | Path |
 |------|------|
-| Mod content | `standardised-country-colours/common/country_definitions/sc_country_colours.txt` |
-| Launcher metadata | `standardised-country-colours/.metadata/metadata.json` |
-| Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` |
+| Build entry point | `scripts/build.py` |
+| Shared build engine | `scripts/builder.py`, `scripts/palette.py`, `scripts/config.py` |
+| Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/` |
+| Edition registry | `scripts/games/__init__.py` |
+| Palette snapshot | `src/colours.md` |
+| Artwork inputs | `src/victoria3/thumbnail.png`, `src/victoria3/launcher-thumbnail.png` |
+| Mod content | `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (in the built folder) |
+| Launcher metadata | `standardised-country-colours/.metadata/metadata.json` (in the built folder) |
+| Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` (in the built folder) |
 | Workshop thumbnail | `standardised-country-colours/thumbnail.png` |
 | Workshop page description | `description/steam-workshop.bbcode` |
 | Release workflows | `.github/workflows/github-release.yml`, `.github/workflows/steam-workshop-release.yml`, `.github/workflows/nexus-mods-release.yml` |

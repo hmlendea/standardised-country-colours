@@ -2,18 +2,33 @@
 
 ## There is no test suite
 
-The repository has no test project, no test runner, and no CI test job. Verification is structural auditing plus in-game inspection.
+The repository has no test project and no CI test job. Verification is structural auditing, a build-reproducibility check, and in-game inspection.
+
+## Build reproducibility
+
+The build is the only source of the shipped folder, so it replaces the committed-folder comparison with a determinism check: the same inputs and version must always produce the same bytes.
+
+```bash
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-a
+python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-b
+diff -r /tmp/build-check-a/vic3/standardised-country-colours \
+        /tmp/build-check-b/vic3/standardised-country-colours \
+  && echo "deterministic"
+```
+
+Expected: `deterministic` and no difference lines. A failure means the renderer has a non-deterministic input, such as dictionary ordering or a timestamp.
 
 ## Structural audit
 
-Run against an installed game. Every assertion below maps to an invariant in [invariants.md](./invariants.md).
+Build the mod first, then run the audit against an installed game. Every assertion below maps to an invariant in [invariants.md](./invariants.md).
 
 ```bash
+python3 scripts/build.py --version 1.0.0
 python3 - <<'PY'
 import glob, re
 
 GAME = "/path/to/Victoria 3/game"
-MOD = "standardised-country-colours/common/country_definitions/sc_country_colours.txt"
+MOD = "out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt"
 
 raw = open(MOD, "rb").read()
 assert raw[:3] == b"\xef\xbb\xbf", "C8: missing BOM"
@@ -57,7 +72,7 @@ The comment hexadecimal value and the decimal triple must agree. This is a revie
 ```bash
 python3 - <<'PY'
 import re
-text = open("standardised-country-colours/common/country_definitions/sc_country_colours.txt",
+text = open("out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt",
             encoding="utf-8-sig").read()
 entries = re.findall(
     r"^# .+? - #([0-9A-F]{6}) - .+?\nINJECT:([A-Z0-9]{3}) = \{\n\tcolor = \{ (\d+) (\d+) (\d+) \}\n\}",
@@ -80,7 +95,7 @@ python3 - <<'PY'
 import colorsys, glob, re
 
 GAME = "/path/to/Victoria 3/game"
-MOD = "standardised-country-colours/common/country_definitions/sc_country_colours.txt"
+MOD = "out/vic3/standardised-country-colours/common/country_definitions/sc_country_colours.txt"
 
 named = {}
 for path in glob.glob(GAME + "/common/named_colors/*.txt"):
@@ -131,9 +146,9 @@ This audit exists to catch an accidental duplicate introduced during authoring, 
 ## Metadata audit
 
 ```bash
-python3 -c "import json;d=json.load(open('standardised-country-colours/.metadata/metadata.json'));print(d['game_id'],d['version'],d['supported_game_version'],d['picture'])"
-test -f standardised-country-colours/.metadata/thumbnail.png
-test -f standardised-country-colours/thumbnail.png
+python3 -c "import json;d=json.load(open('out/vic3/standardised-country-colours/.metadata/metadata.json'));print(d['game_id'],d['version'],d['supported_game_version'],d['picture'])"
+test -f out/vic3/standardised-country-colours/.metadata/thumbnail.png
+test -f out/vic3/standardised-country-colours/thumbnail.png
 ```
 
 Expected: `victoria3 1.0.0 1.15.* thumbnail.png` followed by two successful file tests.
@@ -173,6 +188,7 @@ Expected: `VALIDATION PASSED: 100% template fidelity confirmed` for each workflo
 | Conditional colours never suppressed in tests | A player may attribute an intended conditional colour to a mod failure |
 | Engine behaviour verifiable only on a licensed install | The repository cannot be validated in isolation |
 | No assertion that a mapping is *desirable* | Only that it is structurally valid and tag-resolvable |
+| The build check covers only committed inputs | A missing or stale palette row reproduces faithfully rather than being flagged |
 
 ## Related documents
 

@@ -6,7 +6,7 @@ This document elaborates on the root [ARCHITECTURE.md](../ARCHITECTURE.md). It c
 
 ```mermaid
 flowchart TD
-  Pal["Curated palette<br/>COUNTRY_COLOURS.md"] --> Map["Name to tag resolution<br/>maintainer time"]
+  Pal["Curated palette<br/>src/colours.md snapshot"] --> Map["Name to tag resolution<br/>scripts/games/<game>"]
   Map --> File["sc_country_colours.txt<br/>131 INJECT blocks"]
   File --> Loader["Definition loader"]
   Vanilla["00_countries.txt<br/>01_africa.txt<br/>01_pacific_and_australasia.txt"] --> Loader
