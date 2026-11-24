@@ -94,17 +94,17 @@ The generated files appear only under `out/`: `common/country_definitions/sc_cou
 `scripts/build.py` renders every registered mod folder from the shared palette snapshot in `src/colours.md` and the per-game configuration under `scripts/games/`:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
-The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` restricts the run to one or more editions. Because the mod folder is not tracked, the build is the only way to produce it.
+The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` selects one or more editions. Because the mod folder is not tracked, the build is the only way to produce it.
 
 ## Release artefact
 
 The release workflows build the mod at the tag's version and archive it, so a release is the build output for that tag. A local greyscale of the same steps:
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 cp -r out/vic3/standardised-country-colours ./
 zip -r "standardised-country-colours_1.0.0.zip" "standardised-country-colours/"
 ```
@@ -116,7 +116,7 @@ The archive root is the mod folder itself, so extracting it into the mod directo
 The build is game-agnostic; a new edition supplies its identity, mappings, and rendering and registers itself once.
 
 1. Create `scripts/games/<game>/config.py` with the edition identity, output group, output layout, `COUNTRY_PALETTE_ENTRIES`, and any `VANILLA_COUNTRY_NAMES`.
-2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`, following the Victoria 3 edition.
+2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`; add `render_parent_text_files(palette, version)` only when the game needs a descriptor beside the mod folder instead of inside it (as Imperator: Rome does).
 3. Create `scripts/games/<game>/__init__.py` exporting an `EDITION` value built from those functions.
 4. Register the edition in `scripts/games/__init__.py` and add its assets under `src/<game>/`.
 

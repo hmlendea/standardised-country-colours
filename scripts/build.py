@@ -24,15 +24,16 @@ PALETTE_FILE_PATH = SOURCE_DIRECTORY_PATH / PALETTE_FILENAME
 
 
 def parse_arguments() -> argparse.Namespace:
-    """Parse the command line: games, an optional output directory, a version."""
+    """Parse the command line: a mandatory game, an output directory, a version."""
     parser = argparse.ArgumentParser(
-        description='Build the Standardised Country Colours mod.')
+        description='Build the Standardised Country Colours mod for one game.')
     parser.add_argument(
         '-g', '--game',
         dest='game_keys',
         action='append',
-        choices=sorted(EDITIONS),
-        help='Game edition to build; repeatable. Defaults to every edition.')
+        required=True,
+        choices=GAME_CHOICES,
+        help='Game edition to build, repeatable: vic3, imperator')
     parser.add_argument(
         '-o', '--out', '--output',
         dest='output_directory_path',
@@ -47,12 +48,17 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def resolve_editions(game_keys: list) -> list:
-    """Return the requested editions, or every edition when none is named."""
-    if not game_keys:
-        return list(EDITIONS.values())
+# The user-facing CLI accepts the short `vic3` and the full `victoria3`,
+# both resolving to the Victoria 3 edition registered under its full name.
+GAME_CHOICES = sorted(set(EDITIONS) | {'vic3'})
 
-    return [EDITIONS[game_key] for game_key in game_keys]
+
+def resolve_editions(game_keys: list) -> list:
+    """Return the requested editions from the supplied game keys."""
+    resolved = []
+    for key in game_keys:
+        resolved.append(EDITIONS['victoria3' if key == 'vic3' else key])
+    return resolved
 
 
 def main() -> int:

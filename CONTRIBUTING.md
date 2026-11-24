@@ -56,7 +56,7 @@ cd vic3-standardised-country-colours
 # No dependency installation is required; the build uses only the Python 3 standard library.
 
 # Build the mod
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
 #### Making Changes

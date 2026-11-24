@@ -52,7 +52,7 @@ The vanilla block carries the tier, cultures, capital, and regnal numbers that t
 
 1. Identify the vanilla three-letter tag in `<game>/common/country_definitions/`.
 2. Add the tag and its palette entry to `COUNTRY_PALETTE_ENTRIES` in `scripts/games/victoria3/config.py`, plus `VANILLA_COUNTRY_NAMES` when the vanilla name differs.
-3. Run `python3 scripts/build.py --version <version>`; the build derives the decimal components, sorts the file, and writes the provenance comment.
+3. Run `python3 scripts/build.py --game victoria3 --version <version>`; the build derives the decimal components, sorts the file, and writes the provenance comment.
 4. Run the structural verification in [testing.md](./testing.md).
 
 See [flows/colour-authoring.md](./flows/colour-authoring.md) for the full procedure and [change-guide.md](./change-guide.md) for safety rules.

@@ -15,13 +15,13 @@
 The Victoria 3 edition keeps its name, id, game id, supported game version, description, tags, and multiplayer flag in `scripts/games/victoria3/config.py`.
 
 ```bash
-python3 scripts/build.py --version 1.0.0
+python3 scripts/build.py --game victoria3 --version 1.0.0
 ```
 
 | Option | Meaning | Default |
 |--------|---------|---------|
+| `-g`, `--game` | Game edition to build; repeatable | Required |
 | `-v`, `--ver`, `--version` | Mod version recorded in the metadata; required | — |
-| `-g`, `--game` | Game edition to build; repeatable | Every registered edition |
 | `-o`, `--out`, `--output` | Directory that receives the per-game output groups | `out/` |
 
 The build clears `<output>/<group>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
@@ -35,7 +35,7 @@ To produce the same archive the workflows produce:
 ```bash
 VERSION=1.0.0
 
-python3 scripts/build.py --version "${VERSION}"
+python3 scripts/build.py --game victoria3 --version "${VERSION}"
 cp -r out/vic3/standardised-country-colours ./
 zip -r "standardised-country-colours_${VERSION}.zip" "standardised-country-colours/"
 ```
@@ -45,7 +45,7 @@ The archive root is the folder itself, so extraction yields `standardised-countr
 ## Release procedure
 
 1. Confirm every shipped tag still exists in the installed game's definitions.
-2. Run `python3 scripts/build.py --version <version>`.
+2. Run `python3 scripts/build.py --game victoria3 --version <version>`.
 3. Run the structural checks in [testing.md](./testing.md) against the built folder.
 4. Verify in game that a representative country shows the expected colour.
 5. Commit and tag.

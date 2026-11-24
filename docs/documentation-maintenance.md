@@ -41,8 +41,8 @@ Two mechanical checks exist.
 #    Copy the script from testing.md and run it against an installed game.
 
 # 2. The build must be deterministic for the same inputs and version.
-python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-a
-python3 scripts/build.py --version 1.0.0 -o /tmp/build-check-b
+python3 scripts/build.py --game victoria3 --version 1.0.0 -o /tmp/build-check-a
+python3 scripts/build.py --game victoria3 --version 1.0.0 -o /tmp/build-check-b
 diff -r /tmp/build-check-a/vic3/standardised-country-colours \
         /tmp/build-check-b/vic3/standardised-country-colours
 
