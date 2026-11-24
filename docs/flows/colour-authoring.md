@@ -15,7 +15,7 @@ Open the external palette and locate the title. Note four facts:
 | Primary colour | `#00AB93` |
 | Source attribution | `Age of Empires II HD (Teal)` |
 
-Use the primary colour. The secondary colour has no destination in the game's country model.
+Use the primary colour of the palette's **Principal Colours** table. That table holds one authoritative value per country; the **Alternative Colours** table records values from other games and is not the shipped source. When a country appears in both, the Principal row wins. The secondary colour, and every alternative, has no destination in the game's country model.
 
 ### 2. Resolve the tag
 
@@ -105,6 +105,7 @@ No line should name `sc_country_colours.txt`.
 | Situation | Action |
 |-----------|--------|
 | The palette entry has no corresponding tag | Skip it. Record it under [ambiguities-and-open-questions.md](../ambiguities-and-open-questions.md) if it looks mappable. |
+| The country appears in both palette tables | Use the Principal Colours row. Alternative rows are reference material, not shipped values. |
 | Two tags carry the same localised name | Colour both if the palette clearly intends the concept; otherwise colour the canonical one and note the omission. |
 | The palette value matches vanilla exactly | Still ship it, with the comment, so the mapping's provenance is recorded. |
 | The palette value is within a few units of vanilla | Ship it. The value is authoritative even when visually identical. |

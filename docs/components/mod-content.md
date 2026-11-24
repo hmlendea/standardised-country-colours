@@ -1,6 +1,6 @@
 # Component: mod content
 
-The mod content is the repository's entire product: a single country-definition file carrying 101 injections.
+The mod content is the repository's entire product: a single country-definition file carrying 131 injections.
 
 ## Location
 
@@ -47,13 +47,13 @@ INJECT:BYZ = {
 
 | Property | Value |
 |----------|-------|
-| Entries | 101 |
-| Distinct tags | 101 |
-| Comment lines matching the provenance pattern | 101 |
-| Entries with a palette-name suffix | 17 |
+| Entries | 131 |
+| Distinct tags | 131 |
+| Comment lines matching the provenance pattern | 131 |
+| Entries with a palette-name suffix | 19 |
 | Entries whose colour equals vanilla exactly | 1 (`SCA`) |
-| Entries within 8 of a component of vanilla | 2 (`SCA`, `APC`) |
-| Entries that change the colour's syntax | 5 (`BRZ`, `CAS`, `DEN`, `NET`, `SPA`) |
+| Entries within 8 of a component of vanilla | 3 (`APC`, `BAH`, `SCA`) |
+| Entries that change the colour's syntax | 7 (`BAH`, `BRZ`, `CAS`, `CEY`, `DEN`, `NET`, `SPA`) |
 
 ## Tags sharing one palette entry
 

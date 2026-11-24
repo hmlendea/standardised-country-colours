@@ -92,7 +92,7 @@ flowchart TD
 
 ## Why a target must exist
 
-An `INJECT:` whose target is absent errors. The palette covers titles Victoria 3 does not model, so those entries cannot be shipped at all: there is nothing to inject into. Every shipped tag was resolved against the installed vanilla definitions, and 101 of the palette's titles survived that check.
+An `INJECT:` whose target is absent errors. The palette covers titles Victoria 3 does not model, so those entries cannot be shipped at all: there is nothing to inject into. Every shipped tag was resolved against the installed vanilla definitions, and 131 of the palette's titles survived that check.
 
 ## Idempotence
 

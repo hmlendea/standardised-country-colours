@@ -54,7 +54,7 @@ These are often mistaken for invariants and are not:
 
 - **Colour uniqueness.** Nothing prevents two mapped tags sharing a colour, or a mapped colour coinciding with an unmapped country's vanilla colour. The palette is curated per country, not deduplicated globally.
 - **Relevance of every mapping.** `SCA` maps to the exact vanilla value `#3E7ABD`. The entry is a deliberate no-op that records the palette source; removing it would change nothing on the map.
-- **Total coverage.** Countries outside the 101 keep vanilla colours by design.
+- **Total coverage.** Countries outside the 131 keep vanilla colours by design.
 
 ## Related documents
 

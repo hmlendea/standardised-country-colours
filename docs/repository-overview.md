@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Assign one standardised map colour to each of 101 Victoria 3 countries, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
+Assign one standardised map colour to each of 131 Victoria 3 countries, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
 
 ## Scope
 
 The repository owns exactly three things:
 
-1. one country-definition file that injects a `color` key into 101 vanilla country blocks;
+1. one country-definition file that injects a `color` key into 131 vanilla country blocks;
 2. the launcher metadata that makes the folder a discoverable mod;
 3. documentation, licence, and the release workflows that package and publish the folder.
 
@@ -16,7 +16,7 @@ The repository owns exactly three things:
 
 | Changed | Detail |
 |---------|--------|
-| Country map colour | The `color` key of 101 country definitions |
+| Country map colour | The `color` key of 131 country definitions |
 | Nothing else | Tier, country type, cultures, capital, religion, regnal numbers, unit colours, flag definitions, coat of arms |
 
 ## What the mod deliberately does not change
@@ -28,7 +28,7 @@ The repository owns exactly three things:
 | Secondary palette colour | Victoria 3 stores a single map colour per country; the palette's second column cannot be represented |
 | Conditional map colours | `common/dynamic_country_map_colors/00_default.txt` overrides the definition colour at runtime when its triggers match |
 | Subject colouring | Governed by the `subject_map_color` game rule |
-| Countries outside the 101 | Out of palette scope or not modelled by the game |
+| Countries outside the 131 | Out of palette scope or not modelled by the game |
 
 ## Boundaries
 

@@ -4,7 +4,7 @@ This document describes what a player observes. The mechanism is documented in [
 
 ## The observed behaviour
 
-When the mod is enabled, 101 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
+When the mod is enabled, 131 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
 
 | Surface | Appearance |
 |---------|------------|
@@ -31,15 +31,15 @@ The full set is in [colour-mappings.md](../colour-mappings.md).
 
 ## Where the effect is visible
 
-The 101 mapped tags divide into three practical groups.
+The 131 mapped tags divide into three practical groups.
 
 | Group | Count | When a player sees the colour |
 |-------|-------|-------------------------------|
-| Present at the 1836 start | 46 | Immediately, from the first map view |
-| Formation targets only | 24 | After the country is formed |
-| Neither at start nor formable | 31 | After the country is released from an existing state |
+| Present at the 1836 start | 54 | Immediately, from the first map view |
+| Formation targets only | 27 | After the country is formed |
+| Neither at start nor formable | 40 | After the country is released from an existing state |
 
-Eleven tags are both present at the start and formation targets — `BRZ`, `CHI`, `CLM`, `FRA`, `MEX`, `NOR`, `POL`, `RUS`, `SPA`, `SWE`, and `USA`.
+Ten tags are both present at the start and formation targets — `BRZ`, `CHI`, `CLM`, `FRA`, `MEX`, `POL`, `RUS`, `SPA`, `SWE`, and `USA`.
 
 ## What is preserved
 

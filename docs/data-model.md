@@ -52,16 +52,16 @@ Current distribution:
 
 | Property | Count |
 |----------|-------|
-| Start-date | 46 |
-| Formation target | 35 |
-| Both | 11 |
-| Neither | 31 |
+| Start-date | 64 |
+| Formation target | 37 |
+| Both | 10 |
+| Neither | 40 |
 
 ## Palette-to-tag cardinality
 
 | Cardinality | Cases |
 |-------------|-------|
-| One palette entry to one tag | 99 |
+| One palette entry to one tag | 129 |
 | One palette entry to two tags | 2 — India (`BHT`, `HND`) and Romania (`ROM`, `WAL`) |
 | No tag | Every remaining palette row |
 
