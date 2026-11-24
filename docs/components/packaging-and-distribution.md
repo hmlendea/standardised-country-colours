@@ -19,25 +19,27 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
 | Extract the version | Shell | Strips the leading `v` from the tag and exports it |
-| Build the mod | `python3 scripts/build.py --game victoria3 --version "${{ steps.version.outputs.version }}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root, because the mod folder is no longer committed |
-| Build the release archive | `zip -r` | Produces `standardised-country-colours_<version>.zip` containing the mod folder |
+| Build the mod | `python3 scripts/build.py --version "${{ steps.version.outputs.version }}" --game "${GAME}"` | Renders the mod folder at the tag's version |
+| Build the release archive | `zip -r` | Produces `standardised-country-colours_<group>_<version>.zip` containing the mod folder |
 | Publish the release asset | `softprops/action-gh-release@v2` | Attaches the archive to the release |
 
-`VERSION` resolves to `${{ inputs.tag || github.event.release.tag_name }}` so a manual run publishes the same asset a released run would.
+The workflow defines two jobs, `victoria3` and `imperator`, each with its own `GAME` and `GROUP` environment variables. Both jobs run the same steps in parallel.
+
+`VERSION` resolves to `${{ inputs.tag || github.event.release.tag_name }}` so a manual run publishes the same assets a released run would.
 
 ### Permissions
 
-`contents: write`, required to attach the asset. No other scope is requested.
+`contents: write`, required to attach the assets. No other scope is requested.
 
 ### What is not done
 
 - No checksum is computed or attached.
 - The release body is left as the maintainer wrote it.
-- The built folder is staged at the repository root only for the duration of the run; nothing is committed back.
+- The built folders remain under `out/<game>/`; nothing is staged at the repository root.
 
 ## Steam Workshop workflow
 
-`.github/workflows/steam-workshop-release.yml` uploads the mod folder to the Workshop item.
+`.github/workflows/steam-workshop-release.yml` uploads each game edition's mod folder to its matching Workshop item.
 
 ### Triggers
 
@@ -51,12 +53,12 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
-| Build the mod | `python3 scripts/build.py --game victoria3 --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
-| Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
-| Extract the release archive | `unzip` | Expands to `release/standardised-country-colours/` |
-| Upload | `hmlendea/steam-workshop-update@latest` | Publishes the folder to Workshop item `3844790373` for Steam app `529340`, passes `icon` as the Workshop preview image, and adds a changenote linking to the GitHub release of the tag |
+| Build the mod | `python3 scripts/build.py --game <game> --version "${VERSION#v}"` | Renders the mod folder at the tag's version |
+| Upload to Steam Workshop | `hmlendea/steam-workshop-update@latest` | Publishes `out/<group>/standardised-country-colours/` to the matching Workshop item, adds a changenote linking to the GitHub release |
 
-The upload step supplies `icon: "release/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the `thumbnail.png` in the build output may be larger than the Workshop dimensions require.
+The workflow defines two jobs, `victoria3` and `imperator`. Victoria 3 publishes to Workshop item `3844790373` for Steam app `529340`; Imperator: Rome publishes to Workshop item `3845414842` for Steam app `859380`.
+
+Each upload step supplies `icon: "out/<group>/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the `thumbnail.png` in the build output may be larger than the Workshop dimensions require.
 
 `VERSION` resolves to `${{ inputs.tag || github.ref_name }}` so a manual run publishes the requested tag.
 
@@ -86,9 +88,11 @@ The upload reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from r
 | Step | Action | Effect |
 |------|--------|--------|
 | Check out the repository | `actions/checkout@v7` with `ref: ${{ env.VERSION }}` | Works on the exact tagged tree |
-| Build the mod | `python3 scripts/build.py --game victoria3 --version "${VERSION#v}"` and `cp -r out/vic3/standardised-country-colours ./` | Renders the mod folder at the tag's version and stages it at the repository root |
-| Build the release archive | `zip -r` | Produces `release.zip` containing the mod folder |
-| Upload | `Nexus-Mods/upload-action@v1.0.0-beta.11` | Publishes `standardised-country-colours.zip` to Nexus Mods file `8446233`, sets the tag as the file version, archives the previous version, and updates the mod version |
+| Build the mod | `python3 scripts/build.py --game <game> --version "${VERSION#v}"` | Renders the mod folder at the tag's version |
+| Build the release archive | `zip -r` | Produces `release-<game>.zip` containing the mod folder |
+| Upload to Nexus Mods | `Nexus-Mods/upload-action@v1.0.0-beta.11` | Publishes to the matching Nexus Mods file, sets the tag as the version, archives the previous version |
+
+The workflow defines two jobs, `imperator` and `victoria3`. Imperator: Rome publishes to file `8454045`; Victoria 3 publishes to file `8446233`.
 
 `VERSION` resolves to `${{ inputs.tag || github.ref_name }}` so a manual run publishes the requested tag.
 
@@ -116,11 +120,11 @@ standardised-country-colours_<version>.zip
     └── thumbnail.png
 ```
 
-The archive's top-level entry is the mod folder itself, so extracting it into the mod directory produces the layout the launcher expects. Extracting its contents directly into the mod directory would scatter `common/` and `.metadata/` at the wrong level.
+The Victoria 3 archive nests the `.metadata/` layout shown above; the Imperator: Rome archive holds `descriptor.mod`, a sibling `.mod` file, and the `setup/countries/` tree instead. In both cases the archive's top-level entry is the mod folder itself, so extracting it into the mod directory produces the layout the launcher expects. Extracting its contents directly into the mod directory would scatter the content folders at the wrong level.
 
 ## Manual distribution
 
-A user may run `scripts/build.py` and copy its `out/vic3/standardised-country-colours/` output into the mod directory. That folder is byte-identical to any release archive's contents.
+A user may run `scripts/build.py` and copy its `out/<game>/standardised-country-colours/` output into the mod directory. That folder is byte-identical to any release archive's contents.
 
 ## Workshop page description
 

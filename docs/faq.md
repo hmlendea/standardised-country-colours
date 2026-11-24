@@ -54,11 +54,11 @@ Yes. Follow [flows/colour-authoring.md](./flows/colour-authoring.md). The only h
 
 ## Is the mod on the Steam Workshop?
 
-Yes, as item `3844790373`; the launcher collects it into a playset like any other mod. The `steam-workshop-release.yml` workflow republishes the item on every `v*.*.*` tag, so the Workshop build tracks the GitHub release of the same tag.
+Yes, as item `3844790373` for Victoria 3 and item `3845414842` for Imperator: Rome; the launcher collects it into a playset like any other mod. The `steam-workshop-release.yml` workflow republishes each item on every `v*.*.*` tag, so the Workshop build tracks the GitHub release of the same tag.
 
 ## Is the mod on Nexus Mods?
 
-Yes, as file `8446233`. The `nexus-mods-release.yml` workflow uploads the release archive to that file on every `v*.*.*` tag, alongside the Steam Workshop and GitHub release publications.
+Yes, as file `8446233` for Victoria 3 and file `8454045` for Imperator: Rome. The `nexus-mods-release.yml` workflow uploads each release archive to the matching file on every `v*.*.*` tag, alongside the Steam Workshop and GitHub release publications.
 
 ## How do I know a release is safe?
 

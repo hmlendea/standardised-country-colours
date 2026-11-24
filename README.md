@@ -70,16 +70,26 @@ Each affected country receives the standardised colour when the country definiti
 [![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
 [![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/vic3-standardised-country-colours/releases)
 
+The mod is published for both Victoria 3 and Imperator: Rome:
+
+| Game | Steam Workshop | Nexus Mods |
+|------|----------------|------------|
+| Victoria 3 | [3844790373](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373) | [54](https://nexusmods.com/victoria3/mods/54) |
+| Imperator: Rome | [3845414842](https://steamcommunity.com/sharedfiles/filedetails/?id=3845414842) | [36](https://nexusmods.com/imperatorrome/mods/36) |
+
 ### Manual Installation
 
-1. Download the [latest release](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest)
-2. Extract the contents into the Victoria 3 mod directory:
-   - Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
-   - macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
-   - Windows: `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
-3. Add the mod to a playset in the Victoria 3 launcher and enable it
+1. Download the [latest release](https://github.com/hmlendea/vic3-standardised-country-colours/releases/latest) for your game edition
+2. Extract the contents into the game's mod directory:
+   - Victoria 3 Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
+   - Victoria 3 macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
+   - Victoria 3 Windows: `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
+   - Imperator: Rome Linux: `~/.local/share/Paradox Interactive/ImperatorRome/mod/`
+   - Imperator: Rome macOS: `~/Library/Application Support/Paradox Interactive/ImperatorRome/mod/`
+   - Imperator: Rome Windows: `%USERPROFILE%\Documents\Paradox Interactive\ImperatorRome\mod\`
+3. Add the mod to a playset in the launcher and enable it
 
-Do not extract the archive into the game installation directory; Victoria 3 does not load mods from there.
+Do not extract the archive into the game installation directory; the games do not load mods from there.
 
 ### Verification
 
@@ -95,6 +105,7 @@ Remove the previously extracted `standardised-country-colours` directory, then e
 |-----------|--------------------|-------|
 | Victoria 3 | `1.15.*` | Declared as `supported_game_version` in `.metadata/metadata.json` |
 | Victoria 3 (older releases) | Not supported | The mod uses definition-injection keywords that require a compatible content revision |
+| Imperator: Rome | `2.0.*` | Declared as `supported_version` in the mod descriptor |
 | Other mods that redefine the same countries | Not verified | A later whole-country redefinition replaces the injected colour; the mod with the later file name wins |
 
 ## 🛡️ Privacy and Data
@@ -107,16 +118,16 @@ For the detailed description of how the application handles privacy and personal
 
 | Workflow | Purpose | What it does |
 |----------|---------|--------------|
-| [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives `standardised-country-colours/` as `standardised-country-colours_<version>.zip`, and attaches the archive to the release |
-| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop item | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives and extracts `standardised-country-colours/`, and uploads it to the Steam Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
-| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods file | Runs on a `v*.*.*` tag push or manual dispatch: checks out the requested tag, builds the mod with `scripts/build.py`, archives `standardised-country-colours/` as `release.zip`, and uploads it to Nexus Mods file `8446233` with the tag as its version |
+| [ github-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder as `standardised-country-colours_<group>_<version>.zip`, and attaches the archive to the release |
+| [ steam-workshop-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop items | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, and uploads the `out/<group>/standardised-country-colours/` folder to its Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
+| [ nexus-mods-release.yml ](https://github.com/hmlendea/vic3-standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods files | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`imperator` and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder, and uploads it to its Nexus Mods file (`8454045` for Imperator: Rome, `8446233` for Victoria 3) with the tag as its version |
 
 ## 🗂️ Project Structure
 
-The build renders the mod folder into `out/vic3/standardised-country-colours/`, so the generated tree mirrors the `Victoria 3/game` directory layout that the game expects. The folder is produced by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
+The build renders the mod folder into `out/<game>/standardised-country-colours/`, so the generated tree mirrors each game's directory layout. The folder is produced by `scripts/build.py` from the shared palette snapshot and the per-game configuration and artwork:
 
 ```bash
-python3 scripts/build.py --game victoria3 --version 1.0.0
+python3 scripts/build.py --game victoria3 --game imperator --version 1.0.0
 ```
 
 The mod folder is build output and is not committed. The build is game-agnostic: each game edition under `scripts/games/` declares its own identity, mappings, and output layout, so further editions can be added without touching the shared engine.
