@@ -96,7 +96,7 @@
 | Cumania              |                     | Crusader Kings 2                                   | #E7C058        | #FFFFFF               |
 | Curaçao              |                     | Official flag                                      | #002B7F        | #F9E814               |
 | Cyprus               |                     | Official flag                                      | #FFFFFF        | #D67900               |
-| Czechia              | Bohemia             | Age of Empires II HD (Teal)                        | #00ab93        | #FFFFFF               |
+| Czechia              | Bohemia, Boihaemia  | Age of Empires II HD (Teal)                        | #00ab93        | #FFFFFF               |
 | Dacia                |                     | Total War: Rome                                    | #734B28        | #000000               |
 | Daylam               |                     | Crusader Kings 2                                   | #467D93        | #FFFFFF               |
 | Denmark              |                     | Official flag                                      | #C8102E        | #FFFFFF               |

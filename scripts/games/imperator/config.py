@@ -73,6 +73,7 @@ COUNTRY_FILE_HEADER_LINES = [
 COUNTRY_PALETTE_ENTRIES = {
     'ALB': 'Albania',
     'ARM': 'Armenia',
+    'BOA': 'Czechia',
     'BYZ': 'Eastern Roman Empire',
     'CAR': 'Carthage',
     'EGY': 'Egypt',
@@ -93,6 +94,7 @@ COUNTRY_PALETTE_ENTRIES = {
 # Tags whose vanilla localised name differs from the palette entry name. The
 # difference is recorded in each block's comment as `(palette: <entry>)`.
 VANILLA_COUNTRY_NAMES = {
+    'BOA': 'Boihaemia',
     'BYZ': 'Byzantion',
     'MAC': 'Macedon',
     'MRY': 'Maurya',
