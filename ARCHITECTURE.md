@@ -34,7 +34,7 @@ This document describes the verified current architecture of the Victoria 3 edit
 
 ## 🎯 Purpose
 
-The repository supplies a single country-definition override file that injects one `color` key into 101 vanilla Victoria 3 country definitions, replacing each country's map colour with a standardised value taken from the palette shared across the project's grand strategy game editions. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
+The repository supplies a single country-definition override file that injects one `color` key into 131 vanilla Victoria 3 country definitions, replacing each country's map colour with a standardised value taken from the palette shared across the project's grand strategy game editions. The system boundary is the mod content directory and its launcher metadata; nothing outside that boundary executes.
 
 The audience is the mod maintainer, contributors proposing a colour change, and users diagnosing why a country's colour did or did not change. Recording these boundaries matters because the mod has no runtime of its own: every observable effect is produced by the host engine reading this file, so the architecture is the file layout plus the engine contract, and nothing more.
 
@@ -66,7 +66,7 @@ The verified style is a **content-only host extension**: a declarative data pack
 Two structural conventions implement that style:
 
 1. **Keyword injection.** Every shipped block is keyed as `INJECT:<tag>`, so the engine appends the shipped `color` key to the vanilla block rather than restating it. A vanilla field the mod does not mention is therefore preserved by construction.
-2. **Single override file.** All 101 injections live in one uniquely named file, so the complete change set is readable in one place and the mod cannot collide with a vanilla file name.
+2. **Single override file.** All 131 injections live in one uniquely named file, so the complete change set is readable in one place and the mod cannot collide with a vanilla file name.
 
 ```mermaid
 flowchart TD
@@ -120,7 +120,7 @@ Paths:
 - `standardised-country-colours/common/country_definitions/sc_country_colours.txt`
 
 Responsibilities:
-- Carry all 101 country colour injections as `INJECT:<tag> = { color = { R G B } }` blocks.
+- Carry all 131 country colour injections as `INJECT:<tag> = { color = { R G B } }` blocks.
 - Record the vanilla country name, the hexadecimal palette colour, and the palette source in a comment above each block, appending the palette entry name in parentheses whenever it differs from the vanilla name.
 - Encode each colour as decimal red, green, and blue components in the range 0–255, which is the game-native form the injected key accepts.
 - Keep the block ordering alphabetical by tag so that the file remains diffable and a missing tag is visible.

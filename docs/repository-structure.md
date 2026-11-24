@@ -28,7 +28,7 @@ vic3-standardised-country-colours/
     │   └── thumbnail.png                     # 600x333 launcher artwork
     ├── common/
     │   └── country_definitions/
-    │       └── sc_country_colours.txt        # 101 injections, 515 lines
+    │       └── sc_country_colours.txt        # 131 injections, 665 lines
     └── thumbnail.png                         # 512x512 Workshop artwork
 ```
 
@@ -36,7 +36,7 @@ vic3-standardised-country-colours/
 
 | Path | Lines | Role |
 |------|-------|------|
-| `standardised-country-colours/common/country_definitions/sc_country_colours.txt` | 515 | The entire product: 101 commented `INJECT:` blocks |
+| `standardised-country-colours/common/country_definitions/sc_country_colours.txt` | 665 | The entire product: 131 commented `INJECT:` blocks |
 | `standardised-country-colours/.metadata/metadata.json` | 22 | Launcher descriptor |
 | `standardised-country-colours/.metadata/thumbnail.png` | — | Launcher artwork, 600x333 RGB |
 | `standardised-country-colours/thumbnail.png` | — | Workshop artwork, 512x512 RGB |

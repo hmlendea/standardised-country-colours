@@ -48,7 +48,7 @@ print(f"ok: {len(blocks)} entries, {len(missing)} unknown tags")
 PY
 ```
 
-Expected output for the shipped content: `ok: 101 entries, 0 unknown tags`.
+Expected output for the shipped content: `ok: 131 entries, 0 unknown tags`.
 
 ## Comment-versus-value consistency
 
@@ -124,7 +124,7 @@ print("within 8 units:", near)
 PY
 ```
 
-Expected result for the shipped content: `equal to vanilla: ['SCA']`, `within 8 units: [('APC', 3)]`.
+Expected result for the shipped content: `equal to vanilla: ['SCA']`, `within 8 units: [('BAH', 1), ('APC', 3)]`.
 
 This audit exists to catch an accidental duplicate introduced during authoring, not to enforce a rule.
 

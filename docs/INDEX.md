@@ -4,7 +4,7 @@ Master navigation for the Standardised Country Colours Victoria 3 edition reposi
 
 ## Repository summary
 
-Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games; this repository is the Victoria 3 edition. It is a content-only mod that ships a single country-definition file under `standardised-country-colours/common/country_definitions/` that injects one `color` key into 101 vanilla country definitions, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
+Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games; this repository is the Victoria 3 edition. It is a content-only mod that ships a single country-definition file under `standardised-country-colours/common/country_definitions/` that injects one `color` key into 131 vanilla country definitions, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
 
 The repository owns no runtime, no build step, and no executable code. Every observable effect is produced by the Victoria 3 engine reading the file.
 
@@ -12,14 +12,14 @@ Current state, verified against the installed game (`1.15.2`, launcher label `Iv
 
 | Metric | Value |
 |--------|-------|
-| Mapped country tags | 101 |
-| Content files | 1 (`sc_country_colours.txt`, 515 lines) |
+| Mapped country tags | 131 |
+| Content files | 1 (`sc_country_colours.txt`, 665 lines) |
 | Tags defined by vanilla | 835 |
-| Mapped tags present at the 1836 start | 46 |
-| Mapped tags that are formation targets | 35 |
-| Mapped tags that are both | 11 |
-| Mapped tags that are neither (release-only in practice) | 31 |
-| Mapped tags also referenced by a conditional map-colour block | 27 |
+| Mapped tags present at the 1836 start | 64 |
+| Mapped tags that are formation targets | 37 |
+| Mapped tags that are both | 10 |
+| Mapped tags that are neither (release-only in practice) | 40 |
+| Mapped tags also referenced by a conditional map-colour block | 28 |
 | Exact no-op mappings | 1 (`SCA`) |
 | Declared game version | `1.15.*` |
 | Declared mod version | `1.0.0` |
@@ -63,7 +63,7 @@ There is no `api-reference/` directory because the repository exposes no HTTP, R
 
 | Document | Description |
 |----------|-------------|
-| [components/mod-content.md](./components/mod-content.md) | The colour override file and its 101 entries |
+| [components/mod-content.md](./components/mod-content.md) | The colour override file and its 131 entries |
 | [components/launcher-metadata.md](./components/launcher-metadata.md) | `metadata.json` and the two thumbnails |
 | [components/repository-metadata.md](./components/repository-metadata.md) | Documentation, licence, ignore rules, funding |
 | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) | Release workflows, the published archive, and the Workshop and Nexus Mods items |
@@ -90,7 +90,7 @@ There is no `api-reference/` directory because the repository exposes no HTTP, R
 | [security.md](./security.md) | Trust boundary and content-integrity concerns |
 | [state-and-persistence.md](./state-and-persistence.md) | Why the repository owns no state |
 | [localisation.md](./localisation.md) | Language coverage of the shipped content |
-| [colour-mappings.md](./colour-mappings.md) | Full table of all 101 mappings with vanilla values |
+| [colour-mappings.md](./colour-mappings.md) | Full table of all 131 mappings with vanilla values |
 
 ### Operations and maintenance
 
@@ -126,7 +126,7 @@ Looking up a specific country: [colour-mappings.md](./colour-mappings.md).
 
 | Field | Value |
 |-------|-------|
-| Last reviewed | 2026-11-23 |
+| Last reviewed | 2026-11-24 |
 | Owner | Repository maintainer |
 | Coverage status | Complete for the shipped content surface |
 | Source revision | `5b5655d` |

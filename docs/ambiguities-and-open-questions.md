@@ -4,7 +4,7 @@ Items that repository evidence does not settle, recorded so a future contributor
 
 ## A1. Whether an injected scalar key replaces or precedes the existing one
 
-The engine appends injected keys to the target block. For a scalar key a block cannot hold two values, so the injected value wins; the observable result confirms this — the map shows the injected colour for all 101 tags. The precise internal mechanism, whether the injected value overwrites in place or the last-parsed value takes precedence, is not documented. It has no practical consequence for this mod, because the mod injects one scalar and never injects a block.
+The engine appends injected keys to the target block. For a scalar key a block cannot hold two values, so the injected value wins; the observable result confirms this — the map shows the injected colour for all 131 tags. The precise internal mechanism, whether the injected value overwrites in place or the last-parsed value takes precedence, is not documented. It has no practical consequence for this mod, because the mod injects one scalar and never injects a block.
 
 ## A2. No commit timestamp for the palette snapshot
 
@@ -12,11 +12,11 @@ The palette is an external document. This tree records that the snapshot used is
 
 **Recommendation.** If palette drift becomes a problem, commit a copy of the palette alongside the mod and reference it, so a release pins the exact source values.
 
-## A3. Two deliberate near-no-op mappings
+## A3. Deliberate near-no-op mappings
 
-`SCA` equals vanilla exactly and `APC` is within three units per component. Both are shipped.
+`SCA` equals vanilla exactly, `APC` is within three units per component, and `BAH` is within one unit in the blue component. All three are shipped.
 
-**Open question.** Whether to keep them. Keeping them records the palette's provenance for those two countries; removing them changes nothing on the map. The current position is to keep them, because the palette's intent is authoritative and a later palette change to either row would then be a one-line edit rather than a re-addition.
+**Open question.** Whether to keep them. Keeping them records the palette's provenance for those countries; removing them changes nothing on the map. The current position is to keep them, because the palette's intent is authoritative and a later palette change to any row would then be a one-line edit rather than a re-addition.
 
 ## A4. Whether Babylon should be mapped anyway
 

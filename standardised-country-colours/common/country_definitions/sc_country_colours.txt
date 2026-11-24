@@ -9,14 +9,34 @@
 # name, the palette name is appended in parentheses. Victoria 3 exposes a single
 # map colour per country, so only the primary palette colour is applied.
 
+# Abkhazia - #00993E - Official flag
+INJECT:ABK = {
+	color = { 0 153 62 }
+}
+
 # Afghanistan - #A37939 - Crusader Kings 2
 INJECT:AFG = {
 	color = { 163 121 57 }
 }
 
-# Albania - #FF0000 - Official flag
+# Albania - #AC2E26 - eRepublik (Old UI)
 INJECT:ALB = {
-	color = { 255 0 0 }
+	color = { 172 46 38 }
+}
+
+# Algeria - #006633 - Official flag
+INJECT:ALD = {
+	color = { 0 102 51 }
+}
+
+# Altai - #FFFFFF - Official flag
+INJECT:ALI = {
+	color = { 255 255 255 }
+}
+
+# Alaska - #0F204B - Official flag
+INJECT:ALK = {
+	color = { 15 32 75 }
 }
 
 # Andalusia - #1F8A28 - Crusader Kings 2
@@ -59,9 +79,9 @@ INJECT:AST = {
 	color = { 21 108 48 }
 }
 
-# Asturias - #E9BC5B - Crusader Kings 2
+# Asturias - #0066FF - Official flag
 INJECT:ASU = {
-	color = { 233 188 91 }
+	color = { 0 102 255 }
 }
 
 # Austria - #C8102E - Official flag
@@ -74,14 +94,39 @@ INJECT:AZB = {
 	color = { 80 158 47 }
 }
 
+# Baden - #E2001A - Official flag
+INJECT:BAD = {
+	color = { 226 0 26 }
+}
+
+# Bahamas - #00778B - Official flag
+INJECT:BAH = {
+	color = { 0 119 139 }
+}
+
 # Bavaria - #0098D4 - Official flag
 INJECT:BAV = {
 	color = { 0 152 212 }
 }
 
+# Belgium - #7D9A40 - eRepublik (Old UI)
+INJECT:BEL = {
+	color = { 125 154 64 }
+}
+
+# Benin - #008751 - Official flag
+INJECT:BEN = {
+	color = { 0 135 81 }
+}
+
 # India - #128807 - Civilization 5
 INJECT:BHT = {
 	color = { 18 136 7 }
+}
+
+# Bhutan - #FFCD00 - Official flag
+INJECT:BHU = {
+	color = { 255 205 0 }
 }
 
 # Bohemia (palette: Czechia) - #00AB93 - Age of Empires II HD (Teal)
@@ -99,9 +144,24 @@ INJECT:BOS = {
 	color = { 0 35 149 }
 }
 
+# Burundi - #C8102E - Official flag
+INJECT:BRD = {
+	color = { 200 16 46 }
+}
+
 # Brittany - #FFFFFF - Official flag
 INJECT:BRI = {
 	color = { 255 255 255 }
+}
+
+# Brunei - #F7E017 - Official flag
+INJECT:BRU = {
+	color = { 247 224 23 }
+}
+
+# Buryatia - #0039A6 - Official flag
+INJECT:BRY = {
+	color = { 0 57 166 }
 }
 
 # Brazil - #009440 - Official flag
@@ -109,9 +169,19 @@ INJECT:BRZ = {
 	color = { 0 148 64 }
 }
 
+# Buganda - #003CC8 - Official flag
+INJECT:BUG = {
+	color = { 0 60 200 }
+}
+
 # Bulgaria - #715865 - Crusader Kings 2
 INJECT:BUL = {
 	color = { 113 88 101 }
+}
+
+# Burma (palette: Myanmar) - #34B233 - Official Flag
+INJECT:BUR = {
+	color = { 52 178 51 }
 }
 
 # Belarus - #CE1720 - Official flag
@@ -122,6 +192,11 @@ INJECT:BYE = {
 # Byzantium (palette: Eastern Roman Empire) - #460076 - Civilization 5 (Rome)
 INJECT:BYZ = {
 	color = { 70 0 118 }
+}
+
+# California - #FFFFFF - Official flag
+INJECT:CAL = {
+	color = { 255 255 255 }
 }
 
 # Cambodia - #E00025 - Official flag
@@ -139,9 +214,29 @@ INJECT:CAS = {
 	color = { 243 209 23 }
 }
 
+# Sri Lanka - #8D153A - Official flag
+INJECT:CEY = {
+	color = { 141 21 58 }
+}
+
+# Chechnya - #227733 - Official flag
+INJECT:CHC = {
+	color = { 34 119 51 }
+}
+
 # China - #EE1C25 - Official flag (PRC)
 INJECT:CHI = {
 	color = { 238 28 37 }
+}
+
+# Chile - #ECFFAE - eRepublik (Old UI)
+INJECT:CHL = {
+	color = { 236 255 174 }
+}
+
+# Circassia (palette: Adygea) - #296912 - Official flag
+INJECT:CIR = {
+	color = { 41 105 18 }
 }
 
 # Colombia - #012A6C - Civilization 6 (Gran Colombia)
@@ -149,9 +244,24 @@ INJECT:CLM = {
 	color = { 1 42 108 }
 }
 
-# Croatia - #7A2E3A - Crusader Kings 2
+# Corsica - #000000 - Official flag
+INJECT:COR = {
+	color = { 0 0 0 }
+}
+
+# Crimea - #00A3DD - Official flag (Crimean Tatar People)
+INJECT:CRI = {
+	color = { 0 163 221 }
+}
+
+# Croatia - #867ACC - eRepublik (Old UI)
 INJECT:CRO = {
-	color = { 122 46 58 }
+	color = { 134 122 204 }
+}
+
+# Cascadia - #275F2F - Official flag
+INJECT:CSC = {
+	color = { 39 95 47 }
 }
 
 # Cyprus - #FFFFFF - Official flag
@@ -162,6 +272,11 @@ INJECT:CYP = {
 # Denmark - #C8102E - Official flag
 INJECT:DEN = {
 	color = { 200 16 46 }
+}
+
+# Ecuador - #FFDD00 - Official flag
+INJECT:ECU = {
+	color = { 255 221 0 }
 }
 
 # Egypt - #FFFF2B - Civilization 4
@@ -254,14 +369,19 @@ INJECT:ISR = {
 	color = { 255 255 255 }
 }
 
-# Italy - #F4E3A0 - Crusader Kings 2
+# Italy - #587D2D - eRepublik (Old UI)
 INJECT:ITA = {
-	color = { 244 227 160 }
+	color = { 88 125 45 }
 }
 
 # Japan - #FFFFFF - Civilization 5
 INJECT:JAP = {
 	color = { 255 255 255 }
+}
+
+# Kazakhstan - #00ABC2 - Official flag
+INJECT:KAZ = {
+	color = { 0 171 194 }
 }
 
 # Kongo - #F7D801 - Civilization 6
@@ -339,6 +459,11 @@ INJECT:MOL = {
 	color = { 176 0 0 }
 }
 
+# Montenegro - #CAA030 - eRepublik (Old UI)
+INJECT:MON = {
+	color = { 202 160 48 }
+}
+
 # Morocco - #910200 - Civilization 5
 INJECT:MOR = {
 	color = { 145 2 0 }
@@ -349,9 +474,9 @@ INJECT:NAV = {
 	color = { 150 120 5 }
 }
 
-# Nepal - #AF3C1E - Crusader Kings 2
+# Nepal - #E52320 - Official flag (1856-1930)
 INJECT:NEP = {
-	color = { 175 60 30 }
+	color = { 229 35 32 }
 }
 
 # Netherlands - #FF9000 - Civilization 5
@@ -384,6 +509,11 @@ INJECT:PER = {
 	color = { 18 204 245 }
 }
 
+# Peru - #D91023 - Official flag
+INJECT:PEU = {
+	color = { 217 16 35 }
+}
+
 # Polynesia - #D95900 - Civilization 5
 INJECT:PNS = {
 	color = { 217 89 0 }
@@ -399,6 +529,11 @@ INJECT:POR = {
 	color = { 0 96 53 }
 }
 
+# Paraguay - #241265 - eRepublik (Old UI)
+INJECT:PRG = {
+	color = { 36 18 101 }
+}
+
 # Rajputana (palette: Rajastan) - #FF6400 - Crusader Kings 2
 INJECT:RAJ = {
 	color = { 255 100 0 }
@@ -412,6 +547,11 @@ INJECT:ROM = {
 # Russia - #EFB400 - Civilization 5
 INJECT:RUS = {
 	color = { 239 180 0 }
+}
+
+# South Africa - #994D99 - eRepublik (Old UI)
+INJECT:SAF = {
+	color = { 153 77 153 }
 }
 
 # Sardinia-Piedmont (palette: Sardinia) - #D2A5FF - Crusader Kings 2
@@ -447,6 +587,11 @@ INJECT:SIA = {
 # Two Sicilies (palette: Sicily) - #464646 - Total War: Medieval 2
 INJECT:SIC = {
 	color = { 70 70 70 }
+}
+
+# Slovenia - #7DB1C6 - eRepublik (Old UI)
+INJECT:SLO = {
+	color = { 125 177 198 }
 }
 
 # Spain - #FABD00 - Official flag
@@ -497,6 +642,11 @@ INJECT:USA = {
 # Venice - #790303 - Total War: Medieval 2
 INJECT:VEN = {
 	color = { 121 3 3 }
+}
+
+# Venezuela - #CB7BD2 - eRepublik (Old UI)
+INJECT:VNZ = {
+	color = { 203 123 210 }
 }
 
 # Wallachia (palette: Romania) - #FCD116 - Official flag
