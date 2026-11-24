@@ -94,7 +94,7 @@ vic3-standardised-country-colours/
 python3 scripts/build.py --version 1.0.0
 ```
 
-The output is written to `out/<folder>/` by default; `-o`/`--out`/`--output` selects another directory and `-g`/`--game` restricts the run to one or more editions. The script produces folders byte-identical to the committed `standardised-country-colours/`, so the tracked output can be regenerated and diffed at any time.
+The output is written to `out/<group>/<folder>/` by default, where `<group>` is the edition's output group (`vic3` for Victoria 3); `-o`/`--out`/`--output` selects another root and `-g`/`--game` restricts the run to one or more editions. The script produces folders byte-identical to the committed `standardised-country-colours/`, so the tracked output can be regenerated and diffed at any time.
 
 The release workflows still archive the committed folder, so a release is reproducible from the tagged tree alone.
 
@@ -102,7 +102,7 @@ The release workflows still archive the committed folder, so a release is reprod
 
 The build is game-agnostic; a new edition supplies its identity, mappings, and rendering and registers itself once.
 
-1. Create `scripts/games/<game>/config.py` with the edition identity, output layout, `COUNTRY_PALETTE_ENTRIES`, and any `VANILLA_COUNTRY_NAMES`.
+1. Create `scripts/games/<game>/config.py` with the edition identity, output group, output layout, `COUNTRY_PALETTE_ENTRIES`, and any `VANILLA_COUNTRY_NAMES`.
 2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`, following the Victoria 3 edition.
 3. Create `scripts/games/<game>/__init__.py` exporting an `EDITION` value built from those functions.
 4. Register the edition in `scripts/games/__init__.py` and add its assets under `src/<game>/`.
@@ -115,7 +115,7 @@ No change to `scripts/build.py`, `scripts/builder.py`, `scripts/palette.py`, or 
 
 | Pattern | Reason |
 |---------|--------|
-| `out/` | The default build output directory |
+| `out/` | The default build output directory, grouped per game |
 | `*.zip` | Release archives are attached to GitHub releases, not committed |
 | `*.dnspython*`, `.DS_Store`, `Thumbs.db`, `*.tmp` | Editor and OS transients |
 

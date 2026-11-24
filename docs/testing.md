@@ -10,7 +10,7 @@ The build must reproduce the committed mod folder exactly. This is the strongest
 
 ```bash
 python3 scripts/build.py --version 1.0.0 -o /tmp/build-check
-diff -r /tmp/build-check/standardised-country-colours standardised-country-colours \
+diff -r /tmp/build-check/vic3/standardised-country-colours standardised-country-colours \
   && echo "reproduced"
 ```
 

@@ -25,6 +25,8 @@ class GameEdition:
     Attributes:
         key: Short identifier used to select the edition on the command line.
         name: Human-readable edition name, used only in messages.
+        output_group: Directory under the output root that the edition writes to,
+            so each game's mod folders stay grouped.
         folder_name: Name of the mod folder the build produces.
         render_text_files: Returns relative path -> bytes for the version.
         asset_files: Returns destination relative path -> source path.
@@ -32,6 +34,7 @@ class GameEdition:
 
     key: str
     name: str
+    output_group: str
     folder_name: str
     render_text_files: RenderTextFiles
     asset_files: AssetFiles

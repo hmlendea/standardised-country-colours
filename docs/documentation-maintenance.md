@@ -42,7 +42,7 @@ Two mechanical checks exist.
 
 # 2. The build must reproduce the committed folder exactly.
 python3 scripts/build.py --version 1.0.0 -o /tmp/build-check
-diff -r /tmp/build-check/standardised-country-colours standardised-country-colours
+diff -r /tmp/build-check/vic3/standardised-country-colours standardised-country-colours
 
 # 3. Internal links must resolve.
 python3 - <<'PY'

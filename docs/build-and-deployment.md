@@ -7,7 +7,7 @@
 | Input | Path | Role |
 |-------|------|------|
 | Palette snapshot | `src/colours.md` | Supplies each entry's primary colour and source attribution, shared by every edition |
-| Game-specific configuration | `scripts/games/<game>/config.py` | Identity, output layout, the palette entry for each shipped tag, and the vanilla name where it differs |
+| Game-specific configuration | `scripts/games/<game>/config.py` | Identity, output group, output layout, the palette entry for each shipped tag, and the vanilla name where it differs |
 | Game-specific rendering | `scripts/games/<game>/render.py` | Turns the palette and configuration into the shipped files |
 | Artwork | `src/<game>/thumbnail.png`, `src/<game>/launcher-thumbnail.png` | Copied into the mod folder and the metadata directory |
 | Version | `--version` argument | Written as the metadata `version` |
@@ -22,9 +22,9 @@ python3 scripts/build.py --version 1.0.0
 |--------|---------|---------|
 | `-v`, `--ver`, `--version` | Mod version recorded in the metadata; required | — |
 | `-g`, `--game` | Game edition to build; repeatable | Every registered edition |
-| `-o`, `--out`, `--output` | Directory that receives the mod folders | `out/` |
+| `-o`, `--out`, `--output` | Directory that receives the per-game output groups | `out/` |
 
-The build clears `<output>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The result is byte-identical to the committed mod folder: the content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
+The build clears `<output>/<group>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The result is byte-identical to the committed mod folder: the content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
 
 ## Local packaging
 
@@ -42,7 +42,7 @@ VERSION=1.0.0
 
 1. Confirm the metadata `version` matches the intended tag.
 2. Confirm every shipped tag still exists in the installed game's definitions.
-3. Run the build and confirm `<output>/standardised-country-colours/` matches the committed folder.
+3. Run the build and confirm `<output>/vic3/standardised-country-colours/` matches the committed folder.
 4. Run the structural checks in [testing.md](./testing.md).
 5. Verify in game that a representative country shows the expected colour.
 6. Commit and tag.
@@ -58,7 +58,7 @@ Alternatively, trigger any workflow manually with the tag input; each `VERSION` 
 | Environment | Purpose | Mechanism |
 |-------------|---------|-----------|
 | Local checkout | Authoring and verification | Direct edit of the mod folder |
-| Local build | Regenerating the mod folder | `scripts/build.py` into `out/` |
+| Local build | Regenerating the mod folder | `scripts/build.py` into `out/<game>/` |
 | Local game | Behavioural verification | Copy the folder into the user mod directory |
 | GitHub release | Distribution | Workflow archive attachment |
 | Steam Workshop | Distribution | `steam-workshop-release.yml` item upload |

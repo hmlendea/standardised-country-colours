@@ -6,6 +6,7 @@
 # --- Identity ---
 
 EDITION_KEY = 'victoria3'
+OUTPUT_GROUP = 'vic3'
 MOD_FOLDER_NAME = 'standardised-country-colours'
 MOD_NAME = 'Standardised Country Colours'
 MOD_ID = 'com.github.hmlendea.vic3-standardised-country-colours'

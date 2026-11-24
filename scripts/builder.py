@@ -36,7 +36,7 @@ def copy_file(source_path: Path, destination_path: Path) -> None:
 def build_edition(edition: GameEdition, palette: dict, source_directory_path: Path,
                   output_directory_path: Path, version: str) -> Path:
     """Build one game edition and return the path of the mod folder it wrote."""
-    mod_directory_path = output_directory_path / edition.folder_name
+    mod_directory_path = output_directory_path / edition.output_group / edition.folder_name
 
     # Starting from scratch guarantees that no file from an earlier build survives.
     if mod_directory_path.exists():

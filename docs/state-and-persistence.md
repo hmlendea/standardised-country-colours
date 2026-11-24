@@ -2,7 +2,7 @@
 
 ## Repository state
 
-None. The repository owns no database, cache, queue, or session. The build writes a transient `out/` directory that is ignored by version control and reproduces the committed folder exactly, so no generated artefact is tracked. Every tracked file is either a build input or a static input to the game.
+None. The repository owns no database, cache, queue, or session. The build writes a transient `out/` directory, grouped per game, that is ignored by version control and reproduces the committed folder exactly, so no generated artefact is tracked. Every tracked file is either a build input or a static input to the game.
 
 ## Where state actually lives
 

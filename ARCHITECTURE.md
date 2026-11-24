@@ -359,7 +359,7 @@ Material coverage gaps and constraints:
 1. Identify the vanilla three-letter tag for the country in `common/country_definitions`, confirming that the tag is defined and that it is the country the palette entry names.
 2. Add the tag and its palette entry to `COUNTRY_PALETTE_ENTRIES` in `scripts/games/victoria3/config.py`, and, when the vanilla localised name differs from the palette entry name, add the tag to `VANILLA_COUNTRY_NAMES`.
 3. Confirm the palette entry exists in `src/colours.md` with its principal colour and source.
-4. Run the build and confirm `<output>/standardised-country-colours/` matches the committed folder.
+4. Run the build and confirm `<output>/vic3/standardised-country-colours/` matches the committed folder.
 5. Run the structural verification described under Testing and Verification, then confirm the colour in a running game.
 
 The build derives the decimal triple from the palette hexadecimal, writes the per-block provenance comment, and keeps the file alphabetical by tag and UTF-8 with a byte-order mark, so those properties hold by construction. The extension must preserve the `INJECT:` keyword and the single-file layout. A new colour needs no registration anywhere else, because the engine discovers every definition file present in the tree.

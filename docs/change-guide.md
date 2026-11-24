@@ -22,7 +22,7 @@
 1. Locate the palette entry in `src/colours.md` by name.
 2. Change its Principal Colours value and, if needed, its source.
 3. Run `python3 scripts/build.py --version <version>`.
-4. Confirm `<output>/standardised-country-colours/` matches the committed folder.
+4. Confirm `<output>/vic3/standardised-country-colours/` matches the committed folder.
 5. Run the structural audit and the comment/hex consistency check from [testing.md](./testing.md).
 6. Confirm in game.
 

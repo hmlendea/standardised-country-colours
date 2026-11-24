@@ -78,7 +78,7 @@ Rules the build enforces:
 
 ### 6. Verify
 
-Run the build and confirm `<output>/standardised-country-colours/` matches the committed folder, then run the structural checks in [testing.md](../testing.md). At minimum:
+Run the build and confirm `<output>/vic3/standardised-country-colours/` matches the committed folder, then run the structural checks in [testing.md](../testing.md). At minimum:
 
 ```bash
 python3 - <<'PY'
