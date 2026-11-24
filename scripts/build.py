@@ -32,8 +32,8 @@ def parse_arguments() -> argparse.Namespace:
         dest='game_keys',
         action='append',
         required=True,
-        choices=sorted(EDITIONS),
-        help='Game edition to build; repeatable. Required.')
+        choices=GAME_CHOICES,
+        help='Game edition to build, repeatable: vic3, imperator')
     parser.add_argument(
         '-o', '--out', '--output',
         dest='output_directory_path',
@@ -48,9 +48,17 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
+# The user-facing CLI accepts the short `vic3` and the full `victoria3`,
+# both resolving to the Victoria 3 edition registered under its full name.
+GAME_CHOICES = sorted(set(EDITIONS) | {'vic3'})
+
+
 def resolve_editions(game_keys: list) -> list:
     """Return the requested editions from the supplied game keys."""
-    return [EDITIONS[game_key] for game_key in game_keys]
+    resolved = []
+    for key in game_keys:
+        resolved.append(EDITIONS['victoria3' if key == 'vic3' else key])
+    return resolved
 
 
 def main() -> int:
