@@ -78,6 +78,7 @@ COUNTRY_PALETTE_ENTRIES = {
     'CAR': 'Carthage',
     'EGY': 'Egypt',
     'EPI': 'Epirus',
+    'ETR': 'Etruscia',
     'MAU': 'Mauretania',
     'MAC': 'Macedonia',
     'MRY': 'India',
@@ -96,6 +97,7 @@ COUNTRY_PALETTE_ENTRIES = {
 VANILLA_COUNTRY_NAMES = {
     'BOA': 'Boihaemia',
     'BYZ': 'Byzantion',
+    'ETR': 'Etruria',
     'MAC': 'Macedon',
     'MRY': 'Maurya',
     'SEL': 'Seleukid Empire',

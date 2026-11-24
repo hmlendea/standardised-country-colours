@@ -113,6 +113,7 @@
 | Epirus               |                     | Official flag                                      | #0F298F        | #FFFFFF               |
 | Estonia              |                     | Official flag                                      | #0072CE        | #FFFFFF               |
 | Ethiopia             |                     | Civilization 5                                     | #02280F        | #FF2E2E               |
+| Etruscia             | Etruria             | Imperator: Rome                                    | #301EB4        | #FFDF00               |
 | European Union       |                     | Official flag                                      | #003399        | #FFCC00               |
 | Finland              |                     | Official flag                                      | #FFFFFF        | #002F6C               |
 | France               |                     | Official flag (Capet)                              | #000099        | #FFD700               |
