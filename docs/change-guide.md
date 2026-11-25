@@ -12,7 +12,7 @@
 | Change the metadata version | `--version` build argument | Low | Match the Git tag |
 | Widen `supported_game_version` | `scripts/games/victoria3/config.py` | Medium | Confirm every tag exists in the newly covered build |
 | Change the release workflow | `.github/workflows/github-release.yml`, `.github/workflows/steam-workshop-release.yml`, `.github/workflows/nexus-mods-release.yml` | Medium | Re-validate against the workflow template |
-| Change the thumbnails | `src/victoria3/thumbnail.png`, `src/victoria3/launcher-thumbnail.png` | Cosmetic | Rebuild; confirm the dimensions and that `picture` still resolves |
+| Change the thumbnails | `src/icon.png`, `src/preview.png` | Cosmetic | Rebuild every edition; confirm the dimensions and that each launcher or Workshop path resolves |
 | Add a game edition | `scripts/games/<game>/`, `scripts/games/__init__.py` | Medium | Rebuild and confirm every edition's output |
 | Introduce `REPLACE:` | `scripts/games/<game>/render.py` | **Severe** | Never; it destroys the vanilla block |
 | Reuse a vanilla file name | `scripts/games/<game>/config.py` | **Severe** | Never; it destroys the vanilla file |

@@ -3,7 +3,7 @@
 
 # Standardised Country Colours
 
-A cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Currently supports Victoria 3 and Imperator: Rome.
+A cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Currently supports Hearts of Iron IV, Imperator: Rome, and Victoria 3.
 
 ## 📑 Table of Contents
 
@@ -70,10 +70,11 @@ Each affected country receives the standardised colour when the country definiti
 [![Obtain it from Steam Workshop](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/steam-workshop.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373)
 [![Obtain it from GitHub](https://raw.githubusercontent.com/hmlendea/readme-assets/master/badges/stores/github.png)](https://github.com/hmlendea/standardised-country-colours/releases)
 
-The mod is published for both Victoria 3 and Imperator: Rome:
+The mod is published for Hearts of Iron IV, Imperator: Rome and Victoria 3:
 
 | Game | Steam Workshop | Nexus Mods |
 |------|----------------|------------|
+| Hearts of Iron IV | To be published | To be published |
 | Victoria 3 | [3844790373](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373) | [54](https://nexusmods.com/victoria3/mods/54) |
 | Imperator: Rome | [3845414842](https://steamcommunity.com/sharedfiles/filedetails/?id=3845414842) | [36](https://nexusmods.com/imperatorrome/mods/36) |
 
@@ -81,12 +82,15 @@ The mod is published for both Victoria 3 and Imperator: Rome:
 
 1. Download the [latest release](https://github.com/hmlendea/standardised-country-colours/releases/latest) for your game edition
 2. Extract the contents into the game's mod directory:
-   - Victoria 3 Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
-   - Victoria 3 macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
-   - Victoria 3 Windows: `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
+   - Hearts of Iron IV Linux: `~/.local/share/Paradox Interactive/Hearts of Iron IV/mod/`
+   - Hearts of Iron IV macOS: `~/Library/Application Support/Paradox Interactive/Hearts of Iron IV/mod/`
+   - Hearts of Iron IV Windows: `%USERPROFILE%\Documents\Paradox Interactive\Hearts of Iron IV/mod/`
    - Imperator: Rome Linux: `~/.local/share/Paradox Interactive/ImperatorRome/mod/`
    - Imperator: Rome macOS: `~/Library/Application Support/Paradox Interactive/ImperatorRome/mod/`
    - Imperator: Rome Windows: `%USERPROFILE%\Documents\Paradox Interactive\ImperatorRome\mod\`
+   - Victoria 3 Linux: `~/.local/share/Paradox Interactive/Victoria 3/mod/`
+   - Victoria 3 macOS: `~/Library/Application Support/Paradox Interactive/Victoria 3/mod/`
+   - Victoria 3 Windows: `%USERPROFILE%\Documents\Paradox Interactive\Victoria 3\mod\`
 3. Add the mod to a playset in the launcher and enable it
 
 Do not extract the archive into the game installation directory; the games do not load mods from there.
@@ -103,9 +107,10 @@ Remove the previously extracted `standardised-country-colours` directory, then e
 
 | Component | Supported Versions | Notes |
 |-----------|--------------------|-------|
-| Victoria 3 | `1.15.*` | Declared as `supported_game_version` in `.metadata/metadata.json` |
-| Victoria 3 (older releases) | Not supported | The mod uses definition-injection keywords that require a compatible content revision |
+| Hearts of Iron IV | `1.20.*` | Declared as `supported_version` in the mod descriptor |
 | Imperator: Rome | `2.0.*` | Declared as `supported_version` in the mod descriptor |
+| Victoria 3 (older releases) | Not supported | The mod uses definition-injection keywords that require a compatible content revision |
+| Victoria 3 | `1.15.*` | Declared as `supported_game_version` in `.metadata/metadata.json` |
 | Other mods that redefine the same countries | Not verified | A later whole-country redefinition replaces the injected colour; the mod with the later file name wins |
 
 ## 🛡️ Privacy and Data
@@ -140,7 +145,7 @@ The mod folder is build output and is not committed. The build is game-agnostic:
 | `standardised-country-colours/.metadata/` | Launcher metadata and the launcher thumbnail |
 | `standardised-country-colours/common/country_definitions/` | The colour overrides for the affected countries |
 | `scripts/` | The build: a shared engine plus one module per game edition under `scripts/games/` |
-| `src/` | Build inputs: the shared palette snapshot and the per-game artwork |
+| `src/` | Build inputs: the shared palette snapshot, icon, and preview artwork |
 | `vanilla/` | Vendored vanilla game data the build preserves, so it needs no game installation |
 | `description/` | The Steam Workshop page description, in BBCode |
 

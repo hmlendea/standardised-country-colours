@@ -13,6 +13,51 @@ permissions:
   contents: write
 
 jobs:
+  hoi4:
+    name: Hearts of Iron IV
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: ${{ inputs.tag || github.event.release.tag_name }}
+      GAME: hoi4
+      GROUP: hoi4
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v7
+      with:
+        ref: ${{ env.VERSION }}
+
+    - name: Extract the version from the GitHub tag
+      id: version
+      run: |
+        VERSION="${VERSION#v}"
+        echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+    - name: Build the mod
+      shell: bash
+      run: |
+        python3 scripts/build.py --version "${{ steps.version.outputs.version }}" --game "${GAME}"
+
+    - name: Build the release archive
+      id: package
+      shell: bash
+      run: |
+        ARCHIVE_NAME="standardised-country-colours_${GROUP}_${{ steps.version.outputs.version }}.zip"
+
+        cd "out/${GROUP}"
+        zip -r "${GITHUB_WORKSPACE}/${ARCHIVE_NAME}" "standardised-country-colours/"
+
+        echo "archive_name=${ARCHIVE_NAME}" >> "$GITHUB_OUTPUT"
+
+    - name: Publish the release asset
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ env.VERSION }}
+        files: ${{ steps.package.outputs.archive_name }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   imperator:
     name: Imperator Rome
     runs-on: ubuntu-latest

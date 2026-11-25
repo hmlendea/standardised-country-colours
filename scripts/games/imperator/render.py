@@ -14,7 +14,7 @@
 
 from pathlib import Path
 
-from config import BYTE_ORDER_MARK, ENCODING
+from config import BYTE_ORDER_MARK, ENCODING, ICON_FILENAME
 
 from games.imperator.config import (COUNTRY_FILE_EXTENSION,
                                     COUNTRY_FILE_HEADER_LINES,
@@ -167,8 +167,6 @@ def render_parent_text_files(palette: dict, version: str) -> dict:
 
 def render_asset_files(source_directory_path: Path) -> dict:
     """Return every copied asset as destination relative path -> source path."""
-    edition_source_directory_path = source_directory_path / 'imperator'
-
     return {
-        MOD_THUMBNAIL_FILENAME: edition_source_directory_path / MOD_THUMBNAIL_FILENAME,
+        MOD_THUMBNAIL_FILENAME: source_directory_path / ICON_FILENAME,
     }

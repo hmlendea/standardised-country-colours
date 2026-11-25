@@ -1,6 +1,6 @@
 # Standardised Country Colours Architecture
 
-This document describes the verified current architecture of Standardised Country Colours, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Each edition is a content-only definition package for one game; this repository supports Victoria 3 and Imperator: Rome, whose entire behaviour is produced by the game engine's country-definition loading and definition-injection contract. It documents the shipped override files, the palette they encode, and the constraints that govern any change to that content.
+This document describes the verified current architecture of Standardised Country Colours, a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. Each edition is a content-only definition package for one game; this repository supports Hearts of Iron IV, Victoria 3, and Imperator: Rome, whose entire behaviour is produced by the game engine's country-definition loading and override contract. It documents the shipped override files, the palette they encode, and the constraints that govern any change to that content.
 
 ## 📑 Table of Contents
 
@@ -40,7 +40,7 @@ The audience is the mod maintainer, contributors proposing a colour change, and 
 
 ## 🌐 System Context
 
-The system is a packaged content directory consumed by Victoria 3 and Imperator: Rome. The launcher discovers the mod through `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Imperator: Rome), the engine loads every definition file present, and the definition-injection mechanism appends the shipped `color` key to the matching vanilla country. The shipped overrides are static data; the only actor that initiates behaviour is the game engine.
+The system is a packaged content directory consumed by Hearts of Iron IV, Victoria 3, and Imperator: Rome. Each launcher discovers the mod through its game-specific metadata or descriptor, the engine loads the country-definition files, and the game's override mechanism applies the shipped `color` key to the matching vanilla country. The shipped overrides are static data; the only actor that initiates behaviour is the game engine.
 
 ```mermaid
 flowchart LR
@@ -54,7 +54,7 @@ flowchart LR
 ```
 
 The principal external boundaries are:
-- **Paradox launcher:** reads `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Imperator: Rome) to list and enable the mod and to resolve the content directory. The launcher owns enablement, load order, and the playset.
+- **Paradox launcher:** reads `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Hearts of Iron IV and Imperator: Rome) to list and enable the mod and to resolve the content directory. The launcher owns enablement, load order, and the playset.
 - **Vanilla country definitions:** the committed `vanilla/imperator/setup/countries/` snapshot supplies the Imperator baseline files the build preserves. At runtime, the installed game's `setup/countries/` tree remains authoritative for the engine.
 - **Game engine:** owns parsing, encoding validation, injection precedence, and colour resolution. It reads the file and produces all user-visible output.
 - **Log files:** the engine writes load-time warnings for encoding problems, invalid keys, and injection targets that do not exist. The log is the only diagnostics surface, and the repository does not read it.
@@ -116,17 +116,19 @@ The principal runtime sequence is:
 
 ### Mod Content
 
-Paths (inside the built folder, `out/vic3/standardised-country-colours/`):
-- `standardised-country-colours/common/country_definitions/sc_country_colours.txt`
+Paths (inside the built folder, `out/<game>/standardised-country-colours/`):
+- Hearts of Iron IV: `standardised-country-colours/common/countries/colors.txt`
+- Victoria 3: `standardised-country-colours/common/country_definitions/sc_country_colours.txt`
+- Imperator: Rome: `standardised-country-colours/setup/countries/<TAG>.txt` plus the preserved `countries.txt`
 
 Responsibilities:
-- Carry all 135 country colour injections as `INJECT:<tag> = { color = { R G B } }` blocks.
+- Carry all 135 country colour injections as `INJECT:<tag> = { color = { R G B } }` blocks.shipp
 - Record the vanilla country name, the hexadecimal palette colour, and the palette source in a comment above each block, appending the palette entry name in parentheses whenever it differs from the vanilla name.
 - Encode each colour as decimal red, green, and blue components in the range 0–255, which is the game-native form the injected key accepts.
 - Keep the block ordering alphabetical by tag so that the file remains diffable and a missing tag is visible.
-
-Boundary rules:
-- Every block must use the `INJECT:` keyword, because a plain redefinition would replace the whole country block and drop its tier, culture, and capital.
+Victoria 3 blocks must use the `INJECT:` keyword, because a plain redefinition would replace the whole country block and drop its tier, culture, and capital; Hearts of Iron IV and Imperator: Rome instead ship colour-definition files.
+- Every Victoria 3 injected tag must exist in the vanilla definitions, because the injection pass warns and skips when the target is absent.
+- The override file must remain the only definition file in the game-specific tree, so that the shippd replace the whole country block and drop its tier, culture, and capital.
 - Every injected tag must exist in the vanilla definitions, because the injection pass warns and skips when the target is absent.
 - The file must remain the only definition file in the tree, so that the injected set is complete and unambiguous.
 - Every block must keep its provenance comment, because the hexadecimal value and its source are the only record of why the colour differs from vanilla.
@@ -370,11 +372,11 @@ The build derives the decimal triple from the palette hexadecimal, writes the pe
 |------|------|
 | Build entry point | `scripts/build.py` |
 | Shared build engine | `scripts/builder.py`, `scripts/palette.py`, `scripts/config.py` |
-| Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/` |
+| Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/`, `scripts/games/imperator/`, `scripts/games/hoi4/` |
 | Edition registry | `scripts/games/__init__.py` |
 | Palette snapshot | `src/colours.md` |
 | Vendored vanilla data | `vanilla/imperator/setup/countries/` (the vanilla index and shipped tag files) |
-| Artwork inputs | `src/victoria3/thumbnail.png`, `src/victoria3/launcher-thumbnail.png` |
+| Artwork inputs | `src/icon.png`, `src/preview.png` (shared by every edition) |
 | Mod content | `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (in the built folder) |
 | Launcher metadata | `standardised-country-colours/.metadata/metadata.json` (in the built folder) |
 | Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` (in the built folder) |

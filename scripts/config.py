@@ -8,6 +8,10 @@
 SOURCE_DIRECTORY_NAME = 'src'
 PALETTE_FILENAME = 'colours.md'
 
+# Artwork is shared by every edition, so one icon and one preview serve all games.
+ICON_FILENAME = 'icon.png'
+PREVIEW_FILENAME = 'preview.png'
+
 # Vanilla game data that the build reads is vendored under this directory, so a
 # build needs no game installation and works on any machine, including CI.
 VANILLA_DIRECTORY_NAME = 'vanilla'

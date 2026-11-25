@@ -10,7 +10,7 @@
 | Vendored vanilla data | `vanilla/<game>/` | Supplies the vanilla files an edition must preserve; committed so the build needs no game installation |
 | Game-specific configuration | `scripts/games/<game>/config.py` | Identity, output group, output layout, the palette entry for each shipped tag, and the vanilla name where it differs |
 | Game-specific rendering | `scripts/games/<game>/render.py` | Turns the palette and configuration into the shipped files |
-| Artwork | `src/<game>/thumbnail.png`, `src/<game>/launcher-thumbnail.png` | Copied into the mod folder and the metadata directory |
+| Artwork | `src/icon.png`, `src/preview.png` | Shared across editions; copied into each game's required output locations |
 | Version | `--version` argument | Written as the metadata `version` |
 
 Each game edition keeps its name, id, game id, supported game version, description, tags, and multiplayer flag in `scripts/games/<game>/config.py`.

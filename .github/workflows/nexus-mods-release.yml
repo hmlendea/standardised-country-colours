@@ -11,6 +11,40 @@ on:
         required: true
 
 jobs:
+  hoi4:
+    name: Hearts of Iron IV
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: ${{ inputs.tag || github.ref_name }}
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: ${{ env.VERSION }}
+
+    - name: Build the mod
+      run: |
+        python3 scripts/build.py --game hoi4 --version "${VERSION#v}"
+
+    - name: Build the release archive
+      run: |
+        cd out/hoi4
+        zip -r "${GITHUB_WORKSPACE}/release-hoi4.zip" "standardised-country-colours/"
+
+    - name: Upload to Nexus Mods
+      uses: Nexus-Mods/upload-action@v1.0.0-beta.11
+      with:
+        api_key: ${{ secrets.NEXUSMODS_API_KEY }}
+        file_id: TO_BE_CREATED
+        filename: release-hoi4.zip
+        display_name: standardised-country-colours-hoi4.zip
+        version: ${{env.VERSION}}
+        description: "Changelog: https://github.com/hmlendea/standardised-country-colours/releases/${{env.VERSION}}"
+        category: main
+        archive_existing_version: true
+        update_mod_version: true
+
   imperator:
     name: Imperator Rome
     runs-on: ubuntu-latest
