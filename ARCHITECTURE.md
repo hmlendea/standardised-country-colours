@@ -55,7 +55,7 @@ flowchart LR
 
 The principal external boundaries are:
 - **Paradox launcher:** reads `.metadata/metadata.json` (Victoria 3) or the mod descriptor (Imperator: Rome) to list and enable the mod and to resolve the content directory. The launcher owns enablement, load order, and the playset.
-- **Vanilla country definitions:** the installed `common/country_definitions` tree is the authoritative baseline. It owns every country tag and every field the mod does not inject, and it names the tags the mod addresses.
+- **Vanilla country definitions:** the committed `vanilla/imperator/setup/countries/` snapshot supplies the Imperator baseline files the build preserves. At runtime, the installed game's `setup/countries/` tree remains authoritative for the engine.
 - **Game engine:** owns parsing, encoding validation, injection precedence, and colour resolution. It reads the file and produces all user-visible output.
 - **Log files:** the engine writes load-time warnings for encoding problems, invalid keys, and injection targets that do not exist. The log is the only diagnostics surface, and the repository does not read it.
 
@@ -274,7 +274,7 @@ The principal dependency rules are:
 | Dependency | Responsibility | Integration Boundary | Architectural Consequence |
 |------------|----------------|----------------------|---------------------------|
 | Victoria 3 at version `1.15.*` | Parses the metadata, loads country definitions, runs the injection pass, and resolves map colours | The engine's definition loader and injection pass | Every invariant the repository can rely on is defined by the engine version, so a game update can change tags or injection behaviour |
-| Vanilla country definitions | Supply the baseline country blocks and the tag set the injections target | The installed game directory | The addressable tag set is dictated by the installation, not by the repository |
+| Vanilla country definitions | Supply the baseline country files and tag index the Imperator build preserves | Committed `vanilla/imperator/setup/countries/` snapshot; the installed game at runtime | The build is reproducible, while the runtime addressable tag set is dictated by the installed game |
 | Standardised palette (`COUNTRY_COLOURS.md`) | Supplies the standardised colour each tag receives | Maintainer process, not runtime | Colours are curated at authoring time, so the shipped file carries no provenance beyond its comment header |
 
 ## 🚀 Deployment and Operations
@@ -341,7 +341,7 @@ The manual verification steps are:
 Material coverage gaps and constraints:
 - There is no automated test suite, so every check is manual and no regression is caught without running it.
 - Coverage is partial by design, so a country left with its vanilla colour is indistinguishable from a failed injection without reading the file.
-- Engine-side behaviour can only be verified against an installed game, so the repository cannot be validated in isolation.
+- Engine-side behaviour can only be verified against an installed game; build correctness can be validated in isolation from the committed inputs.
 
 ## ⚠️ Design Constraints
 
@@ -373,6 +373,7 @@ The build derives the decimal triple from the palette hexadecimal, writes the pe
 | Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/` |
 | Edition registry | `scripts/games/__init__.py` |
 | Palette snapshot | `src/colours.md` |
+| Vendored vanilla data | `vanilla/imperator/setup/countries/` (the vanilla index and shipped tag files) |
 | Artwork inputs | `src/victoria3/thumbnail.png`, `src/victoria3/launcher-thumbnail.png` |
 | Mod content | `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (in the built folder) |
 | Launcher metadata | `standardised-country-colours/.metadata/metadata.json` (in the built folder) |

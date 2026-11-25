@@ -5,6 +5,10 @@
 
 import re
 
+from pathlib import Path
+
+from config import VANILLA_DIRECTORY_NAME
+
 # --- Identity ---
 
 EDITION_KEY = 'imperator'
@@ -27,8 +31,13 @@ LAUNCHER_THUMBNAIL_FILENAME = 'launcher-thumbnail.png'
 # pool is lost. Likewise `setup/countries/countries.txt` must keep every
 # vanilla tag entry — truncating it to the shipped tags makes provinces whose
 # owner tag is absent crash the game on startup.
-VANILLA_COUNTRIES_INDEX = '/home/horatiu/.steam/steam/steamapps/common/ImperatorRome/game/setup/countries/countries.txt'
-VANILLA_COUNTRIES_DIR = '/home/horatiu/.steam/steam/steamapps/common/ImperatorRome/game/setup/countries'
+#
+# The required vanilla files are vendored under `vanilla/imperator/`, so the
+# build never reads the game installation and stays reproducible everywhere.
+REPOSITORY_ROOT_PATH = Path(__file__).resolve().parents[3]
+VANILLA_EDITION_DIR = REPOSITORY_ROOT_PATH / VANILLA_DIRECTORY_NAME / EDITION_KEY
+VANILLA_COUNTRIES_DIR = VANILLA_EDITION_DIR / 'setup' / 'countries'
+VANILLA_COUNTRIES_INDEX = VANILLA_COUNTRIES_DIR / 'countries.txt'
 VANILLA_TAG_INDEX_PATTERN = re.compile(r'^\s*([A-Z0-9]{3})\s*=\s*"([^"]+)"')
 
 # The ship_names block is preserved verbatim so the country keeps its exact

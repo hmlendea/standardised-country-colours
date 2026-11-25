@@ -56,7 +56,7 @@ def build_descriptor(version: str) -> str:
 
 def read_vanilla_tag_path(tag: str) -> str:
     """Return the vanilla countries-index path for a tag, e.g. `italia/rome.txt`."""
-    for line in Path(VANILLA_COUNTRIES_INDEX).read_text(encoding=ENCODING).splitlines():
+    for line in VANILLA_COUNTRIES_INDEX.read_text(encoding=ENCODING).splitlines():
         match = VANILLA_TAG_INDEX_PATTERN.match(line)
         if not match or match.group(1) != tag:
             continue
@@ -71,8 +71,8 @@ def read_vanilla_country_file(tag: str) -> str:
     Imperator replaces the whole file when a tag reads one, so the mod must
     carry over anything the colour override would otherwise drop.
     """
-    vanilla_path = f'{VANILLA_COUNTRIES_DIR}/{read_vanilla_tag_path(tag)}'
-    return Path(vanilla_path).read_text(encoding=ENCODING)
+    vanilla_path = VANILLA_COUNTRIES_DIR / read_vanilla_tag_path(tag)
+    return vanilla_path.read_text(encoding=ENCODING)
 
 
 def extract_block(text: str, header: str, footer: str) -> str:
@@ -149,7 +149,7 @@ def render_text_files(palette: dict, version: str) -> dict:
     # absent cannot crash the game on startup; the shipped tags already point at
     # the files this mod rewrites.
     artefacts[f'{COUNTRIES_DIRECTORY_PATH}/{COUNTRIES_INDEX_FILENAME}'] = (
-        Path(VANILLA_COUNTRIES_INDEX).read_text(encoding=ENCODING).encode(ENCODING))
+        VANILLA_COUNTRIES_INDEX.read_text(encoding=ENCODING).encode(ENCODING))
 
     # The inner descriptor is a copy of the sibling one, so the launcher finds a
     # descriptor inside the folder it resolves as well.

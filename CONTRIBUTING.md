@@ -53,7 +53,7 @@ git clone https://github.com/hmlendea/standardised-country-colours.git
 cd vic3-standardised-country-colours
 
 # Install dependencies
-# No dependency installation is required; the build uses only the Python 3 standard library.
+# No dependency installation is required; the build uses only the Python 3 standard library and the committed `vanilla/` snapshot.
 
 # Build the mod
 python3 scripts/build.py --game victoria3 --version 1.0.0

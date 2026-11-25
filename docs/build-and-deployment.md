@@ -7,6 +7,7 @@
 | Input | Path | Role |
 |-------|------|------|
 | Palette snapshot | `src/colours.md` | Supplies each entry's primary colour and source attribution, shared by every edition |
+| Vendored vanilla data | `vanilla/<game>/` | Supplies the vanilla files an edition must preserve; committed so the build needs no game installation |
 | Game-specific configuration | `scripts/games/<game>/config.py` | Identity, output group, output layout, the palette entry for each shipped tag, and the vanilla name where it differs |
 | Game-specific rendering | `scripts/games/<game>/render.py` | Turns the palette and configuration into the shipped files |
 | Artwork | `src/<game>/thumbnail.png`, `src/<game>/launcher-thumbnail.png` | Copied into the mod folder and the metadata directory |
@@ -25,6 +26,8 @@ python3 scripts/build.py --game victoria3 --version 1.0.0
 | `-o`, `--out`, `--output` | Directory that receives the per-game output groups | `out/` |
 
 The build clears `<output>/<group>/<folder>/` and writes it from scratch, so no file from an earlier build survives. The content file carries a UTF-8 byte-order mark, LF line endings, and tabs, and the metadata is two-space-indented JSON with a trailing newline.
+
+Every vanilla file an edition must preserve is committed under `vanilla/<game>/`, so the build is self-contained: it reads no game installation and produces the same bytes on any machine, including CI.
 
 The mod folder is never committed; the build is the only producer of it. Its value is that it is deterministic, so the same inputs and version always produce the same bytes.
 
@@ -45,11 +48,12 @@ The archive root is the folder itself, so extraction yields `standardised-countr
 ## Release procedure
 
 1. Confirm every shipped tag still exists in the installed game's definitions.
-2. Run `python3 scripts/build.py --game victoria3 --game imperator --version <version>`.
-3. Run the structural checks in [testing.md](./testing.md) against the built folder.
-4. Verify in game that a representative country shows the expected colour.
-5. Commit and tag.
-6. Publish a GitHub release for the tag.
+2. When the vanilla definitions changed, refresh the matching `vanilla/<game>/` snapshot.
+3. Run `python3 scripts/build.py --game victoria3 --game imperator --version <version>`.
+4. Run the structural checks in [testing.md](./testing.md) against the built folder.
+5. Verify in game that a representative country shows the expected colour.
+6. Commit and tag.
+7. Publish a GitHub release for the tag.
 7. `github-release.yml` runs two parallel jobs (`victoria3` and `imperator`), each building its edition at the tag's version and attaching `standardised-country-colours_<group>_<version>.zip` to the release.
 8. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which runs two parallel jobs (`victoria3` and `imperator`), each building its edition's folder and uploading it to the matching Workshop item with a changenote linking to the GitHub release.
 9. The same tag push triggers `nexus-mods-release.yml`, which runs two parallel jobs (`imperator` and `victoria3`), each building its edition's archive and uploading it to the matching Nexus Mods file.

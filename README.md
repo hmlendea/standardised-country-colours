@@ -141,6 +141,7 @@ The mod folder is build output and is not committed. The build is game-agnostic:
 | `standardised-country-colours/common/country_definitions/` | The colour overrides for the affected countries |
 | `scripts/` | The build: a shared engine plus one module per game edition under `scripts/games/` |
 | `src/` | Build inputs: the shared palette snapshot and the per-game artwork |
+| `vanilla/` | Vendored vanilla game data the build preserves, so it needs no game installation |
 | `description/` | The Steam Workshop page description, in BBCode |
 
 ## 🏗️ Architecture

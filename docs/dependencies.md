@@ -13,8 +13,9 @@
 | Dependency | Responsibility | Consequence |
 |------------|----------------|-------------|
 | `src/colours.md` palette snapshot | Source of every standardised value and its attribution | The build derives the values from it; the repository records the snapshot |
+| `vanilla/imperator/` snapshot | Source of the vanilla index and country files the Imperator build preserves | Committed, so the build needs no game installation; a stale snapshot makes the output diverge from the shipped game |
 | Hex-to-decimal conversion | Converts `#RRGGBB` to three 0–255 components | Performed by `scripts/build.py`, so a wrong conversion is a build defect rather than a silent mis-colour |
-| Tag resolution | Maps a palette entry name to a three-letter tag | Hardcoded in `scripts/games/victoria3/config.py`; a wrong tag colours the wrong country and is immediately visible |
+| Tag resolution | Maps a palette entry name to a three-letter tag | Hardcoded in the game edition's `config.py`; a wrong tag colours the wrong country and is immediately visible |
 
 ## Development dependencies
 
@@ -34,6 +35,7 @@ None beyond the Python 3 standard library. Editing the mod means editing the pal
 ```mermaid
 flowchart LR
   Palette["src/colours.md<br/>palette snapshot"] --> Build["scripts/build.py<br/>+ scripts/games/<game>"]
+  Vanilla["vanilla/<game>/<br/>vendored vanilla data"] --> Build
   Build --> Content["sc_country_colours.txt"]
   Build --> Meta["metadata.json"]
   Build --> Content
@@ -45,7 +47,7 @@ flowchart LR
   Content --> Nexus["nexus-mods-release.yml"]
 ```
 
-Documentation depends on content; content is rendered by the build from the palette snapshot and the hardcoded mappings. No document is read by the engine.
+Documentation depends on content; content is rendered by the build from the palette snapshot, the vendored vanilla data, and the hardcoded mappings. No document is read by the engine.
 
 ## Supply chain assessment
 
