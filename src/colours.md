@@ -194,7 +194,7 @@
 | Milan                | Milano              | Total War: Medieval 2                              | #015209        | #EFEFEF               |
 | Moldova              |                     | Official flag (principality)                       | #B00000        | #F7C200               |
 | Monaco               |                     | Official flag                                      | #CD1126        | #FFFFFF               |
-| Mongolia             |                     | Total War: Medieval 2                              | #F4E7AA        | #000000               |
+| Mongolia             | Mongolian Republic  | Total War: Medieval 2                              | #F4E7AA        | #000000               |
 | Montenegro           |                     | eRepublik (Old UI)                                 | #CAA030        | #000000               |
 | Moravia              |                     | Crusader Kings 2                                   | #9E6624        | #C80000               |
 | Morocco              |                     | Civilization 5                                     | #910200        | #28B350               |
@@ -256,6 +256,7 @@
 | Songhai              |                     | Civilization 5                                     | #D69113        | #5A000A               |
 | South Africa         |                     | eRepublik (Old UI)                                 | #994D99        | #000000               |
 | South Korea          | Korea               | Official flag                                      | #0047A0        | #CD2E3A               |
+| Soviet Union         | USSR                | Hearts of Iron 4                                   | #7D0D18        | #A3111F               |
 | Spain                |                     | Official flag                                      | #FABD00        | #AD1519               |
 | Sri Lanka            |                     | Official flag                                      | #8D153A        | #FFBE29               |
 | St Gallen            |                     | Official flag                                      | #009944        | #FFFFFF               |
@@ -347,7 +348,7 @@
 | Macedonia            |                     | Total War: Rome - Alexander                        | #9A20FF        | #FFCC3F               |
 | Macedonia            |                     | Total War: Rome - Europa Barbarorum                | #280000        | #280000               |
 | Maya                 |                     | Civilization 5                                     | #C68D63        | #183F42               |
-| Mongol               |                     | Civilization 5                                     | #510009        | #FF7800               |
+| Mongolia             |                     | Civilization 5                                     | #510009        | #FF7800               |
 | Mongolia             |                     | Civilization 6                                     | #FF8112        | #780001               |
 | Nepal                |                     | Crusader Kings 2                                   | #AF3C1E        | #FFFFFF               |
 | Netherlands          |                     | Civilization 6                                     | #FF8112        | #004FCE               |

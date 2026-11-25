@@ -141,7 +141,7 @@ COUNTRY_PALETTE_ENTRIES = {
     'SIA': 'Siam',
     'SLV': 'Slovenia',
     'SNG': 'Singapore',
-    'SOV': 'Russia',
+    'SOV': 'Soviet Union',
     'SPA': 'Spain',
     'SPB': 'Spain',
     'SPC': 'Spain',
