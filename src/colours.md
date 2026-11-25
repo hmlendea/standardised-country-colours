@@ -59,6 +59,8 @@
 | Brazil               |                     | Official flag                                      | #009440        | #FFCB00               |
 | Brittany             |                     | Official flag                                      | #FFFFFF        | #000000               |
 | Brunei               |                     | Official flag                                      | #F7E017        | #FFFFFF               |
+| Bruttia              | Bruttium            | Total War: Rome (Romans (Brutii))                  | #558741        | #FFFAC8               |
+| Bryansk              |                     | Official coat of arms                              | #153397        | #F3D400               |
 | Buckinghamshire      |                     | Official flag                                      | #E03E3F        | #323235               |
 | Bucovina             | Bukovina            | Official flag                                      | #24649C        | #BA2B1A               |
 | Buganda              |                     | Official flag                                      | #003CC8        | #FFFFFF               |
@@ -96,6 +98,7 @@
 | Croatia              |                     | eRepublik (Old UI)                                 | #867ACC        | #000000               |
 | Cumania              |                     | Crusader Kings 2                                   | #E7C058        | #FFFFFF               |
 | Curaçao              |                     | Official flag                                      | #002B7F        | #F9E814               |
+| Cyrenaica            |                     | Imperator: Rome                                     | #22ABE6        | #FFD800               |
 | Cyprus               |                     | Official flag                                      | #FFFFFF        | #D67900               |
 | Czechia              | Bohemia, Boihaemia  | Age of Empires II HD (Teal)                        | #00ab93        | #FFFFFF               |
 | Dacia                |                     | Total War: Rome                                    | #734B28        | #000000               |
@@ -129,6 +132,7 @@
 | Galicia-Volhynia     |                     | Crusader Kings 2                                   | #329682        | #FFFFFF               |
 | Gambia               |                     | Official flag                                      | #CE1126        | #3A7728               |
 | Gaul                 |                     | Total War: Rome                                    | #4DBE2D        | #A51414               |
+| Genoa                | Genua, Genuatia     | Official flag                                      | #BE1622        | #FFFFFF               |
 | Georgia              |                     | Civilization 6                                     | #F9F9F9        | #FF8112               |
 | Germany              |                     | Civilization 5                                     | #B3B2B8        | #252B21               |
 | Gibraltar            |                     | Official flag                                      | #FFFFFF        | #DA000C               |
@@ -152,6 +156,7 @@
 | Israel               |                     | Israel                                             | #FFFFFF        | #0038B8               |
 | Italy                |                     | eRepublik (Old UI)                                 | #587D2D        | #000000               |
 | Japan                |                     | Civilization 5                                     | #FFFFFF        | #B80000               |
+| Jämtland             |                     | Official coat of arms                              | #003D8F        | #FFFFFF               |
 | Jerusalem            |                     | Total War: Medieval 2 - Kingdoms                   | #EFEFEF        | #B79854               |
 | Kalmar Union         |                     | Total War: Medieval 2 - Kingdoms                   | #FFD200        | #D70000               |
 | Kazakhstan           |                     | Official flag                                      | #00ABC2        | #FFEC2D               |
@@ -198,6 +203,7 @@
 | Outremer             |                     | Crusader Kings 2                                   | #B4B4B4        | #FFFFFF               |
 | Palau                |                     | Official flag                                      | #0099FF        | #FFFF00               |
 | Paraguay             |                     | eRepublik (Old UI)                                 | #241265        | #000000               |
+| Paris                | Parisia             | Official flag                                      | #000C5C        | #CC0000               |
 | Parthia              |                     | Total War: Rome                                    | #7DAB37        | #FFFFFF               |
 | Persia               | Iran                | Civilization 4                                     | #12CCF5        | #212121               |
 | Peru                 |                     | Official flag                                      | #D91023        | #FFFFFF               |
@@ -209,6 +215,7 @@
 | Rajastan             |                     | Crusader Kings 2                                   | #FF6400        | #FFFFFF               |
 | Romagna              |                     | Crusader Kings 2                                   | #D78D98        | #FFFFFF               |
 | Romania              | Wallachia           | Official flag                                      | #FCD116        | #002B7F               |
+| Sahara               | Sahrawi             | Crusader Kings 2: Historical Immersion Project     | #C4B02E        | #FFFFFF               |
 | Rome                 |                     | Official flag                                      | #8E001C        | #FFB300               |
 | Roxolania            |                     | Total War: Rome - Barbarian Invasion               | #3335C2        | #0FD7FF               |
 | Russia               |                     | Civilization 5                                     | #EFB400        | #000000               |
@@ -236,6 +243,7 @@
 | St Gallen            |                     | Official flag                                      | #009944        | #FFFFFF               |
 | Sumeria              |                     | Civilization 6                                     | #012A6C        | #FF8112               |
 | Sweden               |                     | Official flag                                      | #005293        | #FECB00               |
+| Swabia               | Suebia, Schwaben    | Official flag                                      | #ED1C24        | #FFDD00               |
 | Switzerland          |                     | Official flag                                      | #DA291C        | #FFFFFF               |
 | Syria                | Assyria             | Civilization 5 (Assyria)                           | #FFF4AE        | #FFA90D               |
 | Taiwan               |                     | Official flag                                      | #000094        | #FE0000               |
