@@ -144,13 +144,22 @@
 | Gondwana             |                     | Crusader Kings 2                                   | #208037        | #FFFFFF               |
 | Greece               |                     | Official flag                                      | #0D5EAF        | #FFFFFF               |
 | Greenland            |                     | Official flag                                      | #FFFFFF        | #C8102E               |
+| Guam                 |                     | Official flag                                      | #00297B        | #C62139               |
+| Guatemala            |                     | Official flag                                      | #4997D0        | #FFFFFF               |
+| Guernsey             |                     | Official flag                                      | #F9DD16        | #E8112D               |
+| Guinea Bissau        |                     | Official flag                                      | #FCD116        | #009E49               |
 | Groningen            |                     | Official flag                                      | #009645        | #FFFFFF               |
+| Hague                |                     | Official flag                                      | #FCCC00        | #007C5A               |
+| Haiti                |                     | Official flag                                      | #00209F        | #D21034               |
 | Hausaland            |                     | Crusader Kings 2                                   | #8528BF        | #FFFFFF               |
 | Holy Roman Empire    |                     | Total War: Medieval 2                              | #000000        | #FFD200               |
 | Hungary              | Magyars             | Total War: Medieval 2                              | #EA5946        | #008003               |
 | Hunnic Empire        |                     | Civilization 5                                     | #B4B2A4        | #460004               |
+| Ibaraki              |                     | Official flag                                      | #000144        | #FFFFFF               |
+| Ianovo               |                     | Official flag                                      | #E21C2A        | #009FE0               |
 | Inca                 |                     | Civilization 5                                     | #FFB922        | #07A077               |
 | India                | British Raj, Maurya | Civilization 5                                     | #128807        | #FF9932               |
+| Indiana              |                     | Official flag                                      | #000F5D        | #FFB900               |
 | Indonesia            |                     | Civilization 5                                     | #6FD3DA        | #9F2F1D               |
 | Ingushetia           |                     | Official flag                                      | #FFFFFF        | #00923F               |
 | Ingria               |                     | Official flag                                      | #FFC425        | #005DAA               |
@@ -158,16 +167,20 @@
 | Ireland              |                     | Total War: Medieval 2 - Kingdoms                   | #00340A        | #FFD200               |
 | Iroquois             | Haudenosaunee       | Civilization 5                                     | #415757        | #FCCA81               |
 | Iskolat              |                     | Official flag                                      | #D11613        | #FFFFFF               |
+| Isle of Man          |                     | Official flag                                      | #CF142B        | #FFFFFF               |
 | Israel               |                     | Israel                                             | #FFFFFF        | #0038B8               |
 | Italy                |                     | eRepublik (Old UI)                                 | #587D2D        | #000000               |
 | Jamaica              |                     | Official flag                                      | #007749        | #2D2926               |
 | Japan                |                     | Civilization 5                                     | #FFFFFF        | #B80000               |
 | Jämtland             |                     | Official coat of arms                              | #003D8F        | #FFFFFF               |
 | Jerusalem            |                     | Total War: Medieval 2 - Kingdoms                   | #EFEFEF        | #B79854               |
+| Junagadh             |                     | Official flag                                      | #01411C        | #F02C2D               |
 | Kalmar Union         |                     | Total War: Medieval 2 - Kingdoms                   | #FFD200        | #D70000               |
 | Kalmykia             |                     | Official flag                                      | #FFC72C        | #009CDD               |
+| Kansas               |                     | Official flag                                      | #EF483F        | #0283C0               |
 | Kazakhstan           |                     | Official flag                                      | #00ABC2        | #FFEC2D               |
 | Khazaria             |                     | Crusader Kings 2                                   | #FAB81F        | #FFFFFF               |
+| Kherson              |                     | Official flag                                      | #005BBB        | #FFFFFF               |
 | Khmer                |                     | Civilization 6                                     | #750073        | #FF8112               |
 | Kongo                |                     | Civilization 6                                     | #F7D801        | #CA1415               |
 | Kosovo               |                     | Official flag                                      | #D0A650        | #244AA5               |
@@ -177,6 +190,7 @@
 | Lesotho              |                     | Official flag                                      | #001489        | #009A44               |
 | Leon                 |                     | Crusader Kings 2                                   | #FD9E33        | #FFFFFF               |
 | Liechtenstein        |                     | Official flag                                      | #002B7F        | #CE1126               |
+| Lipetsk              |                     | Official flag                                      | #008E1F        | #FFD700               |
 | Lithuania            |                     | Total War: Medieval 2 - Kingdoms                   | #0C1EC8        | #D70000               |
 | Louisiana            |                     | Official flag                                      | #01447B        | #FFFFFF               |
 | Lombardy             |                     | Total War: Rome - Barbarian Invasion               | #C017D9        | #000000               |
@@ -188,6 +202,7 @@
 | Mali                 |                     | Civilization 6                                     | #780001        | #EAE19D               |
 | Maori                |                     | Civilization 6                                     | #CA1415        | #7DECE3               |
 | Mapuche              |                     | Civilization 6                                     | #004FCE        | #7DECE3               |
+| Maryland             |                     | Official flag                                      | #EAAA00        | #000000               |
 | Mauretania           |                     | Crusader Kings 2                                   | #3ABC29        | #FFFFFF               |
 | Maya                 |                     | Total War: Medieval 2 - Kingdoms                   | #009605        | #C8C8C8               |
 | Mexico               |                     | Official flag                                      | #006847        | #FFFFFF               |
@@ -204,7 +219,11 @@
 | Navarra              |                     | Crusader Kings 2                                   | #967805        | #FFFFFF               |
 | Nepal                |                     | Official flag (1856-1930)                          | #E52320        | #087C35               |
 | Netherlands          |                     | Civilization 5                                     | #FF9000        | #FFFFFF               |
+| New Brunswick        |                     | Official flag                                      | #FFCD00        | #C8102E               |
+| New Mexico           |                     | Official flag                                      | #FFD700        | #BF0A30               |
 | New Zealand          |                     | Official flag                                      | #012169        | #FFFFFF               |
+| Nicaragua             |                     | Official flag                                      | #0067C6        | #FFFFFF               |
+| Niger                |                     | Official flag                                      | #E05206        | #0DB02B               |
 | Northumbria          |                     | Official flag                                      | #9E1B34        | #FFCE00               |
 | Normandy             |                     | Total War: Medieval 2                              | #D70000        | #FFD200               |
 | North Korea          |                     | Official flag                                      | #EC1D25        | #034DA2               |
@@ -215,6 +234,7 @@
 | Ostergotaland        | Ostrogothia         | Total War: Rome - Barbarian Invasion  (Ostrogoths) | #F8B71D        | #000000               |
 | Ottawa               |                     | Official flag (Old)                                | #800080        | #000080               |
 | Outremer             |                     | Crusader Kings 2                                   | #B4B4B4        | #FFFFFF               |
+| Pakistan             |                     | Official flag                                      | #01411C        | #FFFFFF               |
 | Palau                |                     | Official flag                                      | #0099FF        | #FFFF00               |
 | Pechenegs            |                     | Crusader Kings 2                                   | #AD962B        | #008080               |
 | Paraguay             |                     | eRepublik (Old UI)                                 | #241265        | #000000               |
@@ -231,6 +251,7 @@
 | Qatar                |                     | Official flag                                      | #8A1538        | #FFFFFF               |
 | Quebec               |                     | Official flag                                      | #003DA5        | #FFFFFF               |
 | Rajastan             |                     | Crusader Kings 2                                   | #FF6400        | #FFFFFF               |
+| Rhodesia             |                     | Official flag                                      | #0F4B32        | #FFFFFF               |
 | Romagna              |                     | Crusader Kings 2                                   | #D78D98        | #FFFFFF               |
 | Romania              | Wallachia           | Official flag                                      | #FCD116        | #002B7F               |
 | Rome                 |                     | Official flag                                      | #8E001C        | #FFB300               |
@@ -341,6 +362,7 @@
 | Indonesia            |                     | Civilization 6                                     | #780001        | #00C09B               |
 | Ireland              |                     | Crusader Kings 2                                   | #067F02        | #FFFFFF               |
 | Ireland              |                     | Total War: Rome - Barbarian Invasion (Celts)       | #4D5F2D        | #A81414               |
+| Iroquois             | Haudenosaunee       | Official flag                                      | #593EB6        | #FFFFFF               |
 | Italy                |                     | Crusader Kings 2                                   | #F4E3A0        | #FFFFFF               |
 | Japan                |                     | Civilization 6                                     | #F9F9F9        | #780001               |
 | Korea                |                     | Civilization 5                                     | #1B2160        | #FF0000               |
