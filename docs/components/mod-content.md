@@ -1,6 +1,6 @@
 # Component: mod content
 
-The mod content is the build's entire product: a single country-definition file per game carrying 131 injections.
+The mod content is the build's entire product: a single country-definition file per game carrying 135 injections.
 
 ## Location
 
@@ -64,13 +64,13 @@ INJECT:ROM = {
 
 | Property | Value |
 |----------|-------|
-| Entries | 131 |
-| Distinct tags | 131 |
-| Comment lines matching the provenance pattern | 131 |
-| Entries with a palette-name suffix | 19 |
+| Entries | 135 |
+| Distinct tags | 135 |
+| Comment lines matching the provenance pattern | 135 |
+| Entries with a palette-name suffix | 20 |
 | Entries whose colour equals vanilla exactly | 1 (`SCA`) |
 | Entries within 8 of a component of vanilla | 3 (`APC`, `BAH`, `SCA`) |
-| Entries that change the colour's syntax | 7 (`BAH`, `BRZ`, `CAS`, `CEY`, `DEN`, `NET`, `SPA`) |
+| Entries that change the colour's syntax | 8 (`BAH`, `BRZ`, `CAS`, `CEY`, `DEN`, `GRN`, `NET`, `SPA`) |
 
 ## Tags sharing one palette entry
 

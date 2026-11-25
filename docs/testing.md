@@ -63,7 +63,7 @@ print(f"ok: {len(blocks)} entries, {len(missing)} unknown tags")
 PY
 ```
 
-Expected output for the shipped content: `ok: 131 entries, 0 unknown tags`.
+Expected output for the shipped content: `ok: 135 entries, 0 unknown tags`.
 
 ## Comment-versus-value consistency
 

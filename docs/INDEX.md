@@ -4,7 +4,7 @@ Master navigation for the Standardised Country Colours repository knowledge base
 
 ## Repository summary
 
-Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. This repository supports Victoria 3 and Imperator: Rome. It is a content-only mod that ships a single country-definition file per game, rendered under `standardised-country-colours/common/country_definitions/`, that injects one `color` key into 131 vanilla country definitions per game, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
+Standardised Country Colours is a cross-game project that assigns consistent, historically inspired map colours to selectable countries in various grand strategy games. This repository supports Victoria 3 and Imperator: Rome. It is a content-only mod that ships a single country-definition file per game, rendered under `standardised-country-colours/common/country_definitions/`, that injects one `color` key into 135 vanilla country definitions per game, giving each mapped country a standardised map colour drawn from the palette shared across the project's editions. Every other field of an affected country definition — tier, country type, cultures, capital, religion, regnal numbers, subject cantons — is left to the base game because the mod uses the `INJECT:` definition-entry mode rather than restating the block.
 
 The repository owns no runtime. A build script, `scripts/build.py`, renders the mod folder from the shared palette snapshot in `src/colours.md` and the per-game mappings and rendering under `scripts/games/`; the folder is build output, never committed, and every observable effect is produced by the game engine reading it.
 
@@ -12,8 +12,8 @@ Current state, verified against the installed games (Victoria 3 `1.15.2`, launch
 
 | Metric | Value |
 |--------|-------|
-| Mapped country tags per game | 131 |
-| Content files per game | 1 (`sc_country_colours.txt`, 665 lines for Victoria 3) |
+| Mapped country tags per game | 135 |
+| Content files per game | 1 (`sc_country_colours.txt`, 685 lines for Victoria 3) |
 | Tags defined by vanilla (Victoria 3) | 835 |
 | Mapped tags present at the 1836 start (Victoria 3) | 64 |
 | Mapped tags that are formation targets (Victoria 3) | 37 |
@@ -64,7 +64,7 @@ There is no `api-reference/` directory because the repository exposes no HTTP, R
 
 | Document | Description |
 |----------|-------------|
-| [components/mod-content.md](./components/mod-content.md) | The colour override file and its 131 entries |
+| [components/mod-content.md](./components/mod-content.md) | The colour override file and its 135 entries |
 | [components/launcher-metadata.md](./components/launcher-metadata.md) | `metadata.json` and the two thumbnails |
 | [components/repository-metadata.md](./components/repository-metadata.md) | Documentation, licence, ignore rules, funding |
 | [components/packaging-and-distribution.md](./components/packaging-and-distribution.md) | Release workflows, the published archive, and the Workshop and Nexus Mods items |
@@ -91,7 +91,7 @@ There is no `api-reference/` directory because the repository exposes no HTTP, R
 | [security.md](./security.md) | Trust boundary and content-integrity concerns |
 | [state-and-persistence.md](./state-and-persistence.md) | Why the repository owns no state |
 | [localisation.md](./localisation.md) | Language coverage of the shipped content |
-| [colour-mappings.md](./colour-mappings.md) | Full table of all 131 mappings with vanilla values |
+| [colour-mappings.md](./colour-mappings.md) | Full table of all 135 mappings with vanilla values |
 
 ### Operations and maintenance
 
@@ -131,4 +131,4 @@ Looking up a specific country: [colour-mappings.md](./colour-mappings.md).
 | Owner | Repository maintainer |
 | Coverage status | Complete for the shipped content surface |
 | Source revision | `5b5655d` |
-| Evidence base | Installed Victoria 3 `1.15.2`; palette `COUNTRY_COLOURS.md` as of 2026-11-23 |
+| Evidence base | Installed Victoria 3 `1.15.2`; palette `COUNTRY_COLOURS.md` as of 2026-11-25 |

@@ -4,7 +4,7 @@ This document describes what a player observes. The mechanism is documented in [
 
 ## The observed behaviour
 
-When the mod is enabled, 131 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
+When the mod is enabled, 135 countries render with a different map colour from vanilla. The change is visible in three places that all read the same value:
 
 | Surface | Appearance |
 |---------|------------|
@@ -31,7 +31,7 @@ The full set is in [colour-mappings.md](../colour-mappings.md).
 
 ## Where the effect is visible
 
-The 131 mapped tags divide into three practical groups.
+The 135 mapped tags divide into three practical groups.
 
 | Group | Count | When a player sees the colour |
 |-------|-------|-------------------------------|
