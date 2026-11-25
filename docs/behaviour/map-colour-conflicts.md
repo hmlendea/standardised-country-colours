@@ -19,7 +19,7 @@ flowchart TD
 
 `common/dynamic_country_map_colors/00_default.txt` holds 104 blocks. Each names a trigger and a colour from `common/named_colors`. When a trigger matches, the block's colour replaces the definition colour for the remainder of the game, until the trigger stops matching.
 
-**28 of the 131 mapped tags are referenced by at least one of these blocks.** The affected tags are:
+**28 of the 135 mapped tags are referenced by at least one of these blocks.** The affected tags are:
 
 `ALD`, `AUS`, `BHT`, `BRZ`, `BUL`, `CAM`, `CHI`, `FRA`, `GEO`, `GER`, `HND`, `HRE`, `JAP`, `KOR`, `KUK`, `MEX`, `NET`, `PAP`, `POR`, `RUS`, `SCA`, `SIC`, `SPA`, `SWE`, `TUR`, `UKR`, `USA`, `VEN`.
 

@@ -4,7 +4,7 @@ Items that repository evidence does not settle, recorded so a future contributor
 
 ## A1. Whether an injected scalar key replaces or precedes the existing one
 
-The engine appends injected keys to the target block. For a scalar key a block cannot hold two values, so the injected value wins; the observable result confirms this — the map shows the injected colour for all 131 tags. The precise internal mechanism, whether the injected value overwrites in place or the last-parsed value takes precedence, is not documented. It has no practical consequence for this mod, because the mod injects one scalar and never injects a block.
+The engine appends injected keys to the target block. For a scalar key a block cannot hold two values, so the injected value wins; the observable result confirms this — the map shows the injected colour for all 135 tags. The precise internal mechanism, whether the injected value overwrites in place or the last-parsed value takes precedence, is not documented. It has no practical consequence for this mod, because the mod injects one scalar and never injects a block.
 
 ## A2. No commit timestamp for the palette snapshot
 

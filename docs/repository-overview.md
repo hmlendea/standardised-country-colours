@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Assign one standardised map colour to each of 131 countries in Victoria 3 and Imperator: Rome, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
+Assign one standardised map colour to each of 135 countries in Victoria 3 and Imperator: Rome, applying the cross-game Standardised Country Colours palette so that the world map is legible and historically suggestive rather than a patchwork of near-identical hues.
 
 ## Scope
 
 The repository owns exactly three things:
 
-1. the build inputs — the shared palette snapshot and the per-game configuration — that render a country-definition file injecting a `color` key into 131 vanilla country blocks per game;
+1. the build inputs — the shared palette snapshot and the per-game configuration — that render a country-definition file injecting a `color` key into 135 vanilla country blocks per game;
 2. the launcher metadata that makes the built folder a discoverable mod for each game;
 3. the build, documentation, licence, and release workflows that render, package, and publish the folder.
 
@@ -18,7 +18,7 @@ The country-definition file and the metadata are rendered by `scripts/build.py` 
 
 | Changed | Detail |
 |---------|--------|
-| Country map colour | The `color` key of 131 country definitions |
+| Country map colour | The `color` key of 135 country definitions |
 | Nothing else | Tier, country type, cultures, capital, religion, regnal numbers, unit colours, flag definitions, coat of arms |
 
 ## What the mod deliberately does not change
@@ -30,7 +30,7 @@ The country-definition file and the metadata are rendered by `scripts/build.py` 
 | Secondary palette colour | Victoria 3 stores a single map colour per country; the palette's second column cannot be represented |
 | Conditional map colours | `common/dynamic_country_map_colors/00_default.txt` overrides the definition colour at runtime when its triggers match |
 | Subject colouring | Governed by the `subject_map_color` game rule |
-| Countries outside the 131 | Out of palette scope or not modelled by the game |
+| Countries outside the 135 | Out of palette scope or not modelled by the game |
 
 ## Boundaries
 

@@ -1,6 +1,6 @@
 # Colour mappings
 
-Every shipped mapping, with the vanilla value it replaces and the country's lifecycle position. All 131 entries are rendered into `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (inside the built folder, `out/vic3/`), in the same alphabetical order by tag.
+Every shipped mapping, with the vanilla value it replaces and the country's lifecycle position. All 135 entries are rendered into `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (inside the built folder, `out/vic3/`), in the same alphabetical order by tag.
 
 ## Column reference
 
@@ -14,16 +14,16 @@ Every shipped mapping, with the vanilla value it replaces and the country's life
 | Source | The palette attribution |
 | Lifecycle | `start` = exists at the 1836 start; `formable` = a country-formation target; `release only` = neither |
 
-Seven entries change the vanilla colour syntax rather than only the value: `BAH`, `BRZ`, `CAS`, `CEY`, `NET`, and `SPA` replace `hsv360` blocks, and `DEN` replaces an `hsv` block, each with a plain RGB block. The comparison column shows the resulting RGB.
+Eight entries change the vanilla colour syntax rather than only the value: `BAH`, `BRZ`, `CAS`, `CEY`, `GRN`, `NET`, and `SPA` replace `hsv360` blocks, and `DEN` replaces an `hsv` block, each with a plain RGB block. The comparison column shows the resulting RGB.
 
 ## Distribution
 
 | Lifecycle | Count |
 |-----------|-------|
-| `start` only | 54 |
+| `start` only | 55 |
 | `formable` only | 27 |
 | Both | 10 |
-| `release only` | 40 |
+| `release only` | 43 |
 
 ## The table
 
@@ -84,15 +84,18 @@ Seven entries change the vanilla colour syntax rather than only the value: `BAH`
 | `DEN` | Denmark | — | `#C8102E` | `#802019` | Official flag | start |
 | `ECU` | Ecuador | — | `#FFDD00` | `#2B8DAC` | Official flag | start |
 | `EGY` | Egypt | — | `#FFFF2B` | `#FFCD9B` | Civilization 4 | start |
+| `ELS` | El Salvador | — | `#0047AB` | `#002F5E` | Official flag | release only |
 | `ENG` | England | — | `#6D0200` | `#B4633A` | Civilization 5 | formable |
 | `EST` | Estonia | — | `#0072CE` | `#638999` | Official flag | release only |
 | `ETH` | Ethiopia | — | `#02280F` | `#3878BF` | Civilization 5 | formable |
 | `FIN` | Finland | — | `#FFFFFF` | `#CDD4E4` | Official flag | start |
+| `FLA` | Flanders | — | `#FEEA28` | `#2B8DAC` | Official flag | release only |
 | `FRA` | France | — | `#000099` | `#1432D2` | Official flag (Capet) | start, formable |
 | `GAL` | Galicia-Lodomeria | Galicia-Volhynia | `#329682` | `#0D5182` | Crusader Kings 2 | formable |
 | `GEO` | Georgia | — | `#F9F9F9` | `#D22D2D` | Civilization 6 | formable |
 | `GER` | Germany | — | `#B3B2B8` | `#93826E` | Civilization 5 | formable |
 | `GRE` | Greece | — | `#FFFFFF` | `#7AB4D2` | Official flag | start |
+| `GRN` | Greenland | — | `#FFFFFF` | `#1B852C` | Official flag | release only |
 | `HND` | India | — | `#128807` | `#964DF0` | Civilization 5 | release only |
 | `HRE` | Central Europe | Holy Roman Empire | `#000000` | `#FAFAF5` | Total War: Medieval 2 | formable |
 | `HUN` | Hungary | — | `#EA5946` | `#98555C` | Total War: Medieval 2 | start |
@@ -149,6 +152,7 @@ Seven entries change the vanilla colour syntax rather than only the value: `BAH`
 | `SPA` | Spain | — | `#FABD00` | `#D48806` | Official flag | start, formable |
 | `SWE` | Sweden | — | `#005293` | `#5782C7` | Official flag | start, formable |
 | `SWI` | Switzerland | — | `#DA291C` | `#A52D26` | Official flag | start |
+| `SWZ` | Swaziland | Eswatini | `#B10C0C` | `#FFD900` | Official flag | start |
 | `SYR` | Syria | — | `#FFF4AE` | `#F1F5F0` | Civilization 5 (Assyria) | release only |
 | `TRH` | Turkestan | — | `#CC9615` | `#D50027` | Crusader Kings 2 | formable |
 | `TRS` | Transylvania | — | `#1B4B8B` | `#D3CFAD` | Official flag | start |
@@ -178,16 +182,18 @@ Seven entries change the vanilla colour syntax rather than only the value: `BAH`
 | `ROM`, `WAL` | Romania and Wallachia sharing the palette's single Romania entry. |
 | `ABK`, `ALD`, `ALI`, `ALK`, `BAD`, `BAH`, `BEL`, `BEN`, `BHU`, `BRD`, `BRU`, `BRY`, `BUG`, `BUR`, `CAL`, `CEY`, `CHC`, `CHL`, `CIR`, `COR`, `CRI`, `CSC`, `ECU`, `KAZ`, `MON`, `PEU`, `PRG`, `SAF`, `SLO`, `VNZ` | Added when the mod was synchronised to the palette's Principal table; each was resolved from a palette entry that names it directly. |
 | `ALB`, `ASU`, `CRO`, `ITA`, `NEP` | Realigned to their palette Principal values; the previous values came from the palette's Alternative table. |
+| `ELS`, `FLA`, `GRN`, `SWZ` | Added when the palette gained their Principal rows; each was resolved to the tag that carries the same identity. `SWZ` (vanilla "Swaziland") is the only one present at the start; the other three are release-only. |
+| `SWZ` | The vanilla localised name is "Swaziland", so the comment appends the palette entry: `Swaziland (palette: Eswatini)`. |
 
 ## Palette entries with no matching tag
 
 These appear in the palette's Principal table but cannot be shipped, because no Victoria 3 definition carries that identity:
 
-Achterhoek, African Union, Aland, Alania, Alemannia, American Samoa, Amsterdam, Anatolia, Anchorage, Angola, Antarctica, Antiochia, Aquitaine, Aruba, Azores, Aztec Empire, Babylon, Bangladesh, Barbados, Bashkorotostan, Basque, Belize, Berberia, Berlin, Bessarabia, Bharatpur, Botswana, Buckinghamshire, Bucovina, Burgundy, Burkina Faso, Caithness, Cape Verde, Carinthia, Carthage, Ceuta, Chelyabinsk, Chicago, Christmas Island, Colorado, Confederate States, Connacht, Cook Islands, Courland, Cree, Cumania, Curaçao, DR Congo, Dacia, Daylam, Djibouti, Dobrogea, Dominica, Dominican Republic, Durban, Epirus, European Union, Frisia, Gaul, Gondwana, Hausaland, Hunnic Empire, Inca, Jerusalem, Kalmar Union, Khazaria, Khmer, Kosovo, Liechtenstein, Lotharingia, Macedonia, Mauretania, Milan, Monaco, Moravia, Naples, Normandy, North Korea, Novgorod, Nubia, Numidia, Ostergotaland, Outremer, Palau, Parthia, Pontus, Qatar, Romagna, Roxolania, Sarmatia, Sassania, Saudi Arabia, Scythia, Seleucia, Shoshone, Singapore, Slavia, Songhai, Sumeria, Taiwan, Tarascans, Taurica, Teutonic State, Thailand, Thrace, Timurid Empire, Tlaxcala, Togo, Trebizond, Vandalia, Vastergotland, Vatican, Vietnam, Volga Bulgaria, Wendish Empire.
+Aargau, Achterhoek, African Union, Aland, Alania, Alemannia, American Samoa, Amsterdam, Anatolia, Anchorage, Angola, Antarctica, Antiochia, Aquitaine, Aruba, Azores, Aztec Empire, Babylon, Bangladesh, Barbados, Bashkorotostan, Basque Country, Belize, Berberia, Berlin, Bessarabia, Bharatpur, Botswana, Buckinghamshire, Bucovina, Burgundy, Burkina Faso, Caithness, Cape Verde, Carinthia, Carthage, Ceuta, Chelyabinsk, Chicago, Christmas Island, Colorado, Confederate States, Connacht, Cook Islands, Courland, Cree, Cumania, Curaçao, DR Congo, Dacia, Daylam, Djibouti, Dobrogea, Dominica, Dominican Republic, Durban, Epirus, Espirito Santo, European Union, Faroe Islands, French Polynesia, Friesland, Frisia, Gambia, Gaul, Geneva, Gibraltar, Glarus, Gondwana, Groningen, Hausaland, Hunnic Empire, Inca, Ingushetia, Iskolat, Jerusalem, Kalmar Union, Khazaria, Khmer, Kosovo, Liechtenstein, Lotharingia, Macedonia, Mauretania, Milan, Monaco, Moravia, Naples, Normandy, North Korea, Novgorod, Nubia, Numidia, Ostergotaland, Outremer, Palau, Parthia, Pontus, Qatar, Romagna, Roxolania, Sarmatia, Sassania, Saudi Arabia, Scythia, Seleucia, Shoshone, Singapore, Slavia, Songhai, St Gallen, Sumeria, Taiwan, Tarascans, Taurica, Teutonia, Thailand, Thrace, Thurgau, Timurid Empire, Tlaxcala, Togo, Trebizond, Vandalia, Vastergotland, Vatican, Vietnam, Volga Bulgaria, Wendish Empire, Zurich.
 
 Two palette rows name a country the game also defines under a second tag: `Georgia` resolves to both `GEO` (Caucasus) and `GRG` (the American state), and `Syria`, whose palette alias is `Assyria`, resolves to both `SYR` and `ASS`. Both pairs were resolved to the country the palette names — `GEO` and `SYR` — because the palette describes the historical states, not the game's regional tags.
 
-`Babylon` is a special case: the palette lists it and the game has a localisation key for it, but no country definition block exists, so there is nothing to inject into.
+`Babylon` and `Gambia` are special cases: the palette lists them and the game has a localisation key for each, but no country definition block exists, so there is nothing to inject into.
 
 ## Related documents
 

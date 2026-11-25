@@ -14,7 +14,7 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 ## D2. One file, not one file per country or per region
 
-**Decision.** All 131 injections live in `sc_country_colours.txt`.
+**Decision.** All 135 injections live in `sc_country_colours.txt`.
 
 **Rationale.** A single file makes the complete change set readable at once, keeps alphabetical ordering meaningful across the whole set, and removes any opportunity for two files in the folder to inject the same tag.
 
@@ -54,7 +54,7 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 ## D7. Partial coverage is intentional
 
-**Decision.** 131 tags are mapped out of 835 vanilla definitions.
+**Decision.** 135 tags are mapped out of 835 vanilla definitions.
 
 **Rationale.** The palette covers titles the game does not model — Crusader Kings 2 duchies, Total War factions, Civilization city-states — and some titles the game models under a tag whose vanilla name does not match the palette name closely enough to map mechanically. Mapping the wrong tag would be worse than leaving it unmapped, because a mis-coloured major power is immediately visible and hard to explain.
 
@@ -82,7 +82,7 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Rationale.** The tag set is defined by the game. A patch that retires or renames a tag would break an injection, and an injection into a missing tag errors. Narrow declaration makes the incompatibility visible in the launcher rather than in the log.
 
-**Consequence.** Each game release requires a review of the 131 tags and a metadata bump.
+**Consequence.** Each game release requires a review of the 135 tags and a metadata bump.
 
 ## D11. Do not touch conditional map colours
 
@@ -90,7 +90,7 @@ Injection appends the `color` key to the vanilla block, so every unmentioned key
 
 **Rationale.** Those blocks express political identity — a communist Germany, a republican France, a Roman restoration — that overrides the definition colour by design. Neutralising them would remove base-game behaviour well beyond recolouring.
 
-**Consequence.** 28 of the 131 mapped tags are also referenced by a conditional block, so in those circumstances the player sees the conditional colour, not the standardised one. See [behaviour/map-colour-conflicts.md](./behaviour/map-colour-conflicts.md).
+**Consequence.** 28 of the 135 mapped tags are also referenced by a conditional block, so in those circumstances the player sees the conditional colour, not the standardised one. See [behaviour/map-colour-conflicts.md](./behaviour/map-colour-conflicts.md).
 
 ## Related documents
 

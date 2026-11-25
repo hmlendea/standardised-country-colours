@@ -33,7 +33,7 @@ A cross-game project that assigns consistent, historically inspired map colours 
 
 ## ✨ Capabilities
 
-- Standardised map colours for 131 countries, applied through each game's definition-injection mechanism
+- Standardised map colours for 135 countries, applied through each game's definition-injection mechanism
 - A single shared palette, so neighbouring countries no longer share near-identical map colours
 - Historical and flag-derived colours, sourced from established strategy-game palettes and national flags
 - Colour-only overrides: every other field of the affected country definition, such as tier, culture, and capital, is left to the base game
