@@ -4,10 +4,12 @@
 # `EDITION` value and register it in `EDITIONS` below.
 
 from games.base import GameEdition
+from games.hoi4 import EDITION as HOI4_EDITION
 from games.imperator import EDITION as IMPERATOR_EDITION
 from games.victoria3 import EDITION as VICTORIA3_EDITION
 
 EDITIONS = {
     VICTORIA3_EDITION.key: VICTORIA3_EDITION,
     IMPERATOR_EDITION.key: IMPERATOR_EDITION,
+    HOI4_EDITION.key: HOI4_EDITION,
 }

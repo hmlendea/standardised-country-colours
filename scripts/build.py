@@ -33,7 +33,7 @@ def parse_arguments() -> argparse.Namespace:
         action='append',
         required=True,
         choices=GAME_CHOICES,
-        help='Game edition to build, repeatable: vic3, imperator')
+        help='Game edition to build, repeatable: hoi4, imperator, vic3')
     parser.add_argument(
         '-o', '--out', '--output',
         dest='output_directory_path',
