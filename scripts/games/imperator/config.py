@@ -72,10 +72,13 @@ COUNTRY_FILE_HEADER_LINES = [
 # the palette entry name matches the country's vanilla localised name.
 COUNTRY_PALETTE_ENTRIES = {
     'ALB': 'Albania',
+    'ANG': 'England',
     'ARM': 'Armenia',
     'BOA': 'Czechia',
     'BYZ': 'Eastern Roman Empire',
     'CAR': 'Carthage',
+    'BUR': 'Burgundy',
+    'DAN': 'Denmark',
     'EGY': 'Egypt',
     'EPI': 'Epirus',
     'ETR': 'Etruscia',
@@ -89,16 +92,23 @@ COUNTRY_PALETTE_ENTRIES = {
     'SEL': 'Seleucia',
     'SXS': 'Frisia',
     'SRM': 'Sarmatia',
+    'TIT': 'Teutonia',
     'TRE': 'Thrace',
+    'VNT': 'Venice',
+    'VSC': 'Basque Country',
 }
 
 # Tags whose vanilla localised name differs from the palette entry name. The
 # difference is recorded in each block's comment as `(palette: <entry>)`.
 VANILLA_COUNTRY_NAMES = {
+    'ANG': 'Anglia',
     'BOA': 'Boihaemia',
+    'BUR': 'Burgundia',
     'BYZ': 'Byzantion',
+    'DAN': 'Dania',
     'ETR': 'Etruria',
     'MAC': 'Macedon',
     'MRY': 'Maurya',
     'SEL': 'Seleukid Empire',
+    'VNT': 'Veneto',
 }

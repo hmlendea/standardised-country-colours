@@ -12,8 +12,8 @@ Current state, verified against the installed games (Victoria 3 `1.15.2`, launch
 
 | Metric | Value |
 |--------|-------|
-| Mapped country tags per game | 135 |
-| Content files per game | 1 (`sc_country_colours.txt`, 685 lines for Victoria 3) |
+| Mapped country tags per game | Victoria 3: 135; Imperator: 22 |
+| Content files per game | 1 (`sc_country_colours.txt`, 685 lines for Victoria 3) | Imperator: 22 per-country country files plus `countries.txt` |
 | Tags defined by vanilla (Victoria 3) | 835 |
 | Mapped tags present at the 1836 start (Victoria 3) | 64 |
 | Mapped tags that are formation targets (Victoria 3) | 37 |
