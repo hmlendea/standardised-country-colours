@@ -39,6 +39,9 @@ vic3-standardised-country-colours/
 │   └── victoria3/                            # the Victoria 3 edition assets
 │       ├── launcher-thumbnail.png            # 600x333 launcher artwork
 │       └── thumbnail.png                     # 512x512 Workshop artwork
+├── vanilla/                                  # vendored vanilla game data
+│   └── imperator/                            # the Imperator: Rome snapshot
+│       └── setup/countries/                  # countries.txt and the shipped tag files
 └── (out/)                                    # generated, git-ignored
     └── vic3/
         └── standardised-country-colours/      # the built mod folder
@@ -75,6 +78,8 @@ The mod folder is not tracked. It exists only as build output, so the repository
 | `src/colours.md` | 352 | The shared palette snapshot the build reads |
 | `src/victoria3/thumbnail.png` | — | Workshop artwork input, 1254x1254 RGB |
 | `src/victoria3/launcher-thumbnail.png` | — | Launcher artwork input, 1683x934 RGB |
+| `vanilla/imperator/setup/countries/countries.txt` | 682 | The vendored vanilla tag index, preserved verbatim in the build |
+| `vanilla/imperator/setup/countries/<group>/<tag>.txt` | — | The 29 vendored vanilla country files the Imperator build overrides |
 | `.gitignore` | 8 | Excludes archives, the build output, and transient files |
 
 The generated files appear only under `out/`: `common/country_definitions/sc_country_colours.txt` (685 lines, 135 commented `INJECT:` blocks), `.metadata/metadata.json` (22 lines), and the two copied PNGs.
@@ -82,10 +87,11 @@ The generated files appear only under `out/`: `common/country_definitions/sc_cou
 ## Structural conventions
 
 - **The mod folder mirrors each game's own `game/` tree.** `common/country_definitions/` is the counterpart of the game's own path; a wrong depth or a misspelled folder is never read, for either Victoria 3 or Imperator: Rome.
-- **The mod folder is build output and per game.** It is rendered into `out/<game>/standardised-country-colours/` and never tracked, so the repository holds one copy of every value: in `src/colours.md` and the game edition's `config.py`.
+- **The mod folder is build output and per game.** It is rendered into `out/<game>/standardised-country-colours/` and never tracked, so the repository holds one copy of every value: in `src/colours.md`, the game edition's `config.py`, and the vendored `vanilla/<game>/` snapshot.
 - **The mod folder name is the release label.** `standardised-country-colours` appears in the archive name, the extracted directory name, and the GitHub release asset; the game key (`vic3`, `imperator`) distinguishes the per-edition archives.
 - **Every release workflow builds then archives the same folder.** Each runs `scripts/build.py` for the tag's version, then archives the freshly built folder; none of them transforms content, and `github-release.yml` produces one archive per game edition.
 - **Provenance sits above each block.** A comment records the vanilla name, the palette hexadecimal value, and the palette source.
+- **The Imperator build reads vendored vanilla data.** `vanilla/imperator/setup/countries/` holds the vanilla index and every shipped tag's country file, so the build needs no game installation and stays reproducible everywhere; the files are a read-only snapshot of the vanilla `setup/countries/` tree.
 - **No vanilla file name is copied.** `sc_country_colours.txt` cannot collide with `00_countries.txt`, `01_africa.txt`, `01_pacific_and_australasia.txt`, or `99_dynamic.txt`.
 - **The Workshop description is version-controlled.** `description/steam-workshop.bbcode` holds the item page body, so a page revision is reviewed and tracked like any other change. It is not part of the mod folder and is never archived into a release.
 

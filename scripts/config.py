@@ -8,6 +8,10 @@
 SOURCE_DIRECTORY_NAME = 'src'
 PALETTE_FILENAME = 'colours.md'
 
+# Vanilla game data that the build reads is vendored under this directory, so a
+# build needs no game installation and works on any machine, including CI.
+VANILLA_DIRECTORY_NAME = 'vanilla'
+
 # --- Output ---
 
 DEFAULT_OUTPUT_DIRECTORY = 'out'
