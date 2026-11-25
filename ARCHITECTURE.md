@@ -372,11 +372,11 @@ The build derives the decimal triple from the palette hexadecimal, writes the pe
 |------|------|
 | Build entry point | `scripts/build.py` |
 | Shared build engine | `scripts/builder.py`, `scripts/palette.py`, `scripts/config.py` |
-| Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/` |
+| Game edition modules | `scripts/games/base.py`, `scripts/games/victoria3/`, `scripts/games/imperator/`, `scripts/games/hoi4/` |
 | Edition registry | `scripts/games/__init__.py` |
 | Palette snapshot | `src/colours.md` |
 | Vendored vanilla data | `vanilla/imperator/setup/countries/` (the vanilla index and shipped tag files) |
-| Artwork inputs | `src/victoria3/thumbnail.png`, `src/victoria3/launcher-thumbnail.png` |
+| Artwork inputs | `src/icon.png`, `src/preview.png` (shared by every edition) |
 | Mod content | `standardised-country-colours/common/country_definitions/sc_country_colours.txt` (in the built folder) |
 | Launcher metadata | `standardised-country-colours/.metadata/metadata.json` (in the built folder) |
 | Launcher thumbnail | `standardised-country-colours/.metadata/thumbnail.png` (in the built folder) |

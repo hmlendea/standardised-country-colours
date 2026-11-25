@@ -30,15 +30,16 @@ vic3-standardised-country-colours/
 │   └── games/                                # one package per game edition
 │       ├── __init__.py                       # the edition registry
 │       ├── base.py                           # the edition contract
+│       ├── hoi4/                             # the Hearts of Iron IV edition
+│       ├── imperator/                        # the Imperator: Rome edition
 │       └── victoria3/                        # the Victoria 3 edition
 │           ├── __init__.py                   # the registered edition
 │           ├── config.py                     # identity and tag mappings
 │           └── render.py                     # artefact rendering
 ├── src/                                      # build inputs
 │   ├── colours.md                            # the shared palette snapshot
-│   └── victoria3/                            # the Victoria 3 edition assets
-│       ├── launcher-thumbnail.png            # 600x333 launcher artwork
-│       └── thumbnail.png                     # 512x512 Workshop artwork
+│   ├── icon.png                              # shared Workshop artwork
+│   └── preview.png                           # shared launcher artwork
 ├── vanilla/                                  # vendored vanilla game data
 │   └── imperator/                            # the Imperator: Rome snapshot
 │       └── setup/countries/                  # countries.txt and the shipped tag files
@@ -76,8 +77,8 @@ The mod folder is not tracked. It exists only as build output, so the repository
 | `scripts/games/victoria3/config.py` | 216 | Edition identity, output layout, and the tag mappings |
 | `scripts/games/victoria3/render.py` | 112 | Renders the Victoria 3 content and metadata files |
 | `src/colours.md` | 352 | The shared palette snapshot the build reads |
-| `src/victoria3/thumbnail.png` | — | Workshop artwork input, 1254x1254 RGB |
-| `src/victoria3/launcher-thumbnail.png` | — | Launcher artwork input, 1683x934 RGB |
+| `src/icon.png` | — | Shared Workshop artwork input, 1254x1254 RGB |
+| `src/preview.png` | — | Shared launcher artwork input, 1683x934 RGB |
 | `vanilla/imperator/setup/countries/countries.txt` | 682 | The vendored vanilla tag index, preserved verbatim in the build |
 | `vanilla/imperator/setup/countries/<group>/<tag>.txt` | — | The 29 vendored vanilla country files the Imperator build overrides |
 | `.gitignore` | 8 | Excludes archives, the build output, and transient files |
@@ -124,7 +125,7 @@ The build is game-agnostic; a new edition supplies its identity, mappings, and r
 1. Create `scripts/games/<game>/config.py` with the edition identity, output group, output layout, `COUNTRY_PALETTE_ENTRIES`, and any `VANILLA_COUNTRY_NAMES`.
 2. Create `scripts/games/<game>/render.py` with `render_text_files(palette, version)` and `render_asset_files(source_directory_path)`; add `render_parent_text_files(palette, version)` only when the game needs a descriptor beside the mod folder instead of inside it (as Imperator: Rome does).
 3. Create `scripts/games/<game>/__init__.py` exporting an `EDITION` value built from those functions.
-4. Register the edition in `scripts/games/__init__.py` and add its assets under `src/<game>/`.
+4. Register the edition in `scripts/games/__init__.py` and use the shared assets `src/icon.png` and `src/preview.png`.
 
 No change to `scripts/build.py`, `scripts/builder.py`, `scripts/palette.py`, or `scripts/config.py` is required.
 

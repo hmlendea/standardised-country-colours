@@ -7,7 +7,7 @@ standardised-country-colours/.metadata/metadata.json
 standardised-country-colours/.metadata/thumbnail.png
 ```
 
-These paths are inside the built folder (`out/<game>/standardised-country-colours/`). `metadata.json` is rendered by the edition of `scripts/build.py` from the identity constants in `scripts/games/<game>/config.py` and the `--version` argument, so it is never hand-edited. The launcher thumbnail is copied from `src/<game>/launcher-thumbnail.png`.
+These paths are inside the built folder (`out/<game>/standardised-country-colours/`). `metadata.json` is rendered by the edition of `scripts/build.py` from the identity constants in `scripts/games/<game>/config.py` and the `--version` argument, so it is never hand-edited. The shared preview artwork is copied from `src/preview.png`.
 
 ## Current values (Victoria 3)
 
@@ -83,7 +83,7 @@ Victoria 3 reads two unrelated images.
 | Launcher artwork | `.metadata/thumbnail.png` | 600x333 | Launcher, via the `picture` key |
 | Workshop artwork | `thumbnail.png` at the mod folder root | 512x512 | Steam, on upload only |
 
-Both are RGB PNGs. Neither is referenced by the other, and the engine never reads the 512x512 file. The build copies them from `src/victoria3/thumbnail.png` and `src/victoria3/launcher-thumbnail.png`.
+Both are RGB PNGs. Neither is referenced by the other, and the engine never reads the 512x512 file. The build shares the source files `src/icon.png` and `src/preview.png` across every game edition.
 
 The current artwork was generated from an SVG composition: a dark gradient background, the mod name in a serif face, the subtitle "for Victoria 3" in gold, and a strip of eleven palette swatches. Regenerating requires `rsvg-convert`; the SVG source is not committed.
 

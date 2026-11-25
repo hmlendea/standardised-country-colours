@@ -1,13 +1,14 @@
 # Build configuration specific to the Hearts of Iron IV edition.
 
-from config import VANILLA_DIRECTORY_NAME
-
 EDITION_KEY = 'hoi4'
 OUTPUT_GROUP = 'hoi4'
 MOD_FOLDER_NAME = 'standardised-country-colours'
 MOD_NAME = 'Standardised Country Colours'
 SUPPORTED_GAME_VERSION = '1.19.*'
 MOD_TAGS = ['Map', 'Historical']
+
+# The artwork inputs are shared by every edition (`src/icon.png` and
+# `src/preview.png`); only the names used inside the mod folder differ.
 MOD_THUMBNAIL_FILENAME = 'thumbnail.png'
 LAUNCHER_THUMBNAIL_FILENAME = 'launcher-thumbnail.png'
 DESCRIPTOR_FILENAME = 'descriptor.mod'

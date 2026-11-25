@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from config import ENCODING
+from config import ENCODING, ICON_FILENAME, PREVIEW_FILENAME
 from games.hoi4.config import (COUNTRIES_DIRECTORY_PATH,
                                 COUNTRY_COLOURS_FILENAME,
                                 COUNTRY_FILE_HEADER_LINES,
@@ -64,8 +64,7 @@ def render_parent_text_files(palette: dict, version: str) -> dict:
 
 def render_asset_files(source_directory_path: Path) -> dict:
     """Return copied artwork paths."""
-    edition_source_directory_path = source_directory_path / 'hoi4'
     return {
-        MOD_THUMBNAIL_FILENAME: edition_source_directory_path / MOD_THUMBNAIL_FILENAME,
-        LAUNCHER_THUMBNAIL_FILENAME: edition_source_directory_path / LAUNCHER_THUMBNAIL_FILENAME,
+        MOD_THUMBNAIL_FILENAME: source_directory_path / ICON_FILENAME,
+        LAUNCHER_THUMBNAIL_FILENAME: source_directory_path / PREVIEW_FILENAME,
     }

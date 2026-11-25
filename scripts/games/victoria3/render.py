@@ -8,16 +8,14 @@ import re
 
 from pathlib import Path
 
-from config import BYTE_ORDER_MARK, ENCODING
+from config import BYTE_ORDER_MARK, ENCODING, ICON_FILENAME, PREVIEW_FILENAME
 
 from games.victoria3.config import (CONTENT_DIRECTORY_PATH,
                                     CONTENT_FILENAME,
                                     CONTENT_HEADER_LINES,
                                     COUNTRY_PALETTE_ENTRIES,
-                                    EDITION_KEY,
                                     GAME_ID,
                                     IS_MULTIPLAYER_SYNCHRONIZED,
-                                    LAUNCHER_THUMBNAIL_FILENAME,
                                     METADATA_DIRECTORY_NAME,
                                     METADATA_FILENAME,
                                     MOD_ID,
@@ -103,10 +101,7 @@ def render_text_files(palette: dict, version: str) -> dict:
 
 def render_asset_files(source_directory_path: Path) -> dict:
     """Return every copied asset as destination relative path -> source path."""
-    edition_source_directory_path = source_directory_path / EDITION_KEY
-
     return {
-        MOD_THUMBNAIL_FILENAME: edition_source_directory_path / MOD_THUMBNAIL_FILENAME,
-        f'{METADATA_DIRECTORY_NAME}/{PICTURE_FILENAME}':
-            edition_source_directory_path / LAUNCHER_THUMBNAIL_FILENAME,
+        MOD_THUMBNAIL_FILENAME: source_directory_path / ICON_FILENAME,
+        f'{METADATA_DIRECTORY_NAME}/{PICTURE_FILENAME}': source_directory_path / PREVIEW_FILENAME,
     }

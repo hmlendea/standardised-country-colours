@@ -17,12 +17,11 @@ SHORT_DESCRIPTION = 'Standardised map colours for selectable countries'
 MOD_TAGS = ['Map', 'Historical']
 IS_MULTIPLAYER_SYNCHRONIZED = True
 
-# --- Source paths ---
+# --- Output artwork ---
 
-# The artwork inputs live under `src/<edition key>/`, so each game edition owns
-# its own assets without colliding with another edition's.
+# The artwork inputs are shared by every edition (`src/icon.png` and
+# `src/preview.png`); only the names used inside the mod folder differ.
 MOD_THUMBNAIL_FILENAME = 'thumbnail.png'
-LAUNCHER_THUMBNAIL_FILENAME = 'launcher-thumbnail.png'
 
 # --- Output paths ---
 

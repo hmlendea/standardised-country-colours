@@ -19,11 +19,10 @@ SUPPORTED_GAME_VERSION = '2.0.*'
 MOD_TAGS = ['Historical', 'Map']
 MOD_THUMBNAIL_FILENAME = 'thumbnail.png'
 
-# --- Source paths ---
+# --- Output artwork ---
 
-# The artwork inputs live under `src/<edition key>/`, so each game edition owns
-# its own assets without colliding with another edition's.
-LAUNCHER_THUMBNAIL_FILENAME = 'launcher-thumbnail.png'
+# The artwork inputs are shared by every edition (`src/icon.png` and
+# `src/preview.png`); only the name used inside the mod folder differs.
 
 # Vanilla paths. Imperator replaces the whole per-country file when a tag reads
 # one, so a colour override must carry over the vanilla `ship_names` (and the
