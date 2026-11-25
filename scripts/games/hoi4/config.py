@@ -1,10 +1,12 @@
 # Build configuration specific to the Hearts of Iron IV edition.
 
+from pathlib import Path
+
 EDITION_KEY = 'hoi4'
 OUTPUT_GROUP = 'hoi4'
 MOD_FOLDER_NAME = 'standardised-country-colours'
 MOD_NAME = 'Standardised Country Colours'
-SUPPORTED_GAME_VERSION = '1.19.*'
+SUPPORTED_GAME_VERSION = '1.20.*'
 MOD_TAGS = ['Map', 'Historical']
 
 # The artwork inputs are shared by every edition (`src/icon.png` and
@@ -14,7 +16,13 @@ LAUNCHER_THUMBNAIL_FILENAME = 'launcher-thumbnail.png'
 DESCRIPTOR_FILENAME = 'descriptor.mod'
 PARENT_DESCRIPTOR_FILENAME = f'{MOD_FOLDER_NAME}.mod'
 COUNTRIES_DIRECTORY_PATH = 'common/countries'
-COUNTRY_COLOURS_FILENAME = 'zz_standardised_country_colours.txt'
+COUNTRY_COLOURS_FILENAME = 'colors.txt'
+
+REPOSITORY_ROOT_PATH = Path(__file__).resolve().parents[3]
+VANILLA_COUNTRIES_DIRECTORY_PATH = (REPOSITORY_ROOT_PATH / 'vanilla' / EDITION_KEY /
+                                    COUNTRIES_DIRECTORY_PATH)
+VANILLA_COLORS_FILE_PATH = (REPOSITORY_ROOT_PATH / 'vanilla' / EDITION_KEY /
+                            COUNTRIES_DIRECTORY_PATH / COUNTRY_COLOURS_FILENAME)
 
 COUNTRY_FILE_HEADER_LINES = [
     '# Standardised Country Colours',
@@ -155,4 +163,44 @@ COUNTRY_PALETTE_ENTRIES = {
     'WLS': 'Wales',
     'YUG': 'Yugoslavia',
     'YUN': 'Yunnan',
+}
+
+COUNTRY_FILE_PATHS = {
+    'ADU': 'Andalusia.txt',
+    'ALG': 'Algeria.txt',
+    'BAH': 'Bahamas.txt',
+    'BAN': 'Bangladesh.txt',
+    'BLZ': 'Belize.txt',
+    'BOS': 'Bosnia.txt',
+    'BRD': 'Burundi.txt',
+    'BRI': 'Brittany.txt',
+    'BRM': 'Burma.txt',
+    'COR': 'Corsica.txt',
+    'CYP': 'Cyprus.txt',
+    'DAH': 'Dahomey.txt',
+    'DDR': 'East Germany.txt',
+    'DJI': 'Djibouti.txt',
+    'JAM': 'Jamaica.txt',
+    'KAZ': 'Kazakhstan.txt',
+    'KOS': 'Kosovo.txt',
+    'KYR': 'Kyrgyzstan.txt',
+    'MAC': 'Macedonia.txt',
+    'MAD': 'Madagascar.txt',
+    'MLI': 'Mali.txt',
+    'MOL': 'Moldova.txt',
+    'MOR': 'Morocco.txt',
+    'NAV': 'Navarra.txt',
+    'NMB': 'Namibia.txt',
+    'QAT': 'Qatar.txt',
+    'SCO': 'Scotland.txt',
+    'SLV': 'Slovenia.txt',
+    'SPA': 'Spain.txt',
+    'SPB': 'Spain.txt',
+    'SPC': 'Spain.txt',
+    'SPD': 'Spain.txt',
+    'SRL': 'Sri Lanka.txt',
+    'TOG': 'Togo.txt',
+    'TRA': 'Transylvania.txt',
+    'WGR': 'West Germany.txt',
+    'WLS': 'Wales.txt',
 }

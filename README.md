@@ -107,7 +107,7 @@ Remove the previously extracted `standardised-country-colours` directory, then e
 
 | Component | Supported Versions | Notes |
 |-----------|--------------------|-------|
-| Hearts of Iron IV | `1.19.*` | Declared as `supported_version` in the mod descriptor |
+| Hearts of Iron IV | `1.20.*` | Declared as `supported_version` in the mod descriptor |
 | Imperator: Rome | `2.0.*` | Declared as `supported_version` in the mod descriptor |
 | Victoria 3 (older releases) | Not supported | The mod uses definition-injection keywords that require a compatible content revision |
 | Victoria 3 | `1.15.*` | Declared as `supported_game_version` in `.metadata/metadata.json` |

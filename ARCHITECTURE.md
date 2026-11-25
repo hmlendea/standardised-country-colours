@@ -117,7 +117,7 @@ The principal runtime sequence is:
 ### Mod Content
 
 Paths (inside the built folder, `out/<game>/standardised-country-colours/`):
-- Hearts of Iron IV: `standardised-country-colours/common/countries/zz_standardised_country_colours.txt`
+- Hearts of Iron IV: `standardised-country-colours/common/countries/colors.txt`
 - Victoria 3: `standardised-country-colours/common/country_definitions/sc_country_colours.txt`
 - Imperator: Rome: `standardised-country-colours/setup/countries/<TAG>.txt` plus the preserved `countries.txt`
 
