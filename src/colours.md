@@ -5,7 +5,9 @@
 | Aargau               |                     | Official flag                                      | #000000        | #268BCC               |
 | Abkhazia             |                     | Official flag                                      | #00993E        | #FFFFFF               |
 | Abyssinia            |                     | Crusader Kings 2                                   | #783E14        | #FFFFFF               |
+| Achaea               | Achaia              | Europa Universalis 5                               | #55B1D5        | #9D577B               |
 | Achterhoek           |                     | Official flag                                      | #7AC043        | #01A850               |
+| Afar                 |                     | Hearts of Iron 4                                   | #990033        | #4D0019               |
 | Adygea               | Circassia           | Official flag                                      | #296912        | #FDFC02               |
 | Afghanistan          |                     | Crusader Kings 2                                   | #A37939        | #DCDC00               |
 | African Union        |                     | Civilization: Beyond Earth                         | #FA6A14        | #500826               |
@@ -78,6 +80,7 @@
 | Carinthia            |                     | Crusader Kings 2                                   | #8CF0C8        | #FFFFFF               |
 | Carpathia            | Danubian Empire     | Crusader Kings 2                                   | #D27323        | #FFFFFF               |
 | Carthage             | Phoenicia           | Civilization 5                                     | #CDCDCD        | #510089               |
+| Charrúa              |                     | Hearts of Iron 4                                   | #CC7A00        | #4D2E00               |
 | Cascadia             |                     | Official flag                                      | #275F2F        | #36459C               |
 | Castille             |                     | Crusader Kings 2                                   | #F3D117        | #C8500A               |
 | Ceuta                |                     | Official flag                                      | #000000        | #FFFFFF               |
@@ -165,7 +168,7 @@
 | Khmer                |                     | Civilization 6                                     | #750073        | #FF8112               |
 | Kongo                |                     | Civilization 6                                     | #F7D801        | #CA1415               |
 | Kosovo               |                     | Official flag                                      | #D0A650        | #244AA5               |
-| Kurdistan            |                     | Official flag (Kingdom of Kurdistan)               | #278E43        | #ED2024               |
+| Kurdistan            |                     | Hearts of Iron 4                                   | #EAB31E        | #FF9900               |
 | Latvia               |                     | Official flag                                      | #9D2235        | #FFFFFF               |
 | Leon                 |                     | Crusader Kings 2                                   | #FD9E33        | #FFFFFF               |
 | Liechtenstein        |                     | Official flag                                      | #002B7F        | #CE1126               |
@@ -276,8 +279,11 @@
 | Venice               | Veneto              | Total War: Medieval 2                              | #790303        | #DDB045               |
 | Vietnam              |                     | Civilization 6                                     | #F7D801        | #750073               |
 | Volga Bulgaria       |                     | Crusader Kings 2                                   | #5E5346        | #FFFFFF               |
+| Volga Germany        |                     | Hearts of Iron 4                                   | #999999        | #595959               |
 | Wales                |                     | Total War: Medieval 2 - Kingdoms                   | #2BA224        | #C60000               |
 | Wendish Empire       |                     | Crusader Kings 2                                   | #821432        | #C80000               |
+| Yugoslavia           |                     | Hearts of Iron 4                                   | #48497E        | #5E5FA4               |
+| Yunnan               |                     | Hearts of Iron 4                                   | #729450        | #DEF7C6               |
 | Zulu                 |                     | Civilization 6                                     | #783D02        | #F9F9F9               |
 | Zurich               |                     | Official flag                                      | #0093DD        | #FFFFFF               |
 
