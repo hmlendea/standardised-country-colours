@@ -98,7 +98,7 @@
 | Corsica              |                     | Official flag                                      | #000000        | #FFFFFF               |
 | Courland             |                     | Official flag                                      | #B50023        | #FFFFFF               |
 | Cree                 |                     | Civilization 6                                     | #012A6C        | #61BF22               |
-| Crimea               |                     | Official flag (Crimean Tatar People)               | #00A3DD        | #F8D80E               |
+| Crimea               | Taurica             | Official flag (Crimean Tatar People)               | #00A3DD        | #F8D80E               |
 | Croatia              |                     | eRepublik (Old UI)                                 | #867ACC        | #000000               |
 | Cumania              |                     | Crusader Kings 2                                   | #E7C058        | #FFFFFF               |
 | Curaçao              |                     | Official flag                                      | #002B7F        | #F9E814               |
@@ -142,12 +142,12 @@
 | Gibraltar            |                     | Official flag                                      | #FFFFFF        | #DA000C               |
 | Glarus               |                     | Official flag                                      | #F00000        | #010202               |
 | Gondwana             |                     | Crusader Kings 2                                   | #208037        | #FFFFFF               |
-| Greece               |                     | Official flag                                      | #FFFFFF        | #0D5EAF               |
+| Greece               |                     | Official flag                                      | #0D5EAF        | #FFFFFF               |
 | Greenland            |                     | Official flag                                      | #FFFFFF        | #C8102E               |
 | Groningen            |                     | Official flag                                      | #009645        | #FFFFFF               |
 | Hausaland            |                     | Crusader Kings 2                                   | #8528BF        | #FFFFFF               |
 | Holy Roman Empire    |                     | Total War: Medieval 2                              | #000000        | #FFD200               |
-| Hungary              |                     | Total War: Medieval 2                              | #EA5946        | #008003               |
+| Hungary              | Magyars             | Total War: Medieval 2                              | #EA5946        | #008003               |
 | Hunnic Empire        |                     | Civilization 5                                     | #B4B2A4        | #460004               |
 | Inca                 |                     | Civilization 5                                     | #FFB922        | #07A077               |
 | India                | British Raj, Maurya | Civilization 5                                     | #128807        | #FF9932               |
@@ -257,7 +257,6 @@
 | Taiwan               |                     | Official flag                                      | #000094        | #FE0000               |
 | Tartaria             | Tatarstan           | Crusader Kings 2                                   | #D3B150        | #FFFFFF               |
 | Tarascans            |                     | Total War: Medieval 2 - Kingdoms                   | #FFA000        | #000000               |
-| Taurica              |                     | Crusader Kings 2                                   | #BC5B9A        | #FFFF14               |
 | Teutonia             | Teutonic Order      | Crusader Kings 2                                   | #323232        | #FFFFFF               |
 | Thailand             |                     | Official flag                                      | #2D2A4A        | #A51931               |
 | Thrace               |                     | Total War: Rome                                    | #73C3C3        | #000000               |
@@ -302,6 +301,7 @@
 | Canada               |                     | Civilization 6                                     | #F9F9F9        | #CA1415               |
 | Carthage             | Phoenicia           | Total War: Rome                                    | #FFFFFF        | #5564C8               |
 | China                |                     | Civilization 5                                     | #009552        | #FFFFFF               |
+| Crimea               | Taurica             | Crusader Kings 2                                   | #BC5B9A        | #FFFF14               |
 | Croatia              |                     | Crusader Kings 2                                   | #7A2E3A        | #C80000               |
 | Denmark              |                     | Civilization 5                                     | #6D2B15        | #F0E7B4               |
 | Denmark              |                     | Total War: Medieval 2                              | #A60202        | #EFEFEF               |
