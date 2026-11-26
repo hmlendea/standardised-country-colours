@@ -23,7 +23,7 @@ The published-release trigger is deliberate: it decouples packaging from pushing
 | Build the release archive | `zip -r` | Produces `standardised-country-colours_<group>_<version>.zip` containing the mod folder |
 | Publish the release asset | `softprops/action-gh-release@v2` | Attaches the archive to the release |
 
-The workflow defines two jobs, `victoria3` and `imperator`, each with its own `GAME` and `GROUP` environment variables. Both jobs run the same steps in parallel.
+The workflow defines three jobs, `hoi4`, `victoria3`, and `imperator`, each with its own `GAME` and `GROUP` environment variables. All jobs run the same steps in parallel.
 
 `VERSION` resolves to `${{ inputs.tag || github.event.release.tag_name }}` so a manual run publishes the same assets a released run would.
 
@@ -56,7 +56,7 @@ The workflow defines two jobs, `victoria3` and `imperator`, each with its own `G
 | Build the mod | `python3 scripts/build.py --game <game> --version "${VERSION#v}"` | Renders the mod folder at the tag's version |
 | Upload to Steam Workshop | `hmlendea/steam-workshop-update@latest` | Publishes `out/<group>/standardised-country-colours/` to the matching Workshop item, adds a changenote linking to the GitHub release |
 
-The workflow defines two jobs, `victoria3` and `imperator`. Victoria 3 publishes to Workshop item `3844790373` for Steam app `529340`; Imperator: Rome publishes to Workshop item `3845414842` for Steam app `859380`.
+The workflow defines three jobs, `hoi4`, `victoria3`, and `imperator`. Hearts of Iron IV publishes to Workshop item `3845820843` for Steam app `394360`; Victoria 3 publishes to Workshop item `3844790373` for Steam app `529340`; Imperator: Rome publishes to Workshop item `3845414842` for Steam app `859580`.
 
 Each upload step supplies `icon: "out/<group>/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the `thumbnail.png` in the build output may be larger than the Workshop dimensions require.
 
@@ -92,7 +92,7 @@ The upload reads `STEAM_USERNAME`, `STEAM_PASSWORD`, and `STEAM_2FA_SEED` from r
 | Build the release archive | `zip -r` | Produces `release-<game>.zip` containing the mod folder |
 | Upload to Nexus Mods | `Nexus-Mods/upload-action@v1.0.0-beta.11` | Publishes to the matching Nexus Mods file, sets the tag as the version, archives the previous version |
 
-The workflow defines two jobs, `imperator` and `victoria3`. Imperator: Rome publishes to file `8454045`; Victoria 3 publishes to file `8446233`.
+The workflow defines three jobs, `hoi4`, `imperator`, and `victoria3`. Hearts of Iron IV publishes to file `8459265`; Imperator: Rome publishes to file `8454045`; Victoria 3 publishes to file `8446233`.
 
 `VERSION` resolves to `${{ inputs.tag || github.ref_name }}` so a manual run publishes the requested tag.
 
