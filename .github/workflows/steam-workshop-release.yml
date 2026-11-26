@@ -31,7 +31,7 @@ jobs:
       uses: hmlendea/steam-workshop-update@latest
       with:
         appid: 394360
-        itemid: TO_BE_CREATED
+        itemid: 3845820843
         path: "out/hoi4/standardised-country-colours/"
         changenote: "[url=https://github.com/hmlendea/standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"
         icon: "out/hoi4/standardised-country-colours/thumbnail.png"
@@ -59,7 +59,7 @@ jobs:
     - name: Upload to Steam Workshop
       uses: hmlendea/steam-workshop-update@latest
       with:
-        appid: 859380
+        appid: 859580
         itemid: 3845414842
         path: "out/imperator/standardised-country-colours/"
         changenote: "[url=https://github.com/hmlendea/standardised-country-colours/releases/tag/${{env.VERSION}}]Version ${{env.VERSION}}[/url]"

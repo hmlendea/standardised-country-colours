@@ -74,7 +74,7 @@ The mod is published for Hearts of Iron IV, Imperator: Rome and Victoria 3:
 
 | Game | Steam Workshop | Nexus Mods |
 |------|----------------|------------|
-| Hearts of Iron IV | To be published | To be published |
+| Hearts of Iron IV | [3845820843](https://steamcommunity.com/sharedfiles/filedetails/?id=3845820843) | [183](https://nexusmods.com/heartsofironiv/mods/183) |
 | Victoria 3 | [3844790373](https://steamcommunity.com/sharedfiles/filedetails/?id=3844790373) | [54](https://nexusmods.com/victoria3/mods/54) |
 | Imperator: Rome | [3845414842](https://steamcommunity.com/sharedfiles/filedetails/?id=3845414842) | [36](https://nexusmods.com/imperatorrome/mods/36) |
 
@@ -123,9 +123,9 @@ For the detailed description of how the application handles privacy and personal
 
 | Workflow | Purpose | What it does |
 |----------|---------|--------------|
-| [ github-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder as `standardised-country-colours_<group>_<version>.zip`, and attaches the archive to the release |
-| [ steam-workshop-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop items | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`victoria3` and `imperator`), each checks out the requested tag, builds its edition with `scripts/build.py`, and uploads the `out/<group>/standardised-country-colours/` folder to its Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
-| [ nexus-mods-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods files | Runs on a `v*.*.*` tag push or manual dispatch: two parallel jobs (`imperator` and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder, and uploads it to its Nexus Mods file (`8454045` for Imperator: Rome, `8446233` for Victoria 3) with the tag as its version |
+| [ github-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/github-release.yml) | Publish the mod package | Runs on a published release or manual dispatch: three parallel jobs (`hoi4`, `imperator`, and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder as `standardised-country-colours_<group>_<version>.zip`, and attaches the archive to the release |
+| [ steam-workshop-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/steam-workshop-release.yml) | Publish the Steam Workshop items | Runs on a `v*.*.*` tag push or manual dispatch: three parallel jobs (`hoi4`, `imperator`, and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, and uploads the `out/<group>/standardised-country-colours/` folder to its Workshop item with the `thumbnail.png` preview image and a changenote linking to the GitHub release |
+| [ nexus-mods-release.yml ](https://github.com/hmlendea/standardised-country-colours/blob/master/.github/workflows/nexus-mods-release.yml) | Publish the Nexus Mods files | Runs on a `v*.*.*` tag push or manual dispatch: three parallel jobs (`hoi4`, `imperator`, and `victoria3`), each checks out the requested tag, builds its edition with `scripts/build.py`, archives the `standardised-country-colours/` folder, and uploads it to its Nexus Mods file (`8459265` for Hearts of Iron IV, `8454045` for Imperator: Rome, `8446233` for Victoria 3) with the tag as its version |
 
 ## 🗂️ Project Structure
 

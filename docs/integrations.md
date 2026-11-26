@@ -70,7 +70,7 @@ The workflow's only interaction with the repository is reading the tagged tree. 
 
 ## Steam Workshop
 
-Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow builds the mod, archives it, extracts the archive, and uploads the mod folder to the matching Workshop item: `3844790373` for Steam app `529340` (Victoria 3) and `3845414842` for Steam app `859380` (Imperator: Rome), through `hmlendea/steam-workshop-update@latest`.
+Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow builds the mod, archives it, extracts the archive, and uploads the mod folder to the matching Workshop item: `3845820843` for Steam app `394360` (Hearts of Iron IV), `3844790373` for Steam app `529340` (Victoria 3), and `3845414842` for Steam app `859580` (Imperator: Rome), through `hmlendea/steam-workshop-update@latest`.
 
 | Contract | Invariant |
 |----------|-----------|
@@ -83,7 +83,7 @@ Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow 
 
 ## Nexus Mods
 
-Integrated through `.github/workflows/nexus-mods-release.yml`. The workflow builds and archives each edition, then uploads it to Nexus Mods file `8446233` (Victoria 3) and `8454045` (Imperator: Rome) through `Nexus-Mods/upload-action@v1.0.0-beta.11`.
+Integrated through `.github/workflows/nexus-mods-release.yml`. The workflow builds and archives each edition, then uploads it to Nexus Mods file `8459265` (Hearts of Iron IV), `8446233` (Victoria 3), and `8454045` (Imperator: Rome) through `Nexus-Mods/upload-action@v1.0.0-beta.11`.
 
 | Contract | Invariant |
 |----------|-----------|

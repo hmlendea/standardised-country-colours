@@ -36,7 +36,7 @@ jobs:
       uses: Nexus-Mods/upload-action@v1.0.0-beta.11
       with:
         api_key: ${{ secrets.NEXUSMODS_API_KEY }}
-        file_id: TO_BE_CREATED
+        file_id: 8459265
         filename: release-hoi4.zip
         display_name: standardised-country-colours-hoi4.zip
         version: ${{env.VERSION}}
