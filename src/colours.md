@@ -262,56 +262,82 @@
 | Sarmatia             |                     | Total War: Rome - Barbarian Invasion               | #FFFF8D        | #808080               |
 | Sassania             |                     | Total War: Rome - Barbarian Invasion               | #96D7FF        | #FF4B02               |
 | Saudi Arabia         |                     | Official flag                                      | #005430        | #FFFFFF               |
+| Saurashtra           |                     | Official flag                                      | #FFE327        | #000100               |
+| Savoy                | Savoie              | Official flag                                      | #CC0000        | #FFFFFF               |
 | Saxony               |                     | Total War: Medieval 2                              | #000000        | #FFD200               |
 | Scandinavia          |                     | Crusader Kings 2                                   | #3E7ABD        | #FFFF00               |
 | Scotland             |                     | Total War: Medieval 2                              | #00105E        | #EFEFEF               |
 | Scythia              |                     | Total War: Rome                                    | #D77319        | #FFFF8B               |
 | Seleucia             | Seleukid Empire     | Total War: Rome                                    | #9B8080        | #FFFFFF               |
+| Senegal              |                     | Official flag                                      | #00853F        | #FDEF42               |
 | Serbia               |                     | Official flag                                      | #C6363C        | #FFFFFF               |
+| Shizuoka             |                     | Official flag                                      | #F98F00        | #004A8F               |
 | Shoshone             |                     | Civilization 5                                     | #4A3B2E        | #19F0CE               |
 | Siam                 |                     | Civilization 5                                     | #F5E637        | #B10803               |
 | Sicily               |                     | Total War: Medieval 2                              | #464646        | #FAFAFF               |
+| Sierra Leone         |                     | Official flag                                      | #1EB53A        | #0072C6               |
 | Singapore            |                     | Official flag                                      | #ED2939        | #FFFFFF               |
 | Slavia               |                     | Total War: Rome                                    | #BFBD91        | #082875               |
 | Slovenia             |                     | eRepublik (Old UI)                                 | #7DB1C6        | #000000               |
+| Smolensk             |                     | Official flag                                      | #FF241C        | #FFE400               |
 | Songhai              |                     | Civilization 5                                     | #D69113        | #5A000A               |
+| Sosnowiec            |                     | Official flag                                      | #5376B0        | #FFFFFF               |
 | South Africa         |                     | eRepublik (Old UI)                                 | #994D99        | #000000               |
+| South Dakota         |                     | Official flag                                      | #0074A8        | #FFC400               |
 | South Korea          | Korea               | Official flag                                      | #0047A0        | #CD2E3A               |
 | Soviet Union         | USSR                | Hearts of Iron 4                                   | #7D0D18        | #A3111F               |
 | Spain                |                     | Official flag                                      | #FABD00        | #AD1519               |
 | Sri Lanka            |                     | Official flag                                      | #8D153A        | #FFBE29               |
 | St Gallen            |                     | Official flag                                      | #009944        | #FFFFFF               |
+| Stavropol            |                     | Official flag                                      | #FFCC00        | #FFFFFF               |
 | Sumeria              |                     | Civilization 6                                     | #012A6C        | #FF8112               |
+| Suriname             |                     | Official flag                                      | #377E3F        | #B40A2D               |
 | Sweden               |                     | Official flag                                      | #005293        | #FECB00               |
 | Swabia               | Suebia, Schwaben    | Official flag                                      | #ED1C24        | #FFDD00               |
 | Switzerland          |                     | Official flag                                      | #DA291C        | #FFFFFF               |
 | Syria                | Assyria             | Civilization 5 (Assyria)                           | #FFF4AE        | #FFA90D               |
 | Taiwan               |                     | Official flag                                      | #000094        | #FE0000               |
+| Tanzania             |                     | Official flag                                      | #1EB53A        | #00A3DD               |
 | Tartaria             | Tatarstan           | Crusader Kings 2                                   | #D3B150        | #FFFFFF               |
 | Tarascans            |                     | Total War: Medieval 2 - Kingdoms                   | #FFA000        | #000000               |
+| Terengganu           |                     | Official flag                                      | #000000        | #FFFFFF               |
 | Teutonia             | Teutonic Order      | Crusader Kings 2                                   | #323232        | #FFFFFF               |
 | Thailand             |                     | Official flag                                      | #2D2A4A        | #A51931               |
 | Thrace               |                     | Total War: Rome                                    | #73C3C3        | #000000               |
 | Thurgau              |                     | Official flag                                      | #009944        | #FFFFFF               |
+| Timor Leste          |                     | Official flag                                      | #DA291C        | #000000               |
 | Timurid Empire       |                     | Total War: Medieval 2                              | #000000        | #140606               |
 | Tlaxcala             |                     | Total War: Medieval 2 - Kingdoms                   | #FE7800        | #EFEFEF               |
+| Tocantins            |                     | Official flag                                      | #FFD700        | #1946B4               |
 | Togo                 |                     | Crusader Kings 2                                   | #006A4E        | #FFCE00               |
+| Tokelau              |                     | Official flag                                      | #FFD100        | #012169               |
+| Toronto              |                     | Official flag                                      | #274490        | #FFFFFF               |
+| Transnistria         |                     | Official flag                                      | #DE0000        | #009933               |
 | Transylvania         |                     | Official flag                                      | #1B4B8B        | #DA251D               |
 | Trebizond            |                     | Official flag (Empire of Trebizond)                | #AA1E13        | #D6A434               |
+| Trinidad and Tobago  |                     | Official flag                                      | #DA1A35        | #000000               |
 | Turkestan            |                     | Crusader Kings 2                                   | #CC9615        | #FFFFFF               |
 | Turkey               |                     | Total War: Medieval 2                              | #237806        | #FFD200               |
+| Turkmenistan         |                     | Official flag                                      | #00843D        | #D22630               |
+| Tuscany              |                     | Official flag                                      | #FFFFFF        | #E30613               |
 | Ukraine              |                     | Official flag                                      | #0057B7        | #FFD700               |
+| Ulyanovsk            |                     | Official flag                                      | #0193DE        | #FFFFFF               |
 | United States        | USA                 | Civilization 5                                     | #1F3378        | #FFFFFF               |
+| Uzbekistan           |                     | Official flag                                      | #008BAF        | #54BD06               |
 | Vandalia             |                     | Total War: Rome                                    | #734B28        | #000000               |
 | Vastergotland        |                     | Total War: Rome - Barbarian Invasion (Goths)       | #F74902        | #000000               |
 | Vatican              |                     | Total War: Medieval 2 (Papal States)               | #EFEFEF        | #DDB045               |
 | Vladimir             |                     | Crusader Kings 2                                   | #579032        | #FFFFFF               |
 | Venezuela            |                     | eRepublik (Old UI)                                 | #CB7BD2        | #000000               |
 | Venice               | Veneto              | Total War: Medieval 2                              | #790303        | #DDB045               |
+| Veraguas             |                     | Official flag                                      | #0F47AF        | #FFFFFF               |
 | Vietnam              |                     | Civilization 6                                     | #F7D801        | #750073               |
 | Volga Bulgaria       |                     | Crusader Kings 2                                   | #5E5346        | #FFFFFF               |
 | Volga Germany        |                     | Hearts of Iron 4                                   | #999999        | #595959               |
+| Volgograd            |                     | Official flag                                      | #FE0000        | #000184               |
 | Wales                |                     | Total War: Medieval 2 - Kingdoms                   | #2BA224        | #C60000               |
+| Wallonia             |                     | Official flag                                      | #FFD100        | #E4002B               |
+| Warwickshire         |                     | Official flag                                      | #DD221D        | #FFFFFF               |
 | Wendish Empire       |                     | Crusader Kings 2                                   | #821432        | #C80000               |
 | Yugoslavia           |                     | Hearts of Iron 4                                   | #48497E        | #5E5FA4               |
 | Yunnan               |                     | Hearts of Iron 4                                   | #729450        | #DEF7C6               |

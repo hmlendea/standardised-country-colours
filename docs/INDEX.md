@@ -131,4 +131,4 @@ Looking up a specific country: [colour-mappings.md](./colour-mappings.md).
 | Owner | Repository maintainer |
 | Coverage status | Complete for the shipped content surface |
 | Source revision | `5b5655d` |
-| Evidence base | Installed Victoria 3 `1.15.2`; palette `COUNTRY_COLOURS.md` as of 2026-11-25 |
+| Evidence base | Installed Victoria 3 `1.15.2`; palette `COUNTRY_COLOURS.md` as of 2026-11-27 |

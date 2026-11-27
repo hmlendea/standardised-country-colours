@@ -76,7 +76,7 @@ The mod folder is not tracked. It exists only as build output, so the repository
 | `scripts/games/victoria3/__init__.py` | 18 | The registered Victoria 3 edition |
 | `scripts/games/victoria3/config.py` | 216 | Edition identity, output layout, and the tag mappings |
 | `scripts/games/victoria3/render.py` | 112 | Renders the Victoria 3 content and metadata files |
-| `src/colours.md` | 352 | The shared palette snapshot the build reads |
+| `src/colours.md` | 432 | The shared palette snapshot the build reads |
 | `src/icon.png` | — | Shared Workshop artwork input, 1254x1254 RGB |
 | `src/preview.png` | — | Shared launcher artwork input, 1683x934 RGB |
 | `vanilla/imperator/setup/countries/countries.txt` | 682 | The vendored vanilla tag index, preserved verbatim in the build |
