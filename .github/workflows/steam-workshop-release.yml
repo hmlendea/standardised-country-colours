@@ -42,6 +42,7 @@ jobs:
 
   imperator:
     name: Imperator Rome
+    needs: hoi4
     runs-on: ubuntu-latest
 
     env:
@@ -71,6 +72,7 @@ jobs:
 
   victoria3:
     name: Victoria 3
+    needs: imperator
     runs-on: ubuntu-latest
 
     env:

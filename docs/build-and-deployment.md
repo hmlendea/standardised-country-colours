@@ -55,7 +55,7 @@ The archive root is the folder itself, so extraction yields `standardised-countr
 6. Commit and tag.
 7. Publish a GitHub release for the tag.
 7. `github-release.yml` runs three parallel jobs (`hoi4`, `victoria3`, and `imperator`), each building its edition at the tag's version and attaching `standardised-country-colours_<group>_<version>.zip` to the release.
-8. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which runs three parallel jobs (`hoi4`, `victoria3`, and `imperator`), each building its edition's folder and uploading it to the matching Workshop item with a changenote linking to the GitHub release.
+8. The `v*.*.*` tag push triggers `steam-workshop-release.yml`, which runs three serial jobs (`hoi4`, `imperator`, and `victoria3`), each building its edition's folder and uploading it to the matching Workshop item with a changenote linking to the GitHub release. Serial execution avoids concurrent Steam Guard logins for the shared publishing account.
 9. The same tag push triggers `nexus-mods-release.yml`, which runs three parallel jobs (`hoi4`, `imperator`, and `victoria3`), each building its edition's archive and uploading it to the matching Nexus Mods file.
 
 Alternatively, trigger any workflow manually with the tag input; each `VERSION` expression resolves to the supplied tag.
