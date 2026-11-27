@@ -56,7 +56,7 @@ The workflow defines three jobs, `hoi4`, `victoria3`, and `imperator`, each with
 | Build the mod | `python3 scripts/build.py --game <game> --version "${VERSION#v}"` | Renders the mod folder at the tag's version |
 | Upload to Steam Workshop | `hmlendea/steam-workshop-update@latest` | Publishes `out/<group>/standardised-country-colours/` to the matching Workshop item, adds a changenote linking to the GitHub release |
 
-The workflow defines three jobs, `hoi4`, `victoria3`, and `imperator`. Hearts of Iron IV publishes to Workshop item `3845820843` for Steam app `394360`; Victoria 3 publishes to Workshop item `3844790373` for Steam app `529340`; Imperator: Rome publishes to Workshop item `3845414842` for Steam app `859580`.
+The workflow defines three serial jobs, `hoi4`, `imperator`, and `victoria3`. Hearts of Iron IV publishes to Workshop item `3845820843` for Steam app `394360`; Victoria 3 publishes to Workshop item `3844790373` for Steam app `529340`; Imperator: Rome publishes to Workshop item `3845414842` for Steam app `859580`. Serial execution prevents concurrent Steam Guard logins for the shared publishing account.
 
 Each upload step supplies `icon: "out/<group>/standardised-country-colours/thumbnail.png"`, so the descriptor's `previewfile` is the mod's Workshop artwork. The action downscales the image to a 512-pixel limit before upload, so the `thumbnail.png` in the build output may be larger than the Workshop dimensions require.
 

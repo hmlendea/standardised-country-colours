@@ -63,7 +63,7 @@ The mod folder is not tracked. It exists only as build output, so the repository
 |------|-------|------|
 | `.github/workflows/github-release.yml` | 104 | Release archive publication, one job per game edition |
 | `.github/workflows/nexus-mods-release.yml` | 114 | Nexus Mods publication, one job per game edition |
-| `.github/workflows/steam-workshop-release.yml` | 99 | Steam Workshop publication, one job per game edition |
+| `.github/workflows/steam-workshop-release.yml` | 101 | Steam Workshop publication, one serial job per game edition |
 | `.github/FUNDING.yml` | 18 | Funding platforms |
 | `.github/cover.png` | — | Repository cover image, 1774x887 RGB |
 | `description/steam-workshop.bbcode` | — | Steam Workshop page description, in BBCode |

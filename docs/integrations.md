@@ -70,7 +70,7 @@ The workflow's only interaction with the repository is reading the tagged tree. 
 
 ## Steam Workshop
 
-Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow builds the mod, archives it, extracts the archive, and uploads the mod folder to the matching Workshop item: `3845820843` for Steam app `394360` (Hearts of Iron IV), `3844790373` for Steam app `529340` (Victoria 3), and `3845414842` for Steam app `859580` (Imperator: Rome), through `hmlendea/steam-workshop-update@latest`.
+Integrated through `.github/workflows/steam-workshop-release.yml`. The workflow builds the mod and uploads the mod folder to the matching Workshop item in serial jobs: `3845820843` for Steam app `394360` (Hearts of Iron IV), `3844790373` for Steam app `529340` (Victoria 3), and `3845414842` for Steam app `859580` (Imperator: Rome), through `hmlendea/steam-workshop-update@latest`. Serial execution prevents concurrent Steam Guard logins for the shared publishing account.
 
 | Contract | Invariant |
 |----------|-----------|

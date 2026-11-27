@@ -222,7 +222,7 @@
 | New Brunswick        |                     | Official flag                                      | #FFCD00        | #C8102E               |
 | New Mexico           |                     | Official flag                                      | #FFD700        | #BF0A30               |
 | New Zealand          |                     | Official flag                                      | #012169        | #FFFFFF               |
-| Nicaragua             |                     | Official flag                                      | #0067C6        | #FFFFFF               |
+| Nicaragua            |                     | Official flag                                      | #0067C6        | #FFFFFF               |
 | Niger                |                     | Official flag                                      | #E05206        | #0DB02B               |
 | Northumbria          |                     | Official flag                                      | #9E1B34        | #FFCE00               |
 | Normandy             |                     | Total War: Medieval 2                              | #D70000        | #FFD200               |
